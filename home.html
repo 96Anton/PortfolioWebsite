@@ -108,7 +108,8 @@
     <section id="contact" aria-label="Contact area">
       <div class="container">
         <h2 style="margin-top: 0">Kontakta mig</h2>
-        <form id="contactForm" style="max-width: 700px">
+        <form action="https://formspree.io/f/xgvnbppo"
+  method="POST" id="contactForm" style="max-width: 700px">
           <div style="display: grid; gap: 10px">
             <input name="name" placeholder="Namn" required style="padding: 12px; border-radius: 10px; border: 1px solid rgba(255, 255, 255, 0.04); background: transparent; color: var(--text)" />
             <input name="company" placeholder="Företag" required style="padding: 12px; border-radius: 10px; border: 1px solid rgba(255, 255, 255, 0.04); background: transparent; color: var(--text)" />
@@ -182,17 +183,43 @@
           const name = (formData.get('name') || '').toString().trim();
           const email = (formData.get('email') || '').toString().trim();
           const message = (formData.get('message') || '').toString().trim();
+          const submitButton = contactForm.querySelector('button[type="submit"]');
 
           if (!name || !email || !message) {
             contactStatus.textContent = 'Fyll i alla fält.';
             return;
           }
 
+          if (submitButton) {
+            submitButton.disabled = true;
+          }
+
           contactStatus.textContent = 'Skickar...';
-          window.setTimeout(() => {
-            contactStatus.textContent = 'Tack! Ditt meddelande skickades (demo).';
-            contactForm.reset();
-          }, 900);
+
+          fetch(contactForm.action, {
+            method: 'POST',
+            headers: { Accept: 'application/json' },
+            body: formData,
+          })
+            .then(async (response) => {
+              if (response.ok) {
+                contactStatus.textContent = 'Tack! Ditt meddelande skickades.';
+                contactForm.reset();
+                return;
+              }
+
+              const data = await response.json().catch(() => ({ errors: [] }));
+              const errorMessage = data.errors?.[0]?.message || 'Kunde inte skicka meddelandet.';
+              contactStatus.textContent = errorMessage;
+            })
+            .catch(() => {
+              contactStatus.textContent = 'Något gick fel. Försök igen senare.';
+            })
+            .finally(() => {
+              if (submitButton) {
+                submitButton.disabled = false;
+              }
+            });
         });
       }
 
