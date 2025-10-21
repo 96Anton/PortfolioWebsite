@@ -35,6 +35,7 @@
     const card = createEl("div", { class: "card" }, createEl("h3", {}, title), buildFn());
     container.appendChild(card);
   }
+  
   // 7) Typing Effect (demo)
   // Simulates a typewriter effect to introduce the demos.
   addCard("JavaScripts", () => {
@@ -49,7 +50,6 @@
     return createEl("div", {}, el);
   });
   // 1) Counter
-  // 1) Counter
   // Tracks a number and lets the user adjust it up, down, or reset.
   addCard("Counter", () => {
     let count = 0;
@@ -59,7 +59,6 @@
     const reset = createEl("button", { class: "btn", onclick: () => (count = 0, display.querySelector("strong").textContent = "0") }, "reset");
     return createEl("div", {}, display, createEl("div", { class: "row" }, inc, dec, reset));
   });
-  // 2) Random Quote
   // 2) Random Quote
   // Picks a random programming quote on demand.
   addCard("Random Quote", () => {
@@ -84,7 +83,6 @@
     return createEl("div", {}, q, btn);
   });
   // 3) RGB Color Mixer
-  // 3) RGB Color Mixer
   // Combines slider values into a live preview swatch.
   addCard("RGB Color Mixer", () => {
     const preview = createEl("div", { style: { height: "60px", border: "1px solid #ccc", borderRadius: "4px", marginBottom: "8px" } });
@@ -105,7 +103,6 @@
     update();
     return createEl("div", {}, preview, r, g, b);
   });
-  // 4) BMI Calculator
   // 4) BMI Calculator
   // Estimates BMI with simple validation on the provided inputs.
   addCard("BMI Calculator", () => {
@@ -131,7 +128,6 @@
     );
   });
   // 5) Rock Paper Scissors
-  // 5) Rock Paper Scissors
   // Lets the user play a short round against a random AI choice.
   addCard("Rock · Paper · Scissors", () => {
     const status = createEl("div", { class: "small" }, "Choose:");
@@ -154,7 +150,6 @@
     const btns = createEl("div", { class: "row" }, ...choices.map(c => createEl("button", { class: "btn", onclick: () => play(c) }, c)));
     return createEl("div", {}, status, btns, scoreEl);
   });
-  // 6) Live klocka
   // 6) Live klocka
   // Shows the current time and stops ticking when removed from the DOM.
   addCard("Live klocka", () => {
