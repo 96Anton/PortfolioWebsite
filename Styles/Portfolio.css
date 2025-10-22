@@ -477,6 +477,9 @@ h4 {
   animation: rotate 12s linear infinite;
   transform-origin: center;
   z-index: 0;
+  filter: blur(60px);
+  filter: opacity(80%);
+  filter: contrast(80%);
 }
 
 .conic-grad img {
