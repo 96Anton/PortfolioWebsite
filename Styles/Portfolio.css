@@ -440,6 +440,7 @@ h4 {
   height: auto;
   border-radius: 12px;
   display: block;
+  border: 2px inset rgb(142, 201, 227);
 }
 
 .about-wrapper {
