@@ -117,37 +117,42 @@ nav ul {
 
 /* Hero section with animated gradients */
 .hero {
-  min-height: 100vh;
+  min-height: auto;
   display: grid;
   place-items: center;
-  padding: 120px 20px 80px;
+  padding: 140px 20px 40px;
   position: relative;
   overflow: hidden;
   z-index: 2;
 }
 
+@media (max-width: 720px) {
+  .hero {
+    padding: 180px 20px 40px;
+  }
+}
+
 .grad {
   position: absolute;
-  inset: 0;
-  background:
-    radial-gradient(circle at 10% 20%, rgba(122, 252, 255, 0.16) 0%, rgba(122, 252, 255, 0.06) 25%, rgba(122, 252, 255, 0) 42%),
-    radial-gradient(circle at 80% 30%, rgba(255, 138, 138, 0.12) 0%, rgba(255, 138, 138, 0.04) 26%, rgba(255, 138, 138, 0) 48%),
-    radial-gradient(circle at 60% 75%, rgba(255, 216, 122, 0.1) 0%, rgba(255, 216, 122, 0.03) 30%, rgba(255, 216, 122, 0) 52%);
-  background-blend-mode: screen;
   z-index: 0;
-  filter: blur(18px) saturate(110%);
-  transform-origin: center;
-  mix-blend-mode: screen;
-  background-size: 140% 140%, 120% 120%, 160% 160%;
-  background-position: 0% 0%, 50% 20%, 80% 80%;
   overflow: hidden;
-  isolation: isolate;
+    background: conic-gradient(
+    from 130deg,
+    rgba(122, 252, 255, 0.65),
+    rgba(255, 216, 122, 0.4),
+    rgba(255, 138, 168, 0.38),
+    rgba(94, 234, 212, 0.45),
+    rgba(122, 252, 255, 0.65)
+  );
+  filter: blur(200px) saturate(150%);
+  opacity: 1;
+  animation: rotate 6s linear infinite;
 }
 
 .grad::after {
   content: "";
   position: absolute;
-  inset: -46%;
+  inset: 0;
   border-radius: 50%;
   background: conic-gradient(
     from 130deg,
@@ -157,42 +162,43 @@ nav ul {
     rgba(94, 234, 212, 0.45),
     rgba(122, 252, 255, 0.65)
   );
-  filter: blur(140px) saturate(150%);
-  opacity: 0.72;
+  filter: blur(200px) saturate(150%);
+  opacity: 1;
   animation: rotate 6s linear infinite;
-  pointer-events: none;
-  mix-blend-mode: screen;
   z-index: 0;
+  background-size: 200% 200%;
+  background-position: 50% 50%;
 }
 
 .hero .grad {
-  filter: blur(26px) saturate(140%);
-  opacity: 0.92;
-  background:
-    radial-gradient(circle at 16% 20%, rgba(122, 252, 255, 0.32) 0%, rgba(122, 252, 255, 0.14) 36%, rgba(122, 252, 255, 0) 70%),
-    radial-gradient(circle at 78% 18%, rgba(255, 138, 168, 0.3) 0%, rgba(255, 138, 168, 0.1) 40%, rgba(255, 138, 168, 0) 72%),
-    radial-gradient(circle at 54% 84%, rgba(255, 216, 122, 0.26) 0%, rgba(255, 216, 122, 0.1) 32%, rgba(255, 216, 122, 0) 68%),
-    radial-gradient(circle at 48% 36%, rgba(94, 234, 212, 0.18) 0%, rgba(94, 234, 212, 0.04) 46%, rgba(94, 234, 212, 0) 74%);
-  background-size: 180% 180%, 150% 150%, 200% 200%, 140% 140%;
-  background-position: 10% 10%, 88% 12%, 60% 92%, 48% 30%;
+  opacity: 0.90;
   pointer-events: none;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
 }
 
 @media (max-width: 700px) {
   .grad {
-    filter: blur(12px);
-    background-size: 200% 200%, 160% 160%, 200% 200%;
+    filter: blur(30px);
   }
 
   .hero .grad {
-    filter: blur(20px) saturate(140%);
-    background-size: 220% 220%, 200% 200%, 220% 220%, 180% 180%;
-  }
+  background: conic-gradient(
+    from 130deg,
+    rgba(122, 252, 255, 0.65),
+    rgba(255, 216, 122, 0.4),
+    rgba(255, 138, 168, 0.38),
+    rgba(94, 234, 212, 0.45),
+    rgba(122, 252, 255, 0.65)
+  );
+  filter: blur(200px) saturate(150%);
+  opacity: 1;
+  animation: rotate 8s linear infinite;  }
 
   .grad::after {
     inset: -60%;
-    filter: blur(120px) saturate(150%);
-    animation-duration: 18s;
+    filter: blur(200px) saturate(150%);
     z-index: 0;
   }
 
@@ -201,24 +207,7 @@ nav ul {
     position: absolute;
     inset: 0;
     z-index: 1;
-    background-image: url("../Styles/grad-overlay.svg");
-    background-repeat: no-repeat;
-    background-size: cover;
-    opacity: 0.9;
-    mix-blend-mode: screen;
-    pointer-events: none;
   }
-}
-
-.hero::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(45deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0) 30%);
-  z-index: 0;
-  mix-blend-mode: overlay;
-  animation: moveBg 5s linear infinite;
-  opacity: 0.9;
 }
 
 @keyframes moveBg {
@@ -227,18 +216,18 @@ nav ul {
   }
 
   to {
-    background-position: 500px 500px;
+    background-position: 800px 800px;
   }
 }
 
 .hero-content {
   position: relative;
   z-index: 2;
-  width: min(1000px, 94%);
   display: grid;
   grid-template-columns: 1fr 360px;
   gap: 28px;
   align-items: center;
+  
 }
 
 .intro {
@@ -653,6 +642,7 @@ footer {
   display: flex;
   justify-content: center;
   justify-self: center;
+  margin-top: 80px;
 }
 
 .container-carousel {
@@ -869,6 +859,8 @@ footer {
     flex-direction: column;
     align-items: center;
     gap: 24px;
+    margin-top: 20px;
+
   }
 
   .wrapper-carousel .inner-texts {
