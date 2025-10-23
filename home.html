@@ -90,7 +90,7 @@
       <div class="grad" aria-hidden="true"></div>
 
       <div class="hero-content container" style="padding-bottom: 50px;">
-        <div class="intro" role="region" aria-label="Intro" style="background-color: rgba(15, 23, 36, 0.8)">
+        <div class="intro firstintro" role="region" aria-label="Intro">
           <h1>Välkommen!</h1>
           <p class="sub"><strong>Mitt namn är Anton och jag är Global Web Manager på JumpYard Concepts AB.</strong><br/><br/>Jag designar & kodar eleganta, användarvänliga hemsidor, sökordsoptimerar innehåll, konverteringsoptimerar landningssidor och utvecklar skräddarsydda lösningar.</p>
 
@@ -102,7 +102,7 @@
           <p style="margin-top: 18px; color: var(--muted); font-size: 14px">Klicka <a href="#design" style="color: var(--muted); text-decoration: none"><span style="font-weight: 700">&lt;här&gt;</span></a> för att testa mina JavaScript koder!</p>
         </div>
 
-        <aside class="card" aria-label="Profile" style="background-color: rgba(15, 23, 36, 0.8)">
+        <aside class="card firstcard" aria-label="Profile">
           <div class="meta">
             <div class="logo"><code>&lt;Web&gt;</code></div>
             <div>
@@ -141,7 +141,7 @@
       </div>
     </section>
 
-    <!-- Projects Section -->
+    <!-- Projects Section
     <section id="design" class="center-hero" aria-label="projekt" style="margin-top: 30px">
       <div class="grad" aria-hidden="true"></div>
 
@@ -161,6 +161,64 @@
         </div>
       </div>
     </section>
+     -->
+
+
+<!--ACCORDION CAROUSEL GALLERY--> 
+
+
+  <div class="wrapper-carousel" style="margin-top: 80px;">
+    <div class="inner-texts">
+    <h2 style="margin-top: 0;">Projekt & Exempel</h2>
+    <p class="prex">En samling av mina senaste projekt och exempel på mitt arbete.</p>
+  </div>
+        <div class="container-carousel">
+            <input type="radio" name="slide" id="c1" checked>
+            <label for="c1" class="card-carousel">
+                <div class="row-carousel">
+                    <div class="icon-carousel">1</div>
+                    <div class="description-carousel">
+                        <h4>Mitt CV</h4>
+                        <p style="color: #fff;">Kompetenser & erfarenheter.</p>
+                    </div>
+                </div>
+                <a class="card-carousel-link" href="./Pages/mittCV.html" aria-label="Öppna Mitt CV" tabindex="-1"></a>
+            </label>
+            <input type="radio" name="slide" id="c2" >
+            <label for="c2" class="card-carousel">
+                <div class="row-carousel">
+                    <div class="icon-carousel">2</div>
+                    <div class="description-carousel">
+                        <h4>JavaScript</h4>
+                        <p style="color: #fff;">Program kodade i JavaScript.</p>
+                    </div>
+                </div>
+                <a class="card-carousel-link" href="./Pages/Kod.html" aria-label="Öppna JavaScript-projekt" tabindex="-1"></a>
+            </label>
+            <input type="radio" name="slide" id="c3" >
+            <label for="c3" class="card-carousel">
+                <div class="row-carousel">
+                    <div class="icon-carousel">3</div>
+                    <div class="description-carousel">
+                        <h4>Sandbox</h4>
+                        <p style="color: #fff;">En hemsida med galen design.</p>
+                    </div>
+                </div>
+                <a class="card-carousel-link" href="https://96anton.github.io/html-portfolio/" target="_blank" rel="noopener" aria-label="Öppna Sandbox" tabindex="-1"></a>
+            </label>
+            <input type="radio" name="slide" id="c4" >
+            <label for="c4" class="card-carousel">
+                <div class="row-carousel">
+                    <div class="icon-carousel">4</div>
+                    <div class="description-carousel">
+                        <h4>JumpYard</h4>
+                        <p>Projektledning av ny hemsida.</p>
+                    </div>
+                </div>
+        <a class="card-carousel-link" href="https://jumpyard.se/" target="_blank" rel="noopener" aria-label="Öppna JumpYard" tabindex="-1"></a>
+            </label>
+        </div>
+    </div>
 
 
          <section>
@@ -278,6 +336,44 @@
           }
         }
       });
+
+      const carouselRadios = Array.from(document.querySelectorAll('.container-carousel input[name="slide"]'));
+      if (carouselRadios.length) {
+        const syncCarouselLinks = () => {
+          carouselRadios.forEach((radio) => {
+            const relatedLabel = document.querySelector(`label[for="${radio.id}"]`);
+            const link = relatedLabel?.querySelector('.card-carousel-link');
+            if (link) {
+              link.tabIndex = radio.checked ? 0 : -1;
+            }
+          });
+        };
+
+        syncCarouselLinks();
+
+        carouselRadios.forEach((radio) => {
+          radio.addEventListener('change', syncCarouselLinks);
+          radio.addEventListener('keydown', (event) => {
+            if (event.key !== 'Enter' || !radio.checked) {
+              return;
+            }
+
+            const relatedLabel = document.querySelector(`label[for="${radio.id}"]`);
+            const link = relatedLabel?.querySelector('.card-carousel-link');
+            if (!link || !link.href) {
+              return;
+            }
+
+            event.preventDefault();
+            if (link.target === '_blank') {
+              window.open(link.href, '_blank', 'noopener');
+              return;
+            }
+
+            window.location.assign(link.href);
+          });
+        });
+      }
 
       const contactForm = document.getElementById('contactForm');
       const contactStatus = document.getElementById('contactStatus');
