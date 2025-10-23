@@ -312,11 +312,8 @@
 
         const action = trigger.getAttribute('data-action');
         if (action === 'open-contact') {
-          const contactSection = document.getElementById('contact');
+          window.location.hash = 'contact';
           const form = document.getElementById('contactForm');
-          if (contactSection) {
-            contactSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-          }
           if (form && form.animate) {
             form.animate(
               [
@@ -435,21 +432,6 @@
         });
       }
 
-      document.querySelectorAll('a[href^="#"]').forEach((link) => {
-        link.addEventListener('click', (event) => {
-          const href = link.getAttribute('href');
-          if (!href || href === '#') {
-            return;
-          }
-
-          const target = document.querySelector(href);
-          if (target) {
-            event.preventDefault();
-            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-          }
-        });
-      });
-
       window.addEventListener('load', () => {
         document.querySelectorAll('.tile').forEach((tile, index) => {
           tile.animate(
@@ -462,22 +444,6 @@
         });
       });
 
-      if (!window.location.hash) {
-        return;
-      }
-
-      const targetId = window.location.hash.substring(1);
-      const targetElement = document.getElementById(targetId);
-      if (!targetElement) {
-        return;
-      }
-
-      window.setTimeout(() => {
-        const header = document.querySelector('header');
-        const headerHeight = header ? header.getBoundingClientRect().height + 8 : 80;
-        const offsetTop = targetElement.getBoundingClientRect().top + window.scrollY - headerHeight;
-        window.scrollTo({ top: offsetTop, behavior: 'smooth' });
-      }, 120);
     })();
   </script>
 
