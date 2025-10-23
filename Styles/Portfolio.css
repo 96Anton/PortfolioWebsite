@@ -136,12 +136,33 @@ nav ul {
   background-blend-mode: screen;
   z-index: 0;
   filter: blur(18px) saturate(110%);
-  animation: float 12s ease-in-out infinite;
   transform-origin: center;
   mix-blend-mode: screen;
   background-size: 140% 140%, 120% 120%, 160% 160%;
   background-position: 0% 0%, 50% 20%, 80% 80%;
-  will-change: transform, opacity;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.grad::after {
+  content: "";
+  position: absolute;
+  inset: -46%;
+  border-radius: 50%;
+  background: conic-gradient(
+    from 130deg,
+    rgba(122, 252, 255, 0.65),
+    rgba(255, 216, 122, 0.4),
+    rgba(255, 138, 168, 0.38),
+    rgba(94, 234, 212, 0.45),
+    rgba(122, 252, 255, 0.65)
+  );
+  filter: blur(140px) saturate(150%);
+  opacity: 0.72;
+  animation: rotate 6s linear infinite;
+  pointer-events: none;
+  mix-blend-mode: screen;
+  z-index: 0;
 }
 
 .hero .grad {
@@ -154,49 +175,25 @@ nav ul {
     radial-gradient(circle at 48% 36%, rgba(94, 234, 212, 0.18) 0%, rgba(94, 234, 212, 0.04) 46%, rgba(94, 234, 212, 0) 74%);
   background-size: 180% 180%, 150% 150%, 200% 200%, 140% 140%;
   background-position: 10% 10%, 88% 12%, 60% 92%, 48% 30%;
-  animation: heroFloat 16s ease-in-out infinite;
   pointer-events: none;
-}
-
-@keyframes float {
-  0% {
-    transform: translateY(-1.5%) rotate(-0.6deg) scale(1);
-  }
-
-  50% {
-    transform: translateY(1.5%) rotate(0.6deg) scale(1.005);
-  }
-
-  100% {
-    transform: translateY(-1.5%) rotate(-0.6deg) scale(1);
-  }
-}
-
-@keyframes heroFloat {
-  0% {
-    transform: translate3d(-1.4%, -1.6%, 0) scale(1.04) rotate(-0.6deg);
-  }
-
-  50% {
-    transform: translate3d(1.6%, 1.4%, 0) scale(1.08) rotate(0.6deg);
-  }
-
-  100% {
-    transform: translate3d(-1.4%, -1.6%, 0) scale(1.04) rotate(-0.6deg);
-  }
 }
 
 @media (max-width: 700px) {
   .grad {
     filter: blur(12px);
     background-size: 200% 200%, 160% 160%, 200% 200%;
-    animation: float 6s ease-in-out infinite;
   }
 
   .hero .grad {
     filter: blur(20px) saturate(140%);
     background-size: 220% 220%, 200% 200%, 220% 220%, 180% 180%;
-    animation-duration: 10s;
+  }
+
+  .grad::after {
+    inset: -60%;
+    filter: blur(120px) saturate(150%);
+    animation-duration: 18s;
+    z-index: 0;
   }
 
   .grad::before {
@@ -247,9 +244,14 @@ nav ul {
 .intro {
   padding: 28px;
   border-radius: 14px;
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0.01));
+  background: rgba(18, 26, 38, 0.8);
   border: 1px solid rgba(255, 255, 255, 0.04);
   box-shadow: 0 8px 40px rgba(2, 6, 23, 0.5);
+}
+
+.intro.firstintro {
+  background: var(--bg);
+
 }
 
 h1 {
@@ -413,9 +415,13 @@ h4 {
 .card {
   border-radius: 14px;
   padding: 18px;
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0.01));
+  background: rgba(18, 26, 38, 0.8);
   border: 1px solid rgba(255, 255, 255, 0.04);
   color: var(--text);
+}
+
+.card.firstcard {
+  background: var(--bg);
 }
 
 .meta {
@@ -478,9 +484,7 @@ h4 {
   animation: rotate 12s linear infinite;
   transform-origin: center;
   z-index: 0;
-  filter: blur(60px);
-  filter: opacity(80%);
-  filter: contrast(80%);
+  filter: blur(60px) opacity(0.8) contrast(0.8);
 }
 
 .conic-grad img {
@@ -498,21 +502,6 @@ h4 {
   100% {
     transform: rotate(360deg);
   }
-}
-
-.avatar {
-  width: 58px;
-  height: 58px;
-  border-radius: 10px;
-  background: linear-gradient(135deg, #ffd87a, #ff8a8a);
-  display: grid;
-  place-items: center;
-  font-weight: 800;
-  font-size: 12px;
-  line-height: 12px;
-  text-align: center;
-  color: var(--bg);
-  letter-spacing: -0.5px;
 }
 
 .small {
@@ -643,4 +632,306 @@ footer {
   white-space: nowrap;
   overflow: hidden;
   max-width: 480px;
+}
+
+.inner-texts {
+  justify-content: center;
+  max-width: 300px;
+  padding: 10px;
+}
+
+.inner-texts p {
+  color: var(--muted);
+}
+
+/* HTML and CSS only gallery accordion */
+
+
+.wrapper-carousel {
+  width: 90%;
+  padding: 36px 0 64px;
+  display: flex;
+  justify-content: center;
+  justify-self: center;
+}
+
+.container-carousel {
+  display: flex;
+  align-items: stretch;
+  gap: clamp(12px, 2vw, 20px);
+  width: min(1140px, 94vw);
+  margin: 0 auto;
+  position: relative;
+}
+
+.card-carousel {
+  position: relative;
+  flex: 0 0 70px;
+  min-width: 70px;
+  max-width: 120px;
+  height: clamp(280px, 55vh, 440px);
+  border-radius: 18px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  overflow: hidden;
+  display: flex;
+  align-items: flex-end;
+  color: #ffffff;
+  transition:
+    flex 0.6s cubic-bezier(.28, -0.03, 0, .99),
+    transform 0.6s cubic-bezier(.28, -0.03, 0, .99),
+    box-shadow 0.6s ease;
+  box-shadow: 0 18px 40px -16px rgba(0, 0, 0, 0.6);
+  
+}
+
+.card-carousel-link {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  pointer-events: none;
+}
+
+.card-carousel::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(8, 15, 25, 0.114) 6%, rgba(8, 15, 25, 0.995) 100%);
+  transition: opacity 0.3s ease;
+  opacity: 0.85;
+}
+
+.card-carousel:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 26px 48px -20px rgba(0, 0, 0, 0.65);
+}
+
+.card-carousel:hover::before {
+  opacity: 0.72;
+}
+
+.card-carousel > .row-carousel {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: flex-end;
+  gap: 18px;
+  padding: 28px;
+  width: 100%;
+}
+
+.card-carousel > .row-carousel::after {
+  content: "";
+  position: absolute;
+  inset: auto 0 0;
+  height: 65%;
+  background: linear-gradient(180deg, rgba(12, 21, 34, 0) 0%, rgba(8, 12, 24, 0.8) 100%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.card-carousel > .row-carousel > .icon-carousel {
+  background: rgba(10, 16, 33, 0.68);
+  color: #ffffff;
+  border-radius: 50%;
+  width: 64px;
+  height: 64px;
+  display: grid;
+  place-items: center;
+  font-weight: 700;
+  font-size: 22px;
+  flex-shrink: 0;
+  backdrop-filter: blur(6px);
+  border: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+.card-carousel > .row-carousel > .description-carousel {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  overflow: hidden;
+  max-width: clamp(220px, 58vw, 520px);
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.description-carousel h4 {
+  letter-spacing: 0.08em;
+  margin: 0;
+  color: #ffffff;
+}
+
+.description-carousel p {
+  color: #ffffff;
+  margin: 0;
+}
+
+.wrapper-carousel input[type="radio"] {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.wrapper-carousel input[type="radio"]:checked + label .card-carousel-link {
+  pointer-events: auto;
+}
+
+.wrapper-carousel input[type="radio"]:focus-visible + label {
+  outline: 2px solid rgba(122, 252, 255, 0.8);
+  outline-offset: 4px;
+}
+
+.wrapper-carousel input[type="radio"]:checked + label {
+  flex: 1 1 clamp(360px, 60vw, 620px);
+  min-width: clamp(280px, 56vw, 620px);
+}
+
+.wrapper-carousel input[type="radio"]:checked + label::before {
+  opacity: 0.55;
+}
+
+.wrapper-carousel input[type="radio"]:checked + label .description-carousel {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.1s;
+}
+
+@supports (background: conic-gradient(from 0deg at 50% 50%, red, blue)) {
+  @property --border-angle {
+    syntax: "<angle>";
+    inherits: false;
+    initial-value: 0deg;
+  }
+}
+
+.wrapper-carousel input[type="radio"]:checked + label::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 5px;
+  background:
+    conic-gradient(
+      from var(--border-angle),
+      #7afcff 0%,
+      transparent 20%
+    );
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  animation: border-spin 3s linear infinite;
+  pointer-events: none;
+  z-index: 2;
+}
+
+@keyframes border-spin {
+  to { --border-angle: -360deg; }
+}
+
+
+.card-carousel[for="c1"] {
+  background-image: url('./cv.jpg');
+}
+
+.card-carousel[for="c2"] {
+  background-image: url('./JavaScript.png');
+}
+
+.card-carousel[for="c3"] {
+  background-image: url('./sandbox.jpg');
+}
+
+.card-carousel[for="c4"] {
+  background-image: url('./Hero\ Picture\ Or\ dont\ 18.jpg');
+}
+
+@media (max-width: 900px) {
+  .container-carousel {
+    width: min(100%, 96vw);
+  }
+
+  .card-carousel {
+    height: clamp(240px, 48vh, 380px);
+    
+  }
+}
+
+@media (max-width: 720px) {
+  .wrapper-carousel {
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+  }
+
+  .wrapper-carousel .inner-texts {
+    width: 100%;
+    text-align: center;
+    margin: 0;
+  }
+
+  .wrapper-carousel .inner-texts .prex {
+    margin: 0;
+  }
+
+  .container-carousel {
+    flex-direction: column;
+    gap: 18px;
+  }
+
+  .card-carousel,
+  .wrapper-carousel input[type="radio"]:checked + label {
+    flex: none;
+    width: 100%;
+    min-width: 100%;
+    transition: background 500ms ease, box-shadow 500ms ease, transform 500ms ease;
+
+  }
+
+
+  .card-carousel {
+    max-width: 100%;
+    height: 100px;
+    transition:
+      height 0.6s cubic-bezier(.28, -0.03, 0, .99),
+      transform 0.6s cubic-bezier(.28, -0.03, 0, .99),
+      box-shadow 0.6s ease;
+  }
+
+  .card-carousel:not(:last-of-type) {
+    margin-bottom: 0;
+  }
+
+  .card-carousel::before {
+    opacity: 0.7;
+  }
+
+  .card-carousel > .row-carousel {
+    padding: 24px;
+    align-items: center;
+  }
+
+  .card-carousel > .row-carousel > .icon-carousel {
+    width: 56px;
+    height: 56px;
+    font-size: 20px;
+  }
+
+  .card-carousel > .row-carousel > .description-carousel {
+    opacity: 1;
+    transform: none;
+    transition: none;
+    max-width: 100%;
+  }
+
+  .wrapper-carousel input[type="radio"]:checked + label {
+    height: 400px;
+  }
 }
