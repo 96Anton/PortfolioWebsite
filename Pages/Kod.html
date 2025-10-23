@@ -1,6 +1,4 @@
-<!doctype html>
-<html lang="en">
-<head>
+
   <!DOCTYPE html>
   <html lang="en">
   <head>
@@ -8,6 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Portfolio — Code &amp; Functions</title>
     <link rel="stylesheet" href="../Styles/Portfolio.css" />
+    <style>
+      input::placeholder,
+      textarea::placeholder {
+        color: #000;
+        opacity: 1;
+      }
+    </style>
   </head>
   <body style="padding-bottom: 80px;">
 
@@ -285,6 +290,7 @@
               label.textContent = 'Ange din hunds ålder (år):';
               label.style.display = 'block';
               label.style.marginBottom = '0.3rem';
+              label.style.color = '#fff';
 
               const controls = document.createElement('div');
               controls.style.display = 'flex';
