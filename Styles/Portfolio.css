@@ -240,7 +240,7 @@ nav ul {
 
 .intro.firstintro {
   background: var(--bg);
-
+  border: 2px inset #7afcff;
 }
 
 h1 {
