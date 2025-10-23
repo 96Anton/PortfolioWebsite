@@ -470,7 +470,7 @@ h4 {
   inset: -40%;
   border-radius: inherit;
   background: conic-gradient(from 135deg, #c255b07e, #3b0c5a7e, #20bbbd7e, #20bbbd7e, #3b0c5a7e, #c255af7e);
-  animation: rotate 12s linear infinite;
+  animation: rotate 6s linear infinite;
   transform-origin: center;
   z-index: 0;
   filter: blur(60px) opacity(0.8) contrast(0.8);
