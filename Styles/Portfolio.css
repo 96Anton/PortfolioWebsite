@@ -1,3 +1,4 @@
+
 :root {
   --bg: #0f1724;
   --glass: rgba(255, 255, 255, 0.06);
@@ -28,6 +29,11 @@ body {
   overflow-x: hidden;
 }
 
+.container-all {
+  min-width: 100%;
+  overflow-x: hidden;
+}
+
 /* Primary navigation pinned to the top */
 header {
   position: fixed;
@@ -47,6 +53,15 @@ header {
   align-items: center;
   gap: 12px;
   justify-content: space-between;
+}
+
+textarea {
+  resize: none;
+}
+
+p {
+  margin: 0 0 16px;
+  text-wrap: balance;
 }
 
 a {
@@ -130,6 +145,14 @@ nav ul {
   .hero {
     padding: 180px 20px 40px;
   }
+}
+
+.kod-hero {
+  background-image: url("../Images/Hero Picture Or dont 18.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh;
 }
 
 .grad {
@@ -241,6 +264,7 @@ nav ul {
 .intro.firstintro {
   background: var(--bg);
   border: 2px inset #7afcff;
+
 }
 
 h1 {
@@ -430,9 +454,6 @@ h4 {
 }
 
 .PS {
-  max-width: 500px;
-  min-width: 200px;
-  height: auto;
   border-radius: 12px;
   display: block;
   border: 2px inset rgb(142, 201, 227);
@@ -460,8 +481,8 @@ h4 {
   display: inline-flex;
   align-self: flex-start;
   border-radius: 12px;
-  overflow: hidden;
   line-height: 0;
+  overflow: hidden;
 }
 
 .conic-grad::before {
