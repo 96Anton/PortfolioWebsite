@@ -405,18 +405,21 @@ h4 {
 .btn-linkedin:hover {
   background-color: #005582;
   transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(75, 91, 213, 0.28);
+
 }
 
 .btn-youtube {
-  background-color: #ff0000;
+  background-color: #cc0000;
   border: none;
   color: #fff;
-  font-weight: 500;
+  font-weight: 600;
   transition: background-color 500ms ease, transform 500ms ease;
 }
 .btn-youtube:hover {
-  background-color: #cc0000;
+  background-color: #a30101;
   transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(242, 9, 21, 0.28);
 }
 
 .btn-github {
@@ -430,6 +433,7 @@ h4 {
 .btn-github:hover {
   background-color: #000;
   transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(241, 237, 237, 0.28);
 }
 
 /* Reusable card pattern used for profile/sidebar content */
