@@ -60,6 +60,8 @@
 </head>
 <body>
 
+<div class="container-all">
+
   <!-- Site Header -->
   <header>
     <div class="nav" role="navigation" aria-label="Top navigation">
@@ -257,8 +259,8 @@
               </div>
             </div>
 
-            <div style="margin-top: 50px;" class="conic-grad">
-              <img class="PS" src="./Styles/Anton-grad.png" alt="Anton Ahlm">
+            <div style="margin-top: 50px; width: clamp(200px, 100%, 500px);" class="conic-grad">
+              <img class="PS" src="./Styles/Anton-grad.png" alt="Anton Ahlm" style="width: clamp(200px, 100%, 500px);">
             </div>
           </div>
         </aside>
@@ -274,7 +276,7 @@
             <input name="name" placeholder="Namn" required style="padding: 12px; border-radius: 10px; border: 1px solid rgba(255, 255, 255, 0.04); background: transparent; color: var(--text)" />
             <input name="company" placeholder="Företag" required style="padding: 12px; border-radius: 10px; border: 1px solid rgba(255, 255, 255, 0.04); background: transparent; color: var(--text)" />
             <input name="email" type="email" placeholder="E-post" required style="padding: 12px; border-radius: 10px; border: 1px solid rgba(255, 255, 255, 0.04); background: transparent; color: var(--text)" />
-            <textarea name="message" placeholder="Meddelande" rows="5" required style="padding: 12px; border-radius: 10px; border: 1px solid rgba(255, 255, 255, 0.04); background: transparent; color: var(--text)"></textarea>
+            <textarea name="message" placeholder="Meddelande" rows="5" required style="padding: 12px; border-radius: 10px; border: 1px solid rgba(255, 255, 255, 0.04); background: transparent; color: var(--text);"></textarea>
             <div style="display: flex; gap: 10px">
               <button type="submit" class="cta">Skicka</button>
               <button type="button" class="ghost" data-action="reset-contact">Rensa</button>
@@ -289,6 +291,8 @@
     </section>
     </section>
   </main>
+
+</div>
 
   <!-- Site Footer -->
   <footer>
