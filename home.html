@@ -350,10 +350,40 @@
           });
         };
 
+        const scrollCarouselCardIntoView = (radio) => {
+          if (!window.matchMedia('(max-width: 720px)').matches) {
+            return;
+          }
+
+          const relatedLabel = document.querySelector(`label[for="${radio.id}"]`);
+          if (!relatedLabel) {
+            return;
+          }
+
+          const ensureVisibility = () => {
+            const headerOffset = 400;
+            const rect = relatedLabel.getBoundingClientRect();
+            const viewportHeight = window.innerHeight || document.documentElement.clientHeight;
+            const offsetTop = window.pageYOffset + rect.top;
+
+            if (rect.top < headerOffset || rect.bottom > viewportHeight - 0) {
+              const target = Math.max(offsetTop - headerOffset, 40);
+              window.scrollTo({ top: target, behavior: 'smooth' });
+            }
+          };
+
+          requestAnimationFrame(() => {
+            requestAnimationFrame(ensureVisibility);
+          });
+        };
+
         syncCarouselLinks();
 
         carouselRadios.forEach((radio) => {
-          radio.addEventListener('change', syncCarouselLinks);
+          radio.addEventListener('change', () => {
+            syncCarouselLinks();
+            scrollCarouselCardIntoView(radio);
+          });
           radio.addEventListener('keydown', (event) => {
             if (event.key !== 'Enter' || !radio.checked) {
               return;
