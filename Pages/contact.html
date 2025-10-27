@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="utf-8" />
+  <meta name="description" content="Website Portfolio av Anton Ahlm, webbutvecklare och designer.">
+  <meta name="keywords" content="Web design, webbdesign, web development, webbutveckling, web portfolio, html, css, javascript, web manager">
+  <meta name="author" content="Anton Ahlm">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>Anton Ahlm — Web designer & developer</title>
+  <link rel="icon" type="image/x-icon" href="./Styles/Anton-favicon.png">
+
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="../Styles/glass.css" />  
+   
+   <style>
+   </style>
+
+</head>
+<body>
+  <div class="container-all">
+
+  <!-- Site Header -->
+  <header>
+    <div class="nav" role="navigation" aria-label="Top navigation">
+      <div class="brand">
+        <div class="logo"><code>&lt;Anton<br/>Ahlm&gt;</code></div>
+        <div>
+          <div style="font-weight: 700">Portfolio</div>
+          <div style="font-size: 12px; color: var(--muted)">Web designer & developer</div>
+        </div>
+      </div>
+
+      <!-- Primary Navigation -->
+      <nav>
+        <ul id="navMenu">
+          <li><a class="btn" href="./Pages/mittCV.html">CV</a></li>
+          <li><a class="btn" data-action="open-contact">Kontakt</a></li>
+          <li><a class="btn" href="./Pages/Kod.html">&lt;Kod&gt;</a></li>
+        </ul>
+      </nav>
+
+      <button class="menu-toggle btn" aria-expanded="false" aria-controls="navMenu">Meny ☰</button>
+    </div>
+  </header>
+
+  <main>
+    
+    
+    <!-- Section 1, Kontakt heading & logo -->
+
+<section class="container-liquid">
+  <div class="container container--mobile container--inline">
+    <div class="glass-container" style="display: flex; flex-direction: column;">
+      <div class="glass-filter"></div>
+      <div class="glass-overlay"></div>
+      <div class="glass-specular"></div>
+
+      <div class="glass-content">
+        <div class="glass-item">
+  <h1>Kontakt</h1>
+  <p>Kom i kontakt med mig för samarbeten, jobb eller övriga frågor via formuläret nedan.</p>
+        </div>
+
+        <div class="glass-content">
+        <div class="glass-item">
+          <img src="../Styles/Anton-favicon.png" alt="Anton Ahlm favicon logo" style="width: 100px; height: 100px;"/>
+        </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+  
+
+    <!-- Section 2, Contact form -->
+
+<section id="contact-form" class="container-liquid">
+  <div class="container container--mobile container--inline">
+    <div class="glass-container">
+      <div class="glass-filter"></div>
+      <div class="glass-overlay"></div>
+      <div class="glass-specular"></div>
+      <div class="glass-content form">
+        <div class="glass-item form">
+    <!-- Contact Section -->
+
+    <section aria-label="Contact form">
+      <div class="container">
+        <h2>Kontakta mig</h2>
+        <form style="margin-top: 20px;" action="https://formspree.io/f/xgvnbppo"
+  method="POST" id="contactForm">
+          <div style="display: grid; gap: 10px">
+            <input name="name" placeholder="Namn" required style="padding: 12px; border-radius: 12px; border: 1px solid rgba(255, 255, 255, 0.04); background: transparent; color: var(--text)" />
+            <input name="company" placeholder="Företag" required style="padding: 12px; border-radius: 12px; border: 1px solid rgba(255, 255, 255, 0.04); background: transparent; color: var(--text)" />
+            <input name="email" type="email" placeholder="E-post" required style="padding: 12px; border-radius: 12px; border: 1px solid rgba(255, 255, 255, 0.04); background: transparent; color: var(--text)" />
+            <textarea name="message" placeholder="Meddelande" rows="5" required style="padding: 12px; border-radius: 12px; border: 1px solid rgba(255, 255, 255, 0.04); background: transparent; color: var(--text);"></textarea>
+            <div style="display: flex; gap: 10px">
+              <button type="submit" class="cta">Skicka</button>
+              <button type="button" class="ghost" data-action="reset-contact">Rensa</button>
+            </div>
+            <div id="contactStatus" style="color: var(--muted); font-size: 13px"></div>
+          </div>
+        </form>
+      </div>
+    </section>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+</main>
+  <!-- Site Footer -->
+  <footer>
+    © <span id="year"></span> Anton Ahlm — Web designer & developer
+  </footer>
+  
+  </div>
+
+
+
+
+
+
+  <script>
+    // Local interactions for navigation, contact form and smooth scrolling
+    (function () {
+      const year = document.getElementById('year');
+      if (year) {
+        year.textContent = new Date().getFullYear();
+      }
+
+
+      // Handle mobile menu toggle
+      const menuToggle = document.querySelector('.menu-toggle');
+      const navMenu = document.getElementById('navMenu');
+      if (menuToggle && navMenu) {
+        menuToggle.addEventListener('click', () => {
+          const expanded = menuToggle.getAttribute('aria-expanded') === 'true';
+          menuToggle.setAttribute('aria-expanded', String(!expanded));
+          navMenu.style.display = expanded ? 'none' : 'flex';
+        });
+      }
+      
+
+      window.addEventListener('load', () => {
+        document.querySelectorAll('.tile').forEach((tile, index) => {
+          tile.animate(
+            [
+              { opacity: 0, transform: 'translateY(12px)' },
+              { opacity: 1, transform: 'translateY(0)' },
+            ],
+            { duration: 600, delay: index * 120, fill: 'forwards' }
+          );
+        });
+      });
+
+    })();
+  </script>
+
+<svg style="position: absolute; width: 0; height: 0;">
+  <defs>
+    <filter id="lensFilter" x="-20%" y="-20%" width="140%" height="140%" filterUnits="objectBoundingBox">
+      <feTurbulence id="turbulence" type="fractalNoise" baseFrequency="0.01 0.01" numOctaves="2" result="noise" />
+      <feDisplacementMap in="SourceGraphic" in2="noise" scale="50" xChannelSelector="R" yChannelSelector="G" result="displaced" />
+      <!-- Blur the displaced graphic -->
+      <feGaussianBlur in="displaced" stdDeviation="12" result="blurred" />
+      <!-- Create an inner shape that stays sharp -->
+      <feMorphology in="SourceAlpha" operator="erode" radius="30" result="inner" />
+      <!-- Keep only the blurred outskirts -->
+      <feComposite in="blurred" in2="inner" operator="out" result="edgeBlur" />
+      <!-- Merge the blurred edge back over the original graphic -->
+      <feComposite in="edgeBlur" in2="displaced" operator="over" />
+    </filter>
+  </defs>
+</svg>
+
+
+</body>
+</html>
