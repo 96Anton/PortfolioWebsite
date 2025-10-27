@@ -1,10 +1,5 @@
 /* Shared CSS */
 
-.glass::before,
-.glass::after{
-  content:"";position:absolute;width:40%;height:10px;background:#fff;border-radius:10px;
-}
-.glass::after{transform:rotate(90deg)}
 
 
 :root {
@@ -22,10 +17,10 @@
 
 html,
 body {
-  height: 100%;
-  padding-left: 10px;
-  padding-right: 10px;
-  padding-top: 0px;
+height: 100%;
+  padding: 0 10px 0 10px;
+  overflow-x: hidden;
+  overflow-y: auto;
 }
 
 body {
@@ -173,6 +168,14 @@ h4 {
 }
 
 
+.container-all,
+.container-liquid,
+section {
+  content-visibility: auto;
+  contain-intrinsic-size: 1000px;
+}
+
+
 .cta {
   background: linear-gradient(90deg, #7afcff 0%, #7affc7 40%, #ffd87a 100%);
   color: #042032;
@@ -182,7 +185,6 @@ h4 {
   border: none;
   cursor: pointer;
   box-shadow: 0 8px 30px rgba(7, 22, 35, 0.6);
-  transition: background 500ms ease, box-shadow 500ms ease, transform 500ms ease;
 }
 
 .cta:hover {
@@ -191,9 +193,17 @@ h4 {
   background-size: 200% 200%;
   animation: moveBg 6s linear infinite;
   transform: translateY(-2px);
-
 }
 
+@keyframes moveBg {
+  from {
+    background-position: 0 0;
+  }
+
+  to {
+    background-position: 800px 800px;
+  }
+}
 
 
 /* Buttons */
@@ -350,37 +360,39 @@ body {
   justify-content: flex-start;
   position: relative;
   min-height: 100%;
+  overflow: hidden;
 
 }
 
 body::before {
   content: "";
   position: fixed;
-  inset: 0;
-  background: url(../Styles/jpeg.jpg) no-repeat center/cover;
-  animation: bg-move 6s ease-in-out infinite alternate;
+  inset: -4vh;
+  will-change: transform;
   z-index: -1;
-  transform: scale(1.5);
-  will-change: transform, background-position;
   pointer-events: none;
+  overflow: hidden;
+
+  background-image: image-set(
+    url("../Styles/jpeg.jpg") type("image/jpeg")
+  );
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  background-size: cover;
+
+  animation: bg-move 6s ease-in-out alternate infinite;
 }
 
 @keyframes bg-move {
-  from {
-    background-position: 50% 55%;
-    transform: scale(1.2) translateY(-10%);
-  }
-  to {
-    background-position: 50% 45%;
-    transform: scale(1.2) translateY(10%);
-  }
+  from { transform: translateY(60px)  scale(1.04); }
+  to   { transform: translateY(-60px) scale(1.08); }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  body::before {
-    animation: none;
-  }
+  body::before { animation: none; transform: none; }
 }
+
+
 
 .container-liquid {
   display: flex;
@@ -402,10 +414,11 @@ body::before {
   overflow: hidden;
   flex: 1 1 auto;
   box-shadow: 0 6px 6px rgba(0, 0, 0, 0.2), 0 0 20px rgba(0, 0, 0, 0.1);
-  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 2.2);
   width: 100%;
   padding: 20px;
-
+  contain: layout paint;
+  will-change: transform;
+  transform: translateZ(0);
 }
 
 
@@ -424,8 +437,8 @@ body::before {
 
 .glass-filter {
   z-index: 0;
-  backdrop-filter: blur(3px);
-  filter: url(#lensFilter) saturate(130%) brightness(1.05);
+  backdrop-filter: blur(1.1px);
+  filter: url(#lensFilter);
 }
 
 .glass-overlay {
@@ -445,23 +458,8 @@ body::before {
   display: flex;
   flex: 1 1 auto;
   align-items: center;
-  justify-content: space-around;
   gap: 1rem;
   flex-wrap: wrap;
-}
-
-.glass-content__link {
-  margin-bottom: -1px;
-  margin-top: 6px;
-  transition: transform 0.2s ease-out;
-
-  &:hover {
-    transform: scale(1.1);
-  }
-
-  &:active {
-    transform: scale(0.95);
-  }
 }
 
 
@@ -471,7 +469,6 @@ body::before {
   flex-direction: column;
   align-items: center;
   text-align: center;
-  transition: color 0.3s ease;
   justify-content: center;
 }
 
