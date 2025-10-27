@@ -11,6 +11,11 @@
   --instagram: linear-gradient(0deg, #feda75  0%, #fa7e1e  25%, #d62976  50%, #962fbf  75%, #4f5bd5  100%);
 }
 
+::-webkit-scrollbar {
+    display: none;
+}
+
+
 * {
   box-sizing: border-box;
 }
