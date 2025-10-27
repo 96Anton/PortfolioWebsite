@@ -25,6 +25,7 @@ body {
 height: 100%;
   overflow-x: hidden;
   overflow-y: auto;
+  scrollbar-width: none;
 }
 
 body {
@@ -43,7 +44,7 @@ body {
   overflow-x: hidden;
   padding: 0 30px 0 30px;
   padding-top: 200px;
-
+  scrollbar-width: none;
 }
 
 header {
