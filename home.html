@@ -6,61 +6,16 @@
   <meta name="keywords" content="Web design, webbdesign, web development, webbutveckling, web portfolio, html, css, javascript, web manager">
   <meta name="author" content="Anton Ahlm">
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+
   <title>Anton Ahlm — Web designer & developer</title>
   <link rel="icon" type="image/x-icon" href="./Styles/Anton-favicon.png">
+
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./Styles/Portfolio.css" />
     <style>
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 16px;
-    }
 
-    @media (max-width: 600px) {
-      .grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-    }
-
-    @media (max-width: 380px) {
-      .grid {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    /* Profile picture responsive sizing */
-    .profile-pic {
-      width: 170px;
-      height: 200px;
-      object-fit: cover;
-      border-radius: 50px;
-      padding: 5px;
-      float: right;
-      margin-left: 12px;
-    }
-
-    @media (max-width: 480px) {
-      /* Float left on small screens so text wraps to the right */
-      .profile-pic {
-        width: 180px;
-        height: 170px;
-        float: none;
-        display: block;
-        margin: 6px 12px 12px 0;
-        border-radius: 25px;
-      }
-    }
-
-    @media (min-width: 900px) {
-      .profile-pic {
-        width: 200px;
-        height: 240px;
-        margin-top: -50px;
-      }
-    }
-  </style>
+    </style>
 </head>
 <body>
 
@@ -81,7 +36,7 @@
       <nav>
         <ul id="navMenu">
           <li><a class="btn" href="./Pages/mittCV.html">CV</a></li>
-          <li><a class="btn" href="./Pages/contact.html">Kontakt</a></li>
+          <li><a class="btn" href="./Pages/kontakt.html">Kontakt</a></li>
           <li><a class="btn" href="./Pages/Kod.html">&lt;Kod&gt;</a></li>
         </ul>
       </nav>
@@ -98,11 +53,11 @@
       <div class="hero-content container" style="padding-bottom: 50px;">
         <div class="intro firstintro" role="region" aria-label="Intro">
           <h1>Välkommen!</h1>
-          <p class="sub"><strong>Mitt namn är Anton och jag är Global Web Manager på JumpYard Concepts AB.</strong><br/><br/>Jag designar & kodar eleganta, användarvänliga hemsidor, sökordsoptimerar innehåll, konverteringsoptimerar landningssidor och utvecklar skräddarsydda lösningar.</p>
+          <p class="sub"><strong>Mitt namn är Anton och jag är Global Web Manager på JumpYard Concepts AB.</strong><br/><br/>Jag designar och hanterar hemsidor. Jag sökordsoptimerar innehåll, konverteringsoptimerar landningssidor och utvecklar skräddarsydda lösningar.</p>
 
           <div class="cta-row">
             <button class="cta" onclick="location.href='./Pages/mittCV.html'">Mitt CV</button>
-            <button class="ghost" data-action="open-contact">Kontakta mig</button>
+            <button class="ghost" onclick="location.href='#contact'">Kontakta mig</button>
           </div>
 
           <p style="margin-top: 18px; color: var(--muted); font-size: 14px">Klicka <a href="#design" style="color: var(--muted); text-decoration: none"><span style="font-weight: 700">&lt;här&gt;</span></a> för att testa mina JavaScript koder!</p>
@@ -119,7 +74,7 @@
 
           <ul style="margin: 0; padding-left: 18px; color: var(--muted); font-size: 14px">
             <li>Design, UX & konverteringsoptimering</li>
-            <li>SEO, innehållsstrategi & analys</li>
+            <li>SEO & innehållsstrategi</li>
             <li>CMS & webbpublicering</li>
             <li>Copywriting & content creation</li>
             <li>Projektledning & samarbete</li>
@@ -175,8 +130,8 @@
 
   <div class="wrapper-carousel">
     <div class="inner-texts">
-    <h2 style="margin-top: 0;">Projekt & Exempel</h2>
-    <p class="prex">En samling av mina senaste projekt och exempel på mitt arbete.</p>
+    <h2 style="margin-top: 0;">Navigera mina sidor</h2>
+    <p class="prex">Mina senaste projekt, landningssidor och exempel på mitt arbete.</p>
   </div>
         <div class="container-carousel">
             <input type="radio" name="slide" id="c1" checked>
@@ -206,11 +161,11 @@
                 <div class="row-carousel">
                     <div class="icon-carousel">3</div>
                     <div class="description-carousel">
-                        <h4>Sandbox</h4>
-                        <p style="color: #fff;">En hemsida med galen design.</p>
+                        <h4>Kontakt</h4>
+                        <p style="color: #fff;">Kontakta mig, eller bara njut av "liquid glass"-effekten på sidan.</p>
                     </div>
                 </div>
-                <a class="card-carousel-link" href="https://96anton.github.io/html-portfolio/" target="_blank" rel="noopener" aria-label="Öppna Sandbox" tabindex="-1"></a>
+                <a class="card-carousel-link" href="https://96anton.github.io/html-portfolio/" target="_blank" rel="noopener" aria-label="Öppna Kontakt" tabindex="-1"></a>
             </label>
             <input type="radio" name="slide" id="c4" >
             <label for="c4" class="card-carousel">
@@ -218,7 +173,7 @@
                     <div class="icon-carousel">4</div>
                     <div class="description-carousel">
                         <h4>JumpYard</h4>
-                        <p>Projektledning av ny hemsida.</p>
+                        <p>Projektledning och skapande av ny hemsida till JumpYard.</p>
                     </div>
                 </div>
         <a class="card-carousel-link" href="https://jumpyard.se/" target="_blank" rel="noopener" aria-label="Öppna JumpYard" tabindex="-1"></a>
@@ -289,7 +244,7 @@
           </div>
         </form>
       </div>
-
+    </section>
 
       </div>
     </section>
@@ -303,187 +258,7 @@
     © <span id="year"></span> Anton Ahlm — Web designer & developer
   </footer>
 
-  <script>
-    // Local interactions for navigation, contact form and smooth scrolling
-    (function () {
-      const year = document.getElementById('year');
-      if (year) {
-        year.textContent = new Date().getFullYear();
-      }
-
-      // Handle delegated button actions (contact focus/reset)
-      document.body.addEventListener('click', (event) => {
-        const trigger = event.target.closest('[data-action]');
-        if (!trigger) {
-          return;
-        }
-
-        const action = trigger.getAttribute('data-action');
-        if (action === 'open-contact') {
-          window.location.hash = 'contact';
-          const form = document.getElementById('contactForm');
-          if (form && form.animate) {
-            form.animate(
-              [
-                { boxShadow: '0 0 0 rgba(0, 0, 0, 0)' },
-                { boxShadow: '0 0 40px rgba(122, 252, 255, 0.08)' },
-              ],
-              { duration: 600, iterations: 1 }
-            );
-          }
-          return;
-        }
-
-        if (action === 'reset-contact') {
-          const form = document.getElementById('contactForm');
-          if (form) {
-            form.reset();
-          }
-        }
-      });
-
-      const carouselRadios = Array.from(document.querySelectorAll('.container-carousel input[name="slide"]'));
-      if (carouselRadios.length) {
-        const syncCarouselLinks = () => {
-          carouselRadios.forEach((radio) => {
-            const relatedLabel = document.querySelector(`label[for="${radio.id}"]`);
-            const link = relatedLabel?.querySelector('.card-carousel-link');
-            if (link) {
-              link.tabIndex = radio.checked ? 0 : -1;
-            }
-          });
-        };
-
-        const scrollCarouselCardIntoView = (radio) => {
-          if (!window.matchMedia('(max-width: 720px)').matches) {
-            return;
-          }
-
-          const relatedLabel = document.querySelector(`label[for="${radio.id}"]`);
-          if (!relatedLabel) {
-            return;
-          }
-
-          const ensureVisibility = () => {
-            const headerOffset = 400;
-            const rect = relatedLabel.getBoundingClientRect();
-            const viewportHeight = window.innerHeight || document.documentElement.clientHeight;
-            const offsetTop = window.pageYOffset + rect.top;
-
-            if (rect.top < headerOffset || rect.bottom > viewportHeight - 0) {
-              const target = Math.max(offsetTop - headerOffset, 40);
-              window.scrollTo({ top: target, behavior: 'smooth' });
-            }
-          };
-
-          requestAnimationFrame(() => {
-            requestAnimationFrame(ensureVisibility);
-          });
-        };
-
-        syncCarouselLinks();
-
-        carouselRadios.forEach((radio) => {
-          radio.addEventListener('change', () => {
-            syncCarouselLinks();
-            scrollCarouselCardIntoView(radio);
-          });
-          radio.addEventListener('keydown', (event) => {
-            if (event.key !== 'Enter' || !radio.checked) {
-              return;
-            }
-
-            const relatedLabel = document.querySelector(`label[for="${radio.id}"]`);
-            const link = relatedLabel?.querySelector('.card-carousel-link');
-            if (!link || !link.href) {
-              return;
-            }
-
-            event.preventDefault();
-            if (link.target === '_blank') {
-              window.open(link.href, '_blank', 'noopener');
-              return;
-            }
-
-            window.location.assign(link.href);
-          });
-        });
-      }
-
-      const contactForm = document.getElementById('contactForm');
-      const contactStatus = document.getElementById('contactStatus');
-      if (contactForm && contactStatus) {
-        contactForm.addEventListener('submit', (event) => {
-          event.preventDefault();
-
-          const formData = new FormData(contactForm);
-          const name = (formData.get('name') || '').toString().trim();
-          const email = (formData.get('email') || '').toString().trim();
-          const message = (formData.get('message') || '').toString().trim();
-          const submitButton = contactForm.querySelector('button[type="submit"]');
-
-          if (!name || !email || !message) {
-            contactStatus.textContent = 'Fyll i alla fält.';
-            return;
-          }
-
-          if (submitButton) {
-            submitButton.disabled = true;
-          }
-
-          contactStatus.textContent = 'Skickar...';
-
-          fetch(contactForm.action, {
-            method: 'POST',
-            headers: { Accept: 'application/json' },
-            body: formData,
-          })
-            .then(async (response) => {
-              if (response.ok) {
-                contactStatus.textContent = 'Tack! Ditt meddelande skickades.';
-                contactForm.reset();
-                return;
-              }
-
-              const data = await response.json().catch(() => ({ errors: [] }));
-              const errorMessage = data.errors?.[0]?.message || 'Kunde inte skicka meddelandet.';
-              contactStatus.textContent = errorMessage;
-            })
-            .catch(() => {
-              contactStatus.textContent = 'Något gick fel. Försök igen senare.';
-            })
-            .finally(() => {
-              if (submitButton) {
-                submitButton.disabled = false;
-              }
-            });
-        });
-      }
-
-      const menuToggle = document.querySelector('.menu-toggle');
-      const navMenu = document.getElementById('navMenu');
-      if (menuToggle && navMenu) {
-        menuToggle.addEventListener('click', () => {
-          const expanded = menuToggle.getAttribute('aria-expanded') === 'true';
-          menuToggle.setAttribute('aria-expanded', String(!expanded));
-          navMenu.style.display = expanded ? 'none' : 'flex';
-        });
-      }
-
-      window.addEventListener('load', () => {
-        document.querySelectorAll('.tile').forEach((tile, index) => {
-          tile.animate(
-            [
-              { opacity: 0, transform: 'translateY(12px)' },
-              { opacity: 1, transform: 'translateY(0)' },
-            ],
-            { duration: 600, delay: index * 120, fill: 'forwards' }
-          );
-        });
-      });
-
-    })();
-  </script>
+  <script src="./Scripts/portfolio.js"></script>
 
 </body>
 </html>
