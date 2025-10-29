@@ -37,6 +37,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   line-height: 1.35;
   overflow-x: hidden;
+  
 }
 
 .container-all {
@@ -45,6 +46,7 @@ body {
   padding: 0 30px 0 30px;
   padding-top: 200px;
   scrollbar-width: none;
+
 }
 
 header {
@@ -345,8 +347,10 @@ footer {
   /* Reveals the stacked menu when the toggle button runs */
   nav ul.show-mobile {
     display: flex !important;
-    flex-direction: column;
+    flex-direction: row;
     gap: 8px;
+    flex-wrap: wrap;
+    justify-content: center;
   }
 }
 
