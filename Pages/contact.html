@@ -36,8 +36,8 @@
       <nav>
         <ul id="navMenu">
           <li><a class="btn" href="../home.html">Hem</a></li>
-          <li><a class="btn" href="./Pages/mittCV.html">CV</a></li>
-          <li><a class="btn" href="./Pages/Kod.html">&lt;Kod&gt;</a></li>
+          <li><a class="btn" href="./mittCV.html">CV</a></li>
+          <li><a class="btn" href="./Kod.html">&lt;Kod&gt;</a></li>
         </ul>
       </nav>
 
@@ -129,41 +129,7 @@
 
 
 
-  <script>
-    // Local interactions for navigation, contact form and smooth scrolling
-    (function () {
-      const year = document.getElementById('year');
-      if (year) {
-        year.textContent = new Date().getFullYear();
-      }
-
-
-      // Handle mobile menu toggle
-      const menuToggle = document.querySelector('.menu-toggle');
-      const navMenu = document.getElementById('navMenu');
-      if (menuToggle && navMenu) {
-        menuToggle.addEventListener('click', () => {
-          const expanded = menuToggle.getAttribute('aria-expanded') === 'true';
-          menuToggle.setAttribute('aria-expanded', String(!expanded));
-          navMenu.style.display = expanded ? 'none' : 'flex';
-        });
-      }
-      
-
-      window.addEventListener('load', () => {
-        document.querySelectorAll('.tile').forEach((tile, index) => {
-          tile.animate(
-            [
-              { opacity: 0, transform: 'translateY(12px)' },
-              { opacity: 1, transform: 'translateY(0)' },
-            ],
-            { duration: 600, delay: index * 120, fill: 'forwards' }
-          );
-        });
-      });
-
-    })();
-  </script>
+  <script src="../Scripts/portfolio.js"></script>
 
 <svg style="position: absolute; width: 0; height: 0;">
   <defs>
