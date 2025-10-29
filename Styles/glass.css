@@ -456,6 +456,12 @@ body::before {
   z-index: 1;
   background: #00000032;
 }
+.glass-content--stack {
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+
 
 .glass-specular {
   z-index: 2;
@@ -463,6 +469,11 @@ body::before {
     inset 0 0 9px #ebaf873f;
 }
 
+
+.glass-item--logo img {
+  width: 100px;
+  height: 100px;
+}
 .glass-content {
   position: relative;
   z-index: 3;
