@@ -248,6 +248,29 @@ margin-top: 60px;
 margin-bottom: 60px;;
 }
 
+
+#contactForm input,
+#contactForm textarea {
+  background: transparent;
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+#contactForm input:focus,
+#contactForm textarea:focus {
+  background: transparent;
+  border-color: transparent;
+  box-shadow: none;
+}
+
+#contactForm input:-webkit-autofill,
+#contactForm textarea:-webkit-autofill {
+  background: transparent !important;
+  -webkit-box-shadow: 0 0 0 1000px transparent inset;
+  -webkit-text-fill-color: #fff;
+}
+
+
 .ghost {
   background: transparent;
   border: 1px solid rgba(255, 255, 255, 0.06);
