@@ -7,7 +7,6 @@
   <meta name="author" content="Anton Ahlm">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Mitt CV - Anton Ahlm</title>
-  <link rel="icon" type="image/x-icon" href="./Styles/Anton-favicon.png">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../Styles/Portfolio.css">
@@ -75,14 +74,14 @@
       </div>
 
       <nav>
-        <ul>
+        <ul id="navMenu">
           <li><a class="btn" href="../home.html">Hem</a></li>
           <li><a class="btn" href="./contact.html">Kontakt</a></li>
           <li><a class="btn" href="./Kod.html">&lt;Kod&gt;</a></li>
         </ul>
       </nav>
 
-      <button class="menu-toggle btn" aria-expanded="false" aria-controls="mobile-menu">Meny ☰</button>
+  <button class="menu-toggle btn" aria-expanded="false" aria-controls="navMenu">Meny ☰</button>
     </div>
   </header>
 
@@ -310,35 +309,6 @@
     © <span id="year"></span> Anton Ahlm — Web designer & developer
   </footer>
 
-  <script>
-    (function () {
-      const yearEl = document.getElementById('year');
-      if (yearEl) {
-        yearEl.textContent = new Date().getFullYear();
-      }
-
-      const menuToggle = document.querySelector('.menu-toggle');
-      const navList = document.querySelector('nav ul');
-      if (menuToggle && navList) {
-        menuToggle.addEventListener('click', () => {
-          const expanded = menuToggle.getAttribute('aria-expanded') === 'true';
-          menuToggle.setAttribute('aria-expanded', String(!expanded));
-          navList.style.display = expanded ? 'none' : 'flex';
-        });
-      }
-
-      window.addEventListener('load', () => {
-        document.querySelectorAll('.tile').forEach((el, index) => {
-          el.animate(
-            [
-              { opacity: 0, transform: 'translateY(12px)' },
-              { opacity: 1, transform: 'translateY(0)' }
-            ],
-            { duration: 600, delay: index * 120, fill: 'forwards' }
-          );
-        });
-      });
-    })();
-  </script>
+<script src="../Scripts/portfolio.js"></script>
 </body>
 </html>
