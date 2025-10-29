@@ -252,8 +252,9 @@ margin-bottom: 60px;;
 #contactForm input,
 #contactForm textarea {
   background: transparent;
-  color: #fff;
+  color: var(--text);
   border: 1px solid rgba(255, 255, 255, 0.04);
+  outline: none;
 }
 
 #contactForm input:focus,
@@ -267,7 +268,7 @@ margin-bottom: 60px;;
 #contactForm textarea:-webkit-autofill {
   background: transparent !important;
   -webkit-box-shadow: 0 0 0 1000px transparent inset;
-  -webkit-text-fill-color: #fff;
+  -webkit-text-fill-color: var(--text);
 }
 
 
