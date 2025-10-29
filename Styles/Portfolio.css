@@ -958,3 +958,39 @@ footer {
     height: 300px;
   }
 }
+
+#contactForm input,
+#contactForm textarea {
+  background-color: transparent;
+  color: var(--text);
+  border: 1px solid rgba(255, 255, 255, 0.04);
+  outline: transparent;
+  caret-color: var(--text);
+}
+
+#contactForm input:focus,
+#contactForm textarea:focus {
+  background-color: transparent;
+  border-color: rgba(255, 255, 255, 0.18);
+  box-shadow: none;
+}
+
+#contactForm input:-webkit-autofill,
+#contactForm input:-webkit-autofill:hover,
+#contactForm input:-webkit-autofill:focus,
+#contactForm input:-webkit-autofill:active,
+#contactForm textarea:-webkit-autofill,
+#contactForm textarea:-webkit-autofill:hover,
+#contactForm textarea:-webkit-autofill:focus,
+#contactForm textarea:-webkit-autofill:active {
+  transition: background-color 9999s ease-out, color 9999s ease-out;
+  background-color: transparent !important;
+  -webkit-box-shadow: 0 0 0 1000px transparent inset;
+  -webkit-text-fill-color: var(--text);
+}
+
+#contactForm input:autofill,
+#contactForm textarea:autofill {
+  background-color: transparent;
+  color: var(--text);
+}
