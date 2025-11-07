@@ -92,6 +92,7 @@ body[data-theme="light"] {
   font-size: 20px;
   margin-bottom: 10px;
   margin: 0;
+  line-height: 0.8;
 }
 
 .achievement.show-achievement p {
@@ -103,7 +104,7 @@ body[data-theme="light"] {
 
 #achievement-toast-root {
   position: fixed;
-  top: 30px;
+  top: 60px;
   right: 20px;
   display: flex;
   flex-direction: column;
