@@ -9,7 +9,7 @@
 
   <title>Anton Ahlm — Web designer & developer</title>
   <link rel="icon" type="image/x-icon" href="../Styles/Anton-favicon.png">
-  
+
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
   
@@ -89,7 +89,15 @@
 
     <section aria-label="Contact form">
       <div class="container">
-        <h2>Kontakta mig</h2>
+        <h2>Kontakta mig</h2> 
+
+        <div class="secret-circle-container">
+          <div class="secret-circle">
+            <h4 style="color: #000000aa; font-size: 20px;">?</h4>
+          </div>
+        </div>
+
+
         <form style="margin-top: 20px;" action="https://formspree.io/f/xgvnbppo"
   method="POST" id="contactForm">
           <div style="display: grid; gap: 10px">
@@ -114,6 +122,53 @@
 </section>
 
 
+<!-- Section displaying the list of achievements -->
+<section id="achievements-list" aria-label="List of achievements">
+    <article class="achievement" data-trigger-click="1" data-duration="5000">
+        <h2>Du klickade!</h2>
+        <p>Välkommen till hemsidan. Kan du hitta fler hemliga achievements?</p>
+    </article>
+    <article class="achievement" data-trigger-click="10" data-duration="5000">
+        <h2>10 klick</h2>
+        <p>Har du sett alla sidor nu?</p>
+    </article>
+    <article class="achievement" data-trigger-click="25" data-duration="5000">
+        <h2>25 klick</h2>
+        <p>Bra jobbat! Du är en hängiven besökare.</p>
+    </article>
+    <article class="achievement" data-trigger-click="50" data-duration="5000">
+        <h2>50 klick</h2>
+        <p>Wow! Du går all-in, va?</p>
+    </article>
+    <article class="achievement" data-trigger-click="100" data-duration="10000">
+        <h2>100 klick</h2>
+        <p>Fantastiskt! Du är en riktig superanvändare.<br>Ledtråd: Hitta den gömda cirkeln!</p>
+    </article>
+    <article class="achievement" data-trigger-click="500" data-duration="10000">
+        <h2>500 klick</h2>
+        <p>Otroligt! Du är en mästare på att utforska. <br>Ledtråd: Har jag fler github repositories?..</p>
+    </article>
+    <article class="achievement" data-trigger-click="1000" data-duration="10000">
+        <h2>1000 klick</h2>
+        <p>Det måste vara ett rekord! <br>Tips: Om du anställer mig får du en super-achievement!</p>
+    </article>
+
+    <article class="achievement"
+        data-trigger-submit="#contactForm"
+        data-duration="8000"
+        data-achievement-id="contact-form-submitted">
+      <h2>Tack för ditt meddelande!</h2>
+      <p>Ditt meddelande är skickat. Jag hör av mig så snart jag kan.</p>
+    </article>
+
+    <article class="achievement"
+        data-trigger-selector=".secret-circle"
+        data-duration="10000">
+      <h2>Hemlis</h2>
+      <p>Du hittade den gömda cirkeln! <br/><br/> Njut av ljuv musik: <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank"><span style="color: #e38512">Klicka här för att lyssna!</span></a></p>
+    </article>
+
+</section>
 
 </main>
   <!-- Site Footer -->
@@ -129,6 +184,7 @@
 
 
   <script src="../Scripts/portfolio.js"></script>
+  <script src="../Scripts/achievements.js"></script>
 
 <svg style="position: absolute; width: 0; height: 0;">
   <defs>
