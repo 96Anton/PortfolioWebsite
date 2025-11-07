@@ -1,3 +1,4 @@
+
 :root {
   --bg: #0f1724;
   --glass: rgba(255, 255, 255, 0.06);
@@ -5,6 +6,27 @@
   --muted: #9fb3cc;
   --radius: 12px;
   --instagram: linear-gradient(0deg, #feda75  0%, #fa7e1e  25%, #d62976  50%, #962fbf  75%, #4f5bd5  100%);
+  --program-input-bg: var(--muted);
+  --program-input-color: var(--bg);
+  --program-input-border: rgba(255, 255, 255, 0.14);
+  --program-output-bg: rgba(255, 255, 255, 0.08);
+  --program-output-color: #e6eef8;
+  --program-output-border: rgba(255, 255, 255, 0.12);
+  color-scheme: dark;
+}
+
+:root[data-theme="light"] {
+  --bg: #f5f7fb;
+  --glass: rgba(15, 23, 36, 0.05);
+  --text: #0f1724;
+  --muted: #4f6075;
+  --program-input-bg: #ffffff;
+  --program-input-color: #000000;
+  --program-input-border: rgba(15, 23, 36, 0.18);
+  --program-output-bg: #ffffff;
+  --program-output-color: #000000;
+  --program-output-border: rgba(15, 23, 36, 0.14);
+  color-scheme: light;
 }
 
 * {
@@ -28,10 +50,75 @@ body {
   overflow-x: hidden;
 }
 
+body[data-theme="light"] {
+  background-color: var(--bg);
+  color: var(--text);
+}
+
 .container-all {
   min-width: 100%;
   overflow-x: hidden;
 }
+
+/* Achievement notification styling */
+.achievement {
+  display: none;
+}
+
+#achievements-list {
+  height: 0;
+  width: 0;
+  padding: 0;
+  margin: 0;
+}
+
+.achievement.show-achievement {
+  display: flex;
+  flex-direction: column;
+  width: clamp(200px, 200px, 300px);
+  height: min-content;
+  background-color: rgba(0, 0, 0, 0.861);
+  color: #ffffff;
+  border-radius: 12px;
+  border: 2px solid rgb(0, 0, 0);
+  padding: 10px;
+  box-shadow: -5px 10px 15px rgba(0, 0, 0, 0.229);
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+}
+
+.achievement.show-achievement h2 {
+  font-size: 20px;
+  margin-bottom: 10px;
+  margin: 0;
+}
+
+.achievement.show-achievement p {
+  font-size: 14px;
+  margin: 0;
+}
+
+
+
+#achievement-toast-root {
+  position: fixed;
+  top: 30px;
+  right: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  pointer-events: none;
+  z-index: 999;
+}
+
+#achievement-toast-root .achievement {
+  position: relative;
+  top: 0;
+  right: 0;
+  pointer-events: auto;
+}
+
 
 /* Primary navigation pinned to the top */
 header {
@@ -52,6 +139,7 @@ header {
   align-items: center;
   gap: 12px;
   justify-content: space-between;
+  position: relative;
 }
 
 textarea {
@@ -199,6 +287,12 @@ nav ul {
   will-change: transform;
 }
 
+.kod-hero h1,
+#typing {
+  color: #ffffff;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.55);
+}
+
 .hero.hero-static .grad::before {
   animation: none;
   transform: scale(5.5) rotate(300deg);
@@ -273,6 +367,20 @@ nav ul {
   background: var(--bg);
   border: 2px inset #7afcff;
 
+}
+
+body[data-theme="light"] .intro,
+body[data-theme="light"] .card {
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(15, 23, 36, 0.12);
+  color: var(--text);
+  box-shadow: 0 8px 30px rgba(15, 23, 36, 0.12);
+}
+
+body[data-theme="light"] .intro.firstintro,
+body[data-theme="light"] .card.firstcard {
+  background: #ffffff;
+  border-color: rgba(122, 252, 255, 0.4);
 }
 
 h1 {
@@ -379,6 +487,14 @@ h4 {
   background: var(--glass);
   transform: translateY(-2px);
   cursor: pointer;
+}
+
+body[data-theme="light"] .ghost {
+  border: 1px solid rgba(15, 23, 36, 0.18);
+}
+
+body[data-theme="light"] .ghost:hover {
+  background: rgba(15, 23, 36, 0.05);
 }
 
 .btn-instagram {
@@ -533,6 +649,7 @@ h4 {
 
 section {
   padding: 72px 20px;
+  padding-bottom: 30px;
 }
 
 .container {
@@ -556,6 +673,15 @@ section {
 .tile:hover {
   background-color: var(--bg);
   cursor: pointer;
+}
+
+body[data-theme="light"] .tile {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.95), rgba(228, 235, 246, 0.9));
+  border: 1px solid rgba(15, 23, 36, 0.12);
+}
+
+body[data-theme="light"] .tile:hover {
+  background-color: #ffffff;
 }
 
 footer {
@@ -591,15 +717,43 @@ footer {
 
   nav ul {
     display: none;
+    position: absolute;
+     top: 100%;
+     right: 0;
   }
 
   /* Reveals the stacked menu when the toggle button runs */
   nav ul.show-mobile {
     display: flex !important;
-    flex-direction: row;
-    gap: 8px;
-    flex-wrap: wrap;
+    flex-direction: column;
+    gap: 10px;
+    padding: 16px;
+    position: absolute;
+    top: calc(100% + 12px);
+    right: 0;
+    min-width: 200px;
+    background: var(--bg);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
+    box-shadow: 0 20px 40px rgba(2, 6, 23, 0.35);
+    z-index: 25;
+  }
+
+  nav ul.show-mobile > li {
+    width: 100%;
+  }
+
+  nav ul.show-mobile a.btn {
+    width: 100%;
     justify-content: center;
+  }
+}
+
+@media (max-width: 880px) {
+  body[data-theme="light"] nav ul.show-mobile {
+    background: #ffffff;
+    border: 1px solid rgba(15, 23, 36, 0.14);
+    box-shadow: 0 18px 38px rgba(15, 23, 36, 0.12);
   }
 }
 
@@ -628,14 +782,34 @@ footer {
   color: var(--bg);
 }
 
-.Koder input {
+.Koder input,
+.Koder textarea,
+.Koder select,
+.Koder .program-input {
   margin-top: 10px;
   padding: 10px;
   border-radius: var(--radius);
-  border: 1px solid var(--glass);
-  background-color: var(--muted);
-  color: var(--bg);
-  width: calc(100% - 24px);
+  border: 1px solid var(--program-input-border);
+  background-color: var(--program-input-bg);
+  color: var(--program-input-color);
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+.Koder input:focus,
+.Koder textarea:focus,
+.Koder select:focus,
+.Koder .program-input:focus {
+  outline: none;
+  border-color: rgba(122, 252, 255, 0.6);
+  box-shadow: 0 0 0 2px rgba(122, 252, 255, 0.18);
+}
+
+.Koder .program-output {
+  background-color: var(--program-output-bg);
+  color: var(--program-output-color);
+  border: 1px solid var(--program-output-border);
+  border-radius: var(--radius);
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
 }
 
 /* Hero background for the interactive code page */
@@ -727,6 +901,10 @@ footer {
   opacity: 0.85;
 }
 
+body[data-theme="light"] .card-carousel::before {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.15) 6%, rgba(8, 15, 25, 0.75) 100%);
+}
+
 .card-carousel:hover {
   transform: translateY(-6px);
 }
@@ -755,6 +933,10 @@ footer {
   z-index: 1;
 }
 
+body[data-theme="light"] .card-carousel > .row-carousel::after {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(8, 12, 24, 0.45) 100%);
+}
+
 .card-carousel > .row-carousel > .icon-carousel {
   background: rgba(10, 16, 33, 0.68);
   color: #ffffff;
@@ -767,6 +949,12 @@ footer {
   font-size: 22px;
   flex-shrink: 0;
   border: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+body[data-theme="light"] .card-carousel > .row-carousel > .icon-carousel {
+  background: rgba(255, 255, 255, 0.85);
+  color: #0f1724;
+  border: 2px solid rgba(15, 23, 36, 0.18);
 }
 
 .card-carousel > .row-carousel > .description-carousel {
@@ -975,6 +1163,18 @@ footer {
   box-shadow: none;
 }
 
+body[data-theme="light"] #contactForm input,
+body[data-theme="light"] #contactForm textarea {
+  background-color: rgba(255, 255, 255, 0.92);
+  border: 1px solid rgba(15, 23, 36, 0.18);
+  color: var(--text);
+}
+
+body[data-theme="light"] #contactForm input:focus,
+body[data-theme="light"] #contactForm textarea:focus {
+  border-color: rgba(15, 23, 36, 0.34);
+}
+
 #contactForm input:-webkit-autofill,
 #contactForm input:-webkit-autofill:hover,
 #contactForm input:-webkit-autofill:focus,
@@ -993,4 +1193,46 @@ footer {
 #contactForm textarea:autofill {
   background-color: transparent;
   color: var(--text);
+}
+
+/* Dark mode toggle switch */
+#checkbox {
+  display: none;
+}
+
+.switch {
+  margin-top: 5px;
+  margin-bottom: 5px;
+  position: relative;
+  width: 70px;
+  height: 70px;
+  background-color: rgb(99, 99, 99);
+  border-radius: 50%;
+  z-index: 1;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid rgb(126, 126, 126);
+  box-shadow: 0px 0px 3px rgb(2, 2, 2) inset;
+}
+.switch svg {
+  width: 1.2em;
+}
+.switch svg path {
+  fill: rgb(48, 48, 48);
+}
+#checkbox:checked + .switch {
+  box-shadow: 0px 0px 1px rgb(151, 243, 255) inset,
+    0px 0px 2px rgb(151, 243, 255) inset, 0px 0px 10px rgb(151, 243, 255) inset,
+    0px 0px 40px rgb(151, 243, 255), 0px 0px 100px rgb(151, 243, 255),
+    0px 0px 5px rgb(151, 243, 255);
+  border: 2px solid rgb(255, 255, 255);
+  background-color: rgb(146, 180, 184);
+}
+#checkbox:checked + .switch svg {
+  filter: drop-shadow(0px 0px 5px rgb(151, 243, 255));
+}
+#checkbox:checked + .switch svg path {
+  fill: rgb(255, 255, 255);
 }
