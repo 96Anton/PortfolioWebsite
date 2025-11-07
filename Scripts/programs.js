@@ -18,6 +18,22 @@
 		return { heading, section: heading.parentElement };
 	};
 
+	const applyProgramInput = (...elements) => {
+		elements.forEach((element) => {
+			if (element) {
+				element.classList.add('program-input');
+			}
+		});
+	};
+
+	const applyProgramOutput = (...elements) => {
+		elements.forEach((element) => {
+			if (element) {
+				element.classList.add('program-output');
+			}
+		});
+	};
+
 	ready(() => {
 		initTyping();
 		initWhosPaying();
@@ -77,6 +93,7 @@
 		notaContainer.style.margin = '0.5rem 0 1rem';
 		notaContainer.style.whiteSpace = 'pre-wrap';
 		notaContainer.style.fontSize = '1.2em';
+		applyProgramOutput(notaContainer);
 
 		const form = document.createElement('div');
 		form.style.display = 'flex';
@@ -91,6 +108,7 @@
 		input.style.flex = '1';
 		input.style.padding = '0.4rem';
 		input.style.fontSize = '1rem';
+		applyProgramInput(input);
 
 		const button = document.createElement('button');
 		button.type = 'button';
@@ -184,13 +202,14 @@
 		textarea.style.fontSize = '1rem';
 		textarea.style.fontFamily = 'monospace';
 		textarea.style.marginBottom = '0.4rem';
+		applyProgramInput(textarea);
 
 		const controls = document.createElement('div');
 		controls.style.display = 'flex';
 		controls.style.alignItems = 'center';
 		controls.style.gap = '0.5rem';
 		controls.style.marginBottom = '0.5rem';
-		controls.style.color = '#fff';
+		controls.style.color = 'var(--text)';
 
 		const button = document.createElement('button');
 		button.type = 'button';
@@ -200,7 +219,7 @@
 
 		const counter = document.createElement('div');
 		counter.style.fontSize = '0.95rem';
-		counter.style.color = '#fff';
+		counter.style.color = 'var(--muted)';
 		counter.style.whiteSpace = 'nowrap';
 		counter.textContent = `0 / ${MAX}`;
 
@@ -213,13 +232,14 @@
 		previewLabel.style.fontWeight = '600';
 
 		const preview = document.createElement('pre');
-		preview.style.background = '#f7f7f7';
+		preview.style.background = 'var(--program-output-bg)';
 		preview.style.padding = '0.6rem';
 		preview.style.whiteSpace = 'pre-wrap';
 		preview.style.borderRadius = '4px';
 		preview.style.minHeight = '3rem';
 		preview.style.margin = '0';
-		preview.style.color = '#000';
+		preview.style.color = 'var(--program-output-color)';
+		applyProgramOutput(preview);
 
 		container.appendChild(label);
 		container.appendChild(textarea);
@@ -263,7 +283,6 @@
 		label.textContent = 'Ange din hunds ålder (år):';
 		label.style.display = 'block';
 		label.style.marginBottom = '0.3rem';
-		label.style.color = '#fff';
 
 		const controls = document.createElement('div');
 		controls.style.display = 'flex';
@@ -278,6 +297,7 @@
 		input.style.padding = '0.4rem';
 		input.style.fontSize = '1rem';
 		input.style.width = '8rem';
+		applyProgramInput(input);
 
 		const button = document.createElement('button');
 		button.type = 'button';
@@ -288,6 +308,7 @@
 		const result = document.createElement('div');
 		result.style.marginTop = '0.5rem';
 		result.style.fontWeight = '600';
+		applyProgramOutput(result);
 
 		controls.appendChild(input);
 		controls.appendChild(button);
@@ -347,6 +368,7 @@
 		input.style.flex = '1';
 		input.style.padding = '0.4rem';
 		input.style.fontSize = '1rem';
+		applyProgramInput(input);
 
 		const button = document.createElement('button');
 		button.type = 'button';
@@ -360,6 +382,7 @@
 		const result = document.createElement('div');
 		result.style.marginTop = '0.4rem';
 		result.style.fontWeight = '600';
+		applyProgramOutput(result);
 
 		container.appendChild(form);
 		container.appendChild(result);
@@ -421,6 +444,7 @@
 		input.style.padding = '0.4rem';
 		input.style.fontSize = '1rem';
 		input.style.width = '8rem';
+		applyProgramInput(input);
 
 		const button = document.createElement('button');
 		button.type = 'button';
@@ -431,6 +455,7 @@
 		const result = document.createElement('div');
 		result.style.marginTop = '0.5rem';
 		result.style.fontWeight = '600';
+		applyProgramOutput(result);
 
 		controls.appendChild(input);
 		controls.appendChild(button);
@@ -511,6 +536,7 @@
 		input1.style.minWidth = '10rem';
 		input1.style.padding = '0.4rem';
 		input1.style.fontSize = '1rem';
+		applyProgramInput(input1);
 
 		const input2 = document.createElement('input');
 		input2.type = 'text';
@@ -519,6 +545,7 @@
 		input2.style.minWidth = '10rem';
 		input2.style.padding = '0.4rem';
 		input2.style.fontSize = '1rem';
+		applyProgramInput(input2);
 
 		const button = document.createElement('button');
 		button.type = 'button';
@@ -534,11 +561,13 @@
 		result.style.marginTop = '0.5rem';
 		result.style.fontWeight = '600';
 		result.style.whiteSpace = 'pre-wrap';
-		result.style.background = '#000';
+		result.style.background = 'var(--program-output-bg)';
 		result.style.padding = '0.6rem';
 		result.style.borderRadius = '4px';
 		result.style.minHeight = '2.2rem';
 		result.style.margin = '0.5rem 0 0';
+		result.style.color = 'var(--program-output-color)';
+		applyProgramOutput(result);
 
 		container.appendChild(form);
 		container.appendChild(result);
@@ -610,6 +639,7 @@
 		input.style.padding = '0.4rem';
 		input.style.fontSize = '1rem';
 		input.style.width = '8rem';
+		applyProgramInput(input);
 
 		const button = document.createElement('button');
 		button.type = 'button';
@@ -620,6 +650,7 @@
 		const result = document.createElement('div');
 		result.style.marginTop = '0.5rem';
 		result.style.fontWeight = '600';
+		applyProgramOutput(result);
 
 		controls.appendChild(input);
 		controls.appendChild(button);
@@ -689,6 +720,7 @@
 		input.style.padding = '0.4rem';
 		input.style.fontSize = '1rem';
 		input.style.width = '8rem';
+		applyProgramInput(input);
 
 		const button = document.createElement('button');
 		button.type = 'button';
@@ -702,17 +734,19 @@
 		const outputInfo = document.createElement('div');
 		outputInfo.style.margin = '0.25rem 0';
 		outputInfo.style.fontSize = '0.95rem';
-		outputInfo.style.color = '#fff';
+		outputInfo.style.color = 'var(--muted)';
 
 		const result = document.createElement('div');
 		result.style.marginTop = '0.5rem';
 		result.style.padding = '0.5rem';
-		result.style.background = '#fff';
+		result.style.background = 'var(--program-output-bg)';
 		result.style.borderRadius = '6px';
 		result.style.maxHeight = '320px';
 		result.style.overflow = 'auto';
 		result.style.fontFamily = 'monospace';
 		result.style.whiteSpace = 'pre-wrap';
+		result.style.color = 'var(--program-output-color)';
+		applyProgramOutput(result);
 
 		container.appendChild(label);
 		container.appendChild(controls);
@@ -771,7 +805,7 @@
 				} else if (divisors.length === 1) {
 					item.style.color = '#007700';
 				} else {
-					item.style.color = '#000';
+					item.style.color = 'var(--program-output-color)';
 				}
 
 				if (divisors.length === 0) {
@@ -831,6 +865,7 @@
 		input.style.width = '6rem';
 		input.style.padding = '0.4rem';
 		input.style.fontSize = '1rem';
+		applyProgramInput(input);
 
 		const button = document.createElement('button');
 		button.type = 'button';
@@ -841,15 +876,17 @@
 		const info = document.createElement('div');
 		info.style.marginTop = '0.4rem';
 		info.style.fontSize = '0.95rem';
-		info.style.color = '#333';
+		info.style.color = 'var(--muted)';
 
 		const output = document.createElement('pre');
 		output.style.marginTop = '0.5rem';
 		output.style.whiteSpace = 'pre-wrap';
-		output.style.background = '#000';
+		output.style.background = 'var(--program-output-bg)';
 		output.style.padding = '0.6rem';
 		output.style.borderRadius = '4px';
 		output.style.fontFamily = 'monospace';
+		output.style.color = 'var(--program-output-color)';
+		applyProgramOutput(output);
 
 		container.appendChild(label);
 		container.appendChild(controls);
@@ -942,6 +979,7 @@
 		input.style.width = '8rem';
 		input.style.padding = '0.4rem';
 		input.style.fontSize = '1rem';
+		applyProgramInput(input);
 
 		const button = document.createElement('button');
 		button.type = 'button';
@@ -952,18 +990,19 @@
 		const info = document.createElement('div');
 		info.style.marginTop = '0.4rem';
 		info.style.fontSize = '0.95rem';
-		info.style.color = '#333';
+		info.style.color = 'var(--muted)';
 
 		const output = document.createElement('pre');
 		output.style.marginTop = '0.5rem';
 		output.style.whiteSpace = 'pre-wrap';
-		output.style.background = '#000';
+		output.style.background = 'var(--program-output-bg)';
 		output.style.padding = '0.6rem';
 		output.style.borderRadius = '4px';
 		output.style.fontFamily = 'monospace';
 		output.style.maxHeight = '320px';
 		output.style.overflow = 'auto';
-		output.style.color = '#fff';
+		output.style.color = 'var(--program-output-color)';
+		applyProgramOutput(output);
 
 		controls.appendChild(input);
 		controls.appendChild(button);
