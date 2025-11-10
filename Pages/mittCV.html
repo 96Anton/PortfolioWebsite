@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="sv">
 <head>
@@ -341,6 +342,34 @@
     </article>
 
     <article class="achievement"
+        data-trigger-navigation="contact"
+        data-duration="8000">
+      <h2>Pratglad</h2>
+      <p>Du navigerade till kontaktsidan för första gången. Välkommen att ta kontakt med mig!</p>
+    </article>
+
+    <article class="achievement"
+        data-trigger-navigation="mittcv"
+        data-duration="8000">
+      <h2>Rekryteraren</h2>
+      <p>Du kikade på mitt CV, tack för ditt intresse!</p>
+    </article>
+
+    <article class="achievement"
+        data-trigger-navigation="kod"
+        data-duration="8000">
+      <h2>Utvecklaren</h2>
+      <p>Du navigerade till min JavaScript sida.</p>
+    </article>
+
+    <article class="achievement"
+        data-trigger-navigation="home"
+        data-duration="8000">
+      <h2>Välkommen hem</h2>
+      <p>Du hittade tillbaka till startsidan från en annan sida.</p>
+    </article>
+
+    <article class="achievement"
         data-trigger-selector=".secret-circle"
         data-duration="10000">
       <h2>Secret Finder</h2>
@@ -355,18 +384,39 @@
   <!-- Site Footer -->
   <footer class="footer-color" style="color: black;">
     © <span id="year"></span> Anton Ahlm — Web designer & developer</br>
-    <div style="margin-top: 8px; font-size: 12px; color: var(--muted); display: flex; justify-content: center; align-items: center;">
-    <input id="checkbox" type="checkbox" />
-<label class="switch" for="checkbox">
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="slider">
-    <path
-      d="M288 32c0-17.7-14.3-32-32-32s-32 14.3-32 32V256c0 17.7 14.3 32 32 32s32-14.3 32-32V32zM143.5 120.6c13.6-11.3 15.4-31.5 4.1-45.1s-31.5-15.4-45.1-4.1C49.7 115.4 16 181.8 16 256c0 132.5 107.5 240 240 240s240-107.5 240-240c0-74.2-33.8-140.6-86.6-184.6c-13.6-11.3-33.8-9.4-45.1 4.1s-9.4 33.8 4.1 45.1c38.9 32.3 63.5 81 63.5 135.4c0 97.2-78.8 176-176 176s-176-78.8-176-176c0-54.4 24.7-103.1 63.5-135.4z"
-    ></path>
-  </svg>
+    <div style="display: flex; flex-direction: row; align-items: center; justify-content: space-evenly; margin-top: 30px; margin-bottom: 30px;">
+
+<div>
+  <label for="achievements" class="achieve">
+    <a href="../Pages/achievements.html">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" style="vertical-align: middle;">
+      <circle cx="12" cy="9" r="6" fill="#f9c74f"/>
+      <path d="M9 12.5L7.5 22l4.5-2 4.5 2L15 12.5" fill="#f4845f"/>
+      <circle cx="12" cy="9" r="3" fill="#fff3bf"/>
+    </svg>
+    Achievements
+  </a>
 </label>
 </div>
-Light/dark
+
+
+  <div style="margin-top: 8px; font-size: 12px; color: var(--muted); display: flex; justify-content: center; align-items: center;">
+    <input id="checkbox" type="checkbox" />
+    
+    <label class="switch" for="checkbox">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="slider">
+        <path
+          d="M288 32c0-17.7-14.3-32-32-32s-32 14.3-32 32V256c0 17.7 14.3 32 32 32s32-14.3 32-32V32zM143.5 120.6c13.6-11.3 15.4-31.5 4.1-45.1s-31.5-15.4-45.1-4.1C49.7 115.4 16 181.8 16 256c0 132.5 107.5 240 240 240s240-107.5 240-240c0-74.2-33.8-140.6-86.6-184.6c-13.6-11.3-33.8-9.4-45.1 4.1s-9.4 33.8 4.1 45.1c38.9 32.3 63.5 81 63.5 135.4c0 97.2-78.8 176-176 176s-176-78.8-176-176c0-54.4 24.7-103.1 63.5-135.4z">
+        </path>
+      </svg>
+    </label>
+<p style="color: #000;">&nbsp;&nbsp;&nbsp;Light/dark</p>
+</div>
+
+
+</div>
   </footer>
+
 
 <script src="../Scripts/portfolio.js"></script>
 <script src="../Scripts/achievements.js"></script>
