@@ -1,3 +1,4 @@
+
 (() => {
   // Grundkontroller som vi återanvänder för att slippa upprepa kod
   const isSecureNavigator = typeof navigator !== 'undefined';
@@ -113,7 +114,9 @@
       writeLocal(progress);
     };
 
-    return { load, save, flush };
+    const getMode = () => mode;
+
+    return { load, save, flush, getMode };
   }
 
   // Styr upp hela achievement-logiken i gränssnittet
@@ -125,8 +128,9 @@
     if (!items.length) return;
 
     // hämtar sparad progression så vi kan visa rätt status
-    const store = createProgressStore();
+  const store = createProgressStore();
     const progress = await store.load();
+  const resolveMode = () => (typeof store.getMode === 'function' ? store.getMode() : 'local');
 
     // Skapar eller hittar behållaren för toast-meddelanden
     const getToastHost = () => {
@@ -146,6 +150,14 @@
 
     // Bygger nytt payload-objekt och schemalägger sparning för effektivitet
     const toPayload = () => ({ clicks, unlocked: Array.from(unlocked) });
+    const notifyProgressChange = () => {
+      try {
+        const detail = { progress: toPayload(), mode: resolveMode() };
+        document.dispatchEvent(new CustomEvent('achievement:progress', { detail }));
+      } catch (error) {
+        console.warn('Achievement progress notification failed.', error);
+      }
+    };
     let persistQueued = false;
     const persist = () => {
       if (persistQueued) return;
@@ -174,6 +186,21 @@
     };
 
     // Visar ett nytt achievement-toast och sparar statusen
+    const refreshAchievementCard = (key) => {
+      const card = document.querySelector(`[data-achievement-key="${key}"]`);
+      if (!card) return;
+      card.setAttribute('data-state', 'unlocked');
+
+      const status = card.querySelector('[data-status-for]');
+      if (status) {
+        status.setAttribute('data-state', 'unlocked');
+        const statusText = status.querySelector('[data-status-text]');
+        if (statusText) {
+          statusText.textContent = 'Upplåst';
+        }
+      }
+    };
+
     const showAchievement = (item, key) => {
       if (toastHost.querySelector(`[data-toast-key="${key}"]`)) return;
 
@@ -183,6 +210,8 @@
       toast.style.display = 'flex';
 
       unlocked.add(key);
+      refreshAchievementCard(key);
+      notifyProgressChange();
       persist();
 
       toastHost.appendChild(toast);
