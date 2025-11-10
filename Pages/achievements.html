@@ -1,0 +1,426 @@
+
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8">
+  <meta name="description" content="Anton Ahlm Portfolio achievements & gamification - se dina framsteg och alla upplåsta prestationer.">
+  <meta name="keywords" content="Anton Ahlm, achievements, prestationer, gamification, web portfolio, web manager">
+  <meta name="author" content="Anton Ahlm">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Achievements - Anton Ahlm</title>
+  <link rel="icon" type="image/x-icon" href="../Styles/Anton-favicon.png">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../Styles/Portfolio.css">
+  <style>
+    .achievements-grid {
+      display: grid;
+      gap: 12px;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      margin-top: 24px;
+    }
+
+    .achievement-item {
+      position: relative;
+      transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+    }
+
+    .achievement-item:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 16px 40px rgba(122, 252, 255, 0.2);
+    }
+
+    .achievement-item[data-state="unlocked"] {
+      border-color: rgba(122, 252, 255, 0.6);
+      box-shadow: 0 12px 30px rgba(122, 252, 255, 0.15);
+      transform: translateY(-2px);
+    }
+
+    .achievement-item[data-state="unlocked"]:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 16px 40px rgba(122, 252, 255, 0.2);
+    }
+
+
+    .achievement-status {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 600;
+      font-size: 14px;
+      color: var(--muted);
+      margin-top: 12px;
+    }
+
+    .achievement-status::before {
+      content: "";
+      width: 20px;
+      height: 20px;
+      flex-shrink: 0;
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect x='5' y='11' width='14' height='10' rx='2' fill='currentColor'/%3E%3Cpath d='M8 11V8a4 4 0 018 0v3' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' fill='none'/%3E%3Ccircle cx='12' cy='16' r='2' fill='currentColor'/%3E%3C/svg%3E");
+    }
+
+    .achievement-status[data-state="unlocked"] {
+      color: #7afcff;
+    }
+
+    .achievement-status[data-state="unlocked"]::before {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Ccircle cx='12' cy='9' r='6' fill='%23f9c74f'/%3E%3Cpath d='M9 12.5L7.5 22l4.5-2 4.5 2L15 12.5' fill='%23f4845f'/%3E%3Ccircle cx='12' cy='9' r='3' fill='%23fff3bf'/%3E%3C/svg%3E");
+    }
+
+    body[data-theme="light"] .achievement-status[data-state="unlocked"] {
+      color: #006e82;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <!-- Primary navigation and branding -->
+    <div class="nav" role="navigation" aria-label="Top navigation">
+      <div class="brand">
+        <a class="logo" href="/PortfolioWebsite/home.html"><code>&lt;Anton<br/>Ahlm&gt;</code></a>
+        <div>
+          <div style="font-weight: 700">Portfolio</div>
+          <div style="font-size: 12px; color: var(--muted)">Web designer &amp; developer</div>
+        </div>
+      </div>
+
+      <nav>
+        <ul id="navMenu">
+          <li><a class="btn" href="../home.html">Hem</a></li>
+          <li><a class="btn" href="./contact.html">Kontakt</a></li>
+          <li><a class="btn" href="./mittCV.html">Mitt CV</a></li>
+          <li><a class="btn" href="./Kod.html">&lt;Kod&gt;</a></li>
+        </ul>
+      </nav>
+
+      <button class="menu-toggle btn" aria-expanded="false" aria-controls="navMenu">Meny ☰</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero hero-static" id="achievements" aria-label="Achievementssammanfattning" style="height: 100vh;">
+      <div class="grad" aria-hidden="true"></div>
+
+      <div class="hero-content container">
+        <div class="intro firstintro" role="region" aria-label="Introduktion" style="min-height: 300px;">
+          <h1>ACHIEVEMENTS</h1>
+          <p>
+            Här samlas alla prestationer som går att låsa upp i portföljen. Uppdateringarna sparas automatiskt,
+            så du kan alltid återvända hit och följa din progression.
+          </br></br>
+          </p>
+          <div class="cta-row">
+            <a class="cta" href="../home.html">Till startsidan</a>
+            <a class="ghost" href="./contact.html">Kontakta mig</a>
+          </div>
+        </div>
+
+        <aside class="card firstcard" aria-label="Progressöversikt">
+          <div class="meta">
+            <div class="logo">&lt;XP&gt;</div>
+            <div>
+              <div style="font-weight: 700"><h3>Dina framsteg</h3></div>
+              <div class="small">Sammanställning av din achievement-statistik.</div>
+            </div>
+          </div>
+
+          <ul style="margin: 0; padding-left: 18px; color: var(--muted); font-size: 14px">
+            <li>Upplåsta achievements: <span data-summary="unlocked" aria-live="polite">0</span> / <span data-summary="total">14</span></li>
+            <li>Klick registrerade: <span data-summary="clicks" aria-live="polite">0</span></li>
+            <li>Komplett i procent: <span data-summary="percentage" aria-live="polite">0%</span></li>
+            <br/>
+            <em>Synkstatus: <span data-summary="mode" aria-live="polite">Lokal lagring</span></em></br></br>
+          </ul>
+        </aside>
+      </div>
+    </section>
+
+    <section aria-label="Lista över achievements">
+      <div class="container">
+        <div class="intro subtle-grad" style="padding: 28px" role="region" aria-label="Detaljerad lista">
+          <div class ="simple-grad">
+          <h2>Alla achievements</h2>
+          <p>
+            Varje kort nedan representerar en prestation. Statusen uppdateras efterhand som du låser upp dem på någon
+            av portföljens sidor.
+          </p>
+          <p data-achievement-empty style="color: var(--muted); font-size: 14px">
+            Du har inte låst upp några achievements ännu. Utforska portföljen för att börja samla dem.
+          </p>
+          </div>
+
+          <div class="achievements-grid">
+            <article class="card achievement-item" data-achievement-key="trigger-1">
+              <h3>Du klickade!</h3>
+              <p class="small">Det första klicket registreras på portföljen.</p>
+              <span class="achievement-status" data-state="locked" data-status-for="trigger-1" aria-live="polite">
+                <span class="achievement-status-text" data-status-text>Låst</span>
+              </span>
+            </article>
+
+            <article class="card achievement-item" data-achievement-key="trigger-10">
+              <h3>10 klick</h3>
+              <p class="small">Klicka dig runt och nå tio interaktioner.</p>
+              <span class="achievement-status" data-state="locked" data-status-for="trigger-10" aria-live="polite">
+                <span class="achievement-status-text" data-status-text>Låst</span>
+              </span>
+            </article>
+
+            <article class="card achievement-item" data-achievement-key="trigger-25">
+              <h3>25 klick</h3>
+              <p class="small">Fortsätt utforska tills du samlat 25 klick.</p>
+              <span class="achievement-status" data-state="locked" data-status-for="trigger-25" aria-live="polite">
+                <span class="achievement-status-text" data-status-text>Låst</span>
+              </span>
+            </article>
+
+            <article class="card achievement-item" data-achievement-key="trigger-50">
+              <h3>50 klick</h3>
+              <p class="small">Visa engagemang genom femtio interaktioner.</p>
+              <span class="achievement-status" data-state="locked" data-status-for="trigger-50" aria-live="polite">
+                <span class="achievement-status-text" data-status-text>Låst</span>
+              </span>
+            </article>
+
+            <article class="card achievement-item" data-achievement-key="trigger-100">
+              <h3>100 klick</h3>
+              <p class="small">Nå tresiffrigt antal klick och hitta den gömda cirkeln.</p>
+              <span class="achievement-status" data-state="locked" data-status-for="trigger-100" aria-live="polite">
+                <span class="achievement-status-text" data-status-text>Låst</span>
+              </span>
+            </article>
+
+            <article class="card achievement-item" data-achievement-key="trigger-500">
+              <h3>500 klick</h3>
+              <p class="small">Samla femhundra klick och bevisa din uthållighet.</p>
+              <span class="achievement-status" data-state="locked" data-status-for="trigger-500" aria-live="polite">
+                <span class="achievement-status-text" data-status-text>Låst</span>
+              </span>
+            </article>
+
+            <article class="card achievement-item" data-achievement-key="trigger-1000">
+              <h3>1000 klick</h3>
+              <p class="small">Ett tusen klick – nivån för riktiga superanvändare.</p>
+              <span class="achievement-status" data-state="locked" data-status-for="trigger-1000" aria-live="polite">
+                <span class="achievement-status-text" data-status-text>Låst</span>
+              </span>
+            </article>
+
+            <article class="card achievement-item" data-achievement-key="navigation-contact">
+              <h3>Pratglad</h3>
+              <p class="small">Besök kontaktsidan för första gången.</p>
+              <span class="achievement-status" data-state="locked" data-status-for="navigation-contact" aria-live="polite">
+                <span class="achievement-status-text" data-status-text>Låst</span>
+              </span>
+            </article>
+
+            <article class="card achievement-item" data-achievement-key="navigation-mittcv">
+              <h3>Rekryteraren</h3>
+              <p class="small">Öppna mitt CV och lär känna min bakgrund.</p>
+              <span class="achievement-status" data-state="locked" data-status-for="navigation-mittcv" aria-live="polite">
+                <span class="achievement-status-text" data-status-text>Låst</span>
+              </span>
+            </article>
+
+            <article class="card achievement-item" data-achievement-key="navigation-kod">
+              <h3>Utvecklaren</h3>
+              <p class="small">Navigera till JavaScript-sidan och se kodexemplen.</p>
+              <span class="achievement-status" data-state="locked" data-status-for="navigation-kod" aria-live="polite">
+                <span class="achievement-status-text" data-status-text>Låst</span>
+              </span>
+            </article>
+
+            <article class="card achievement-item" data-achievement-key="navigation-home">
+              <h3>Välkommen hem</h3>
+              <p class="small">Hitta tillbaka till startsidan efter att ha utforskat en annan sida.</p>
+              <span class="achievement-status" data-state="locked" data-status-for="navigation-home" aria-live="polite">
+                <span class="achievement-status-text" data-status-text>Låst</span>
+              </span>
+            </article>
+
+            <article class="card achievement-item" data-achievement-key="contact-form-submitted">
+              <h3>Tack för ditt meddelande!</h3>
+              <p class="small">Skicka kontaktformuläret och starta konversationen.</p>
+              <span class="achievement-status" data-state="locked" data-status-for="contact-form-submitted" aria-live="polite">
+                <span class="achievement-status-text" data-status-text>Låst</span>
+              </span>
+            </article>
+
+            <article class="card achievement-item" data-achievement-key="selector-.secret-circle">
+              <h3>Secret Finder</h3>
+              <p class="small">Lokalisera den gömda cirkeln och lås upp musikledtråden.</p>
+              <span class="achievement-status" data-state="locked" data-status-for="selector-.secret-circle" aria-live="polite">
+                <span class="achievement-status-text" data-status-text>Låst</span>
+              </span>
+            </article>
+
+            <article class="card achievement-item" data-achievement-key="light-mode-toggle">
+              <h3>Ljuset tänds!</h3>
+              <p class="small">Byt till ljust tema med ljusknappen i sidfoten.</p>
+              <span class="achievement-status" data-state="locked" data-status-for="light-mode-toggle" aria-live="polite">
+                <span class="achievement-status-text" data-status-text>Låst</span>
+              </span>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Site Footer -->
+  <footer class="footer-color" style="color: black;">
+    © <span id="year"></span> Anton Ahlm — Web designer &amp; developer</br>
+    <div style="margin-top: 8px; font-size: 12px; color: var(--muted); display: flex; justify-content: center; align-items: center;">
+      <input id="checkbox" type="checkbox" />
+      <label class="switch" for="checkbox">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="slider">
+          <path
+            d="M288 32c0-17.7-14.3-32-32-32s-32 14.3-32 32V256c0 17.7 14.3 32 32 32s32-14.3 32-32V32zM143.5 120.6c13.6-11.3 15.4-31.5 4.1-45.1s-31.5-15.4-45.1-4.1C49.7 115.4 16 181.8 16 256c0 132.5 107.5 240 240 240s240-107.5 240-240c0-74.2-33.8-140.6-86.6-184.6c-13.6-11.3-33.8-9.4-45.1 4.1s-9.4 33.8 4.1 45.1c38.9 32.3 63.5 81 63.5 135.4c0 97.2-78.8 176-176 176s-176-78.8-176-176c0-54.4 24.7-103.1 63.5-135.4z"
+          ></path>
+        </svg>
+      </label>
+    </div>
+    Light/dark
+  </footer>
+
+  <script src="../Scripts/portfolio.js"></script>
+  <script src="../Scripts/achievements.js"></script>
+  <script>
+    (function () {
+      const STORAGE_KEY = 'achievement-progress';
+      const endpointPath = '/api/achievements';
+      const isFileProtocol = window.location.protocol === 'file:';
+
+      const resolvedEndpoint = (function () {
+        if (isFileProtocol) {
+          return endpointPath;
+        }
+        try {
+          return new URL(endpointPath, window.location.origin).toString();
+        } catch (error) {
+          console.warn('Could not resolve achievement endpoint, using relative path.', error);
+          return endpointPath;
+        }
+      })();
+
+      const sanitizeProgress = (data) => {
+        const clicks = Number.isFinite(data && data.clicks) ? data.clicks : 0;
+        const unlocked = Array.isArray(data && data.unlocked) ? data.unlocked : [];
+        return { clicks, unlocked };
+      };
+
+      const readLocal = () => {
+        try {
+          const raw = window.localStorage.getItem(STORAGE_KEY);
+          if (!raw) {
+            return { clicks: 0, unlocked: [] };
+          }
+          return sanitizeProgress(JSON.parse(raw));
+        } catch (error) {
+          console.warn('Could not read achievement progress from localStorage.', error);
+          return { clicks: 0, unlocked: [] };
+        }
+      };
+
+      const loadProgress = async () => {
+        if (!isFileProtocol) {
+          try {
+            const response = await fetch(resolvedEndpoint, {
+              cache: 'no-store',
+              credentials: 'same-origin',
+              headers: { Accept: 'application/json' },
+            });
+            if (!response.ok) {
+              throw new Error('Server responded with ' + response.status);
+            }
+            const data = await response.json();
+            return { data: sanitizeProgress(data), mode: 'server' };
+          } catch (error) {
+            console.warn('Falling back to local achievements.', error);
+          }
+        }
+        return { data: readLocal(), mode: 'local' };
+      };
+
+      const formatNumber = (value) => {
+        try {
+          return Number(value || 0).toLocaleString('sv-SE');
+        } catch (error) {
+          return String(value || 0);
+        }
+      };
+
+      const updateUI = ({ data, mode }) => {
+        const items = document.querySelectorAll('[data-achievement-key]');
+        if (!items.length) {
+          return;
+        }
+
+        const total = items.length;
+        const unlockedKeys = new Set(data.unlocked || []);
+        let unlockedCount = 0;
+
+        items.forEach((item) => {
+          const key = item.getAttribute('data-achievement-key');
+          const status = item.querySelector('[data-status-for]');
+          const unlocked = key && unlockedKeys.has(key);
+          item.setAttribute('data-state', unlocked ? 'unlocked' : 'locked');
+          if (status) {
+            status.setAttribute('data-state', unlocked ? 'unlocked' : 'locked');
+            const statusText = status.querySelector('[data-status-text]');
+            if (statusText) {
+              statusText.textContent = unlocked ? 'Upplåst' : 'Låst';
+            }
+          }
+          if (unlocked) {
+            unlockedCount += 1;
+          }
+        });
+
+        const summaryUnlocked = document.querySelector('[data-summary="unlocked"]');
+        if (summaryUnlocked) {
+          summaryUnlocked.textContent = unlockedCount;
+        }
+
+        const summaryTotal = document.querySelector('[data-summary="total"]');
+        if (summaryTotal) {
+          summaryTotal.textContent = total;
+        }
+
+        const summaryClicks = document.querySelector('[data-summary="clicks"]');
+        if (summaryClicks) {
+          summaryClicks.textContent = formatNumber(data.clicks);
+        }
+
+        const summaryPercentage = document.querySelector('[data-summary="percentage"]');
+        if (summaryPercentage) {
+          const percentage = total > 0 ? Math.round((unlockedCount / total) * 100) : 0;
+          summaryPercentage.textContent = percentage + '%';
+        }
+
+        const summaryMode = document.querySelector('[data-summary="mode"]');
+        if (summaryMode) {
+          summaryMode.textContent = mode === 'server' ? 'Synkad' : 'Lokal lagring';
+        }
+
+        const emptyMessage = document.querySelector('[data-achievement-empty]');
+        if (emptyMessage) {
+          emptyMessage.hidden = unlockedCount > 0;
+        }
+      };
+
+      loadProgress()
+        .then((result) => {
+          updateUI(result);
+        })
+        .catch((error) => {
+          console.error('Failed to render achievement list.', error);
+          updateUI({ data: readLocal(), mode: 'local' });
+        });
+    })();
+  </script>
+</body>
+</html>
