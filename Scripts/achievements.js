@@ -48,7 +48,7 @@
       }
     };
 
-    // örsöker läsa från servern men faller tillbaka lokalt vid fel
+    // Försöker läsa från servern men faller tillbaka lokalt vid fel
     const load = async () => {
       if (mode === 'server') {
         try {
@@ -168,8 +168,9 @@
       if (dataset.triggerSubmit) return `submit-${dataset.triggerSubmit}`;
       if (dataset.triggerSelector) return `selector-${dataset.triggerSelector}`;
       if (!Number.isNaN(trigger)) return `trigger-${trigger}`;
-      if (dataset.triggerClick) return `click-${dataset.triggerClick}`;
-      return `index-${index}`;
+  if (dataset.triggerClick) return `click-${dataset.triggerClick}`;
+  if (dataset.triggerNavigation) return `navigation-${dataset.triggerNavigation}`;
+  return `index-${index}`;
     };
 
     // Visar ett nytt achievement-toast och sparar statusen
@@ -219,6 +220,66 @@
       persist();
       maybeUnlockAchievements();
     });
+
+    const extractSlugFromPath = (path) => {
+      if (typeof path !== 'string') return '';
+      const trimmed = path.trim();
+      if (!trimmed) return '';
+      const segments = trimmed.split('/').filter(Boolean);
+      if (!segments.length) return '';
+      const last = segments[segments.length - 1];
+      return last.replace(/\.[^.]+$/, '').toLowerCase();
+    };
+
+    const sanitizeNavigationTrigger = (value) => {
+      if (typeof value !== 'string') return '';
+      return extractSlugFromPath(value);
+    };
+
+    const resolveReferrerInfo = () => {
+      const ref = document.referrer;
+      if (!ref) return { isInternal: false, slug: '' };
+      try {
+        const base = window.location.href;
+        const refUrl = window.location.protocol === 'file:'
+          ? new URL(ref, base)
+          : new URL(ref);
+        const isInternal = window.location.protocol === 'file:'
+          ? refUrl.protocol === 'file:'
+          : refUrl.origin === window.location.origin;
+        const slug = extractSlugFromPath(refUrl.pathname || '');
+        return { isInternal, slug };
+      } catch (error) {
+        return { isInternal: false, slug: '' };
+      }
+    };
+
+    const currentSlug = extractSlugFromPath(window.location.pathname || '');
+    const { isInternal: cameFromInternalPage, slug: referrerSlug } = resolveReferrerInfo();
+
+    // Hanterar achievements som triggas vid sidnavigering
+    const navigationAchievements = items.reduce((acc, item, index) => {
+      const slug = sanitizeNavigationTrigger(item.dataset.triggerNavigation);
+      if (!slug) return acc;
+      acc.push({ item, slug, key: getKeyForItem(item, Number.NaN, index) });
+      return acc;
+    }, []);
+
+    const maybeUnlockNavigationAchievements = () => {
+      navigationAchievements.forEach(({ item, slug, key }) => {
+        if (unlocked.has(key)) return;
+        if (slug !== currentSlug) return;
+        if (slug === 'home') {
+          if (!cameFromInternalPage) return;
+          if (!referrerSlug || referrerSlug === slug) return;
+        }
+        showAchievement(item, key);
+      });
+    };
+
+    if (navigationAchievements.length) {
+      maybeUnlockNavigationAchievements();
+    }
 
     // Rensar och trimmar selektorer för att undvika felaktiga matcher
     const sanitizeSelector = (selector) => {
