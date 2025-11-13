@@ -1,0 +1,307 @@
+/* Additional styling for Kod.html interactive demos */
+
+.kod-hero {
+  background-image: url("../Images/Hero Picture Or dont 18.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh;
+}
+
+
+.kod-hero h1,
+#typing {
+  color: #ffffff;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.55);
+}
+
+.typing-message {
+  font-family: monospace;
+  margin: 0.5rem 0 1rem;
+  white-space: pre-wrap;
+  font-size: 1.2rem;
+  text-align: center;
+}
+
+#typing.typing-message {
+  width: 90vw;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  white-space: pre-wrap;
+  overflow: hidden;
+}
+
+.dice-emphasis {
+  font-size: 1.5em;
+}
+
+.program-section {
+  margin: 0.5rem 0 1rem;
+}
+
+.program-label {
+  display: block;
+  margin-bottom: 0.3rem;
+  font-weight: 600;
+}
+
+.program-form,
+.program-controls {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.program-form--wrap {
+  flex-wrap: wrap;
+}
+
+.program-form--spaced,
+.program-controls--spaced {
+  margin: 0.5rem 0;
+}
+
+.program-input {
+  background: var(--program-input-bg);
+  color: var(--program-input-color);
+  border: 1px solid var(--program-input-border);
+  border-radius: 6px;
+  padding: 0.4rem;
+  font-size: 1rem;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.program-input:focus {
+  outline: none;
+  border-color: rgba(122, 252, 255, 0.6);
+  box-shadow: 0 0 0 3px rgba(122, 252, 255, 0.25);
+}
+
+.program-input--grow {
+  flex: 1 1 0%;
+}
+
+.program-input--short {
+  width: 8rem;
+}
+
+.program-input--narrow {
+  width: 6rem;
+}
+
+.program-input--wide {
+  min-width: 10rem;
+}
+
+.program-textarea {
+  width: 100%;
+  min-height: 7rem;
+  margin-bottom: 0.4rem;
+  box-sizing: border-box;
+  font-family: monospace;
+}
+
+.program-counter {
+  font-size: 0.95rem;
+  color: var(--muted);
+  white-space: nowrap;
+}
+
+.program-subheading {
+  margin: 0.4rem 0 0.2rem;
+  font-weight: 600;
+}
+
+.program-output,
+.program-preview {
+  background: var(--program-output-bg);
+  color: var(--program-output-color);
+  border-radius: 6px;
+  border: 1px solid var(--program-output-border);
+  padding: 0.6rem;
+  white-space: pre-wrap;
+  margin: 0;
+}
+
+.program-preview {
+  font-family: monospace;
+  min-height: 3rem;
+}
+
+.program-output--note {
+  background: none;
+  border: 0;
+  padding: 0;
+  margin: 0.5rem 0 1rem;
+  font-family: monospace;
+  font-size: 1.2rem;
+  color: var(--text);
+  white-space: pre-wrap;
+}
+
+.program-output--block {
+  margin-top: 0.5rem;
+  min-height: 2.2rem;
+  font-family: monospace;
+}
+
+.program-output--scroll {
+  margin-top: 0.5rem;
+  max-height: 320px;
+  overflow: auto;
+  font-family: monospace;
+}
+
+.program-result {
+  margin-top: 0.5rem;
+  font-weight: 600;
+}
+
+.program-info {
+  margin: 0.25rem 0;
+  font-size: 0.95rem;
+  color: var(--muted);
+}
+
+.program-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.program-list-item {
+  padding: 0.15rem 0;
+}
+
+.program-list-item--three {
+  color: #6a0dad;
+}
+
+.program-list-item--two {
+  color: #d2691e;
+}
+
+.program-list-item--one {
+  color: #007700;
+}
+
+.program-list-item--zero {
+  color: var(--program-output-color);
+}
+
+
+/* Demo widgets on the code samples page */
+.Koder {
+  margin-bottom: 60px;
+  padding: 30px;
+  border: 5px solid var(--program-input-border);
+  border-radius: var(--radius);
+  background-color: transparent;
+}
+
+.Koder button:not(.cta) {
+  margin-top: 10px;
+  color: var(--text);
+  background-color: var(--bg);
+  border: 1px solid var(--muted);
+  padding: 15px 20px;
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.Koder button:not(.cta):hover {
+  background-color: var(--muted);
+  color: var(--bg);
+}
+
+.Koder input:not(.program-input),
+.Koder textarea:not(.program-input),
+.Koder select:not(.program-input) {
+  margin-top: 10px;
+  padding: 10px;
+  border-radius: var(--radius);
+  border: 1px solid var(--program-input-border);
+  background-color: var(--program-input-bg);
+  color: var(--program-input-color);
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+.Koder input:not(.program-input):focus,
+.Koder textarea:not(.program-input):focus,
+.Koder select:not(.program-input):focus {
+  outline: none;
+  border-color: rgba(122, 252, 255, 0.6);
+  box-shadow: 0 0 0 2px rgba(122, 252, 255, 0.18);
+}
+
+.Koder .program-output {
+  background-color: var(--program-output-bg);
+  color: var(--program-output-color);
+  border: 1px solid var(--program-output-border);
+  border-radius: var(--radius);
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+/* Styles for dice game in Kod.html */
+.container-dice {
+  width: 100%;
+  text-align: center;
+  margin-bottom: 60px;
+  padding: 10px;
+  border: 5px solid var(--program-input-border);
+  border-radius: var(--radius);
+  background-color: transparent;
+}
+
+.dice {
+  text-align: center;
+  display: inline-block;
+}
+
+.h1dice {
+  margin: 2rem;
+  font-family: 'Lobster', cursive;
+  text-shadow: 5px 0 #232931;
+  font-size: 3rem;
+  color: #4ECCA3;
+}
+
+@media (max-width: 700px) {
+  .h1dice {
+    font-size: 1.6rem;
+  }
+}
+
+.pdice {
+  font-size: 1.5rem;
+  color: #4ECCA3;
+  font-family: 'Indie Flower', cursive;
+}
+
+.imgdice1, .imgdice2 {
+  width: 100%;
+  max-width: 150px;;
+}
+
+.button-dice {
+  background-color: #232931;
+  border: 2px solid #4ECCA3;
+  color: #4ECCA3;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-family: cursive;
+  font-size: 1.5rem;
+  margin: 20px;
+  cursor: pointer;
+  border-radius: 12px;
+}
+
+.flex-container {
+  display: flex;
+  justify-content: center;
+  gap: 60px;
+}
