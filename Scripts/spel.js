@@ -274,7 +274,32 @@ function showNotWorthy() {
     heading.textContent = 'Du är inte värdig.';
     
     const paragraph = document.createElement('p');
-    paragraph.textContent = 'Du valde fel vapen och förlorade mot utmanaren.';
+    paragraph.textContent = 'Du valde fel vapen och förlorade mot den överlägsna utmanaren.';
+    
+    const retryButton = document.createElement('button');
+    retryButton.type = 'button';
+    retryButton.className = 'retry-button';
+    retryButton.textContent = 'Spela igen';
+    retryButton.addEventListener('click', () => resetGame(gameElement));
+    
+    gameElement.append(heading, paragraph, retryButton);
+}
+
+// Show "You are not worthy" message with retry button
+function showNotWorthyprompt() {
+    const gameElement = document.querySelector('.game.started');
+    if (!gameElement) {
+        return;
+    }
+    
+    gameElement.innerHTML = '';
+    
+    const heading = document.createElement('h1');
+    heading.style.lineHeight = '1';
+    heading.textContent = 'Du är inte värdig.';
+    
+    const paragraph = document.createElement('p');
+    paragraph.textContent = 'Du har ett uselt minne och har redan glömt bort ditt mål.';
     
     const retryButton = document.createElement('button');
     retryButton.type = 'button';
@@ -349,7 +374,7 @@ function quiz() {
         if (answer.toLowerCase().trim() === correctAnswer.toLowerCase()) {
             afterquiz();
         } else {
-            showNotWorthy();
+            showNotWorthyprompt();
         }
     });
     
