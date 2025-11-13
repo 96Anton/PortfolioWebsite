@@ -6,12 +6,12 @@
   --muted: #9fb3cc;
   --radius: 12px;
   --instagram: linear-gradient(0deg, #feda75  0%, #fa7e1e  25%, #d62976  50%, #962fbf  75%, #4f5bd5  100%);
-  --program-input-bg: var(--muted);
-  --program-input-color: var(--bg);
-  --program-input-border: rgba(255, 255, 255, 0.14);
-  --program-output-bg: rgba(255, 255, 255, 0.08);
+  --program-input-bg: #e6eef8;
+  --program-input-color: #000000;
+  --program-input-border: rgba(151, 243, 255, 0.626);
+  --program-output-bg: var(--bg);
   --program-output-color: #e6eef8;
-  --program-output-border: rgba(255, 255, 255, 0.12);
+  --program-output-border: rgba(151, 243, 255, 0.626);
   --footer-bg: rgb(21, 32, 52);
   color-scheme: dark;
 }
@@ -252,13 +252,6 @@ nav ul {
   }
 }
 
-.kod-hero {
-  background-image: url("../Images/Hero Picture Or dont 18.jpg");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  height: 100vh;
-}
 
 .hero .grad {
   position: absolute;
@@ -297,11 +290,6 @@ nav ul {
   will-change: transform;
 }
 
-.kod-hero h1,
-#typing {
-  color: #ffffff;
-  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.55);
-}
 
 .hero.hero-static .grad::before {
   animation: none;
@@ -774,61 +762,6 @@ footer {
 
 }
 
-/* Demo widgets on the code samples page */
-.Koder {
-  margin-bottom: 50px;
-  padding: 40px;
-  border: 1px solid var(--muted);
-  border-radius: var(--radius);
-  background-color: var(--glass);
-}
-
-.Koder button {
-  margin-top: 10px;
-  color: var(--text);
-  background-color: var(--bg);
-  border: 1px solid var(--muted);
-  padding: 15px 20px;
-  border-radius: var(--radius);
-  cursor: pointer;
-  transition: background-color 0.2s ease;
-}
-
-.Koder button:hover {
-  background-color: var(--muted);
-  color: var(--bg);
-}
-
-.Koder input,
-.Koder textarea,
-.Koder select,
-.Koder .program-input {
-  margin-top: 10px;
-  padding: 10px;
-  border-radius: var(--radius);
-  border: 1px solid var(--program-input-border);
-  background-color: var(--program-input-bg);
-  color: var(--program-input-color);
-  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
-}
-
-.Koder input:focus,
-.Koder textarea:focus,
-.Koder select:focus,
-.Koder .program-input:focus {
-  outline: none;
-  border-color: rgba(122, 252, 255, 0.6);
-  box-shadow: 0 0 0 2px rgba(122, 252, 255, 0.18);
-}
-
-.Koder .program-output {
-  background-color: var(--program-output-bg);
-  color: var(--program-output-color);
-  border: 1px solid var(--program-output-border);
-  border-radius: var(--radius);
-  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
-}
-
 /* Hero background for the interactive code page */
 #heroImage {
   width: 100%;
@@ -1254,3 +1187,10 @@ body[data-theme="light"] #contactForm textarea:focus {
 #checkbox:checked + .switch svg path {
   fill: rgb(255, 255, 255);
 }
+
+ input::placeholder,
+ textarea::placeholder {
+  color: #000;
+  opacity: 1;
+}
+
