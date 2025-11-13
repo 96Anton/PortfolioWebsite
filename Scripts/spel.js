@@ -440,10 +440,10 @@ function findit() {
     ];
     
     // Randomly select which div will be the correct one (0-11)
-    const correctDivIndex = Math.floor(Math.random() * 12);
+    const correctDivIndex = Math.floor(Math.random() * 6);
     
     // Create 6 hidden divs
-    for (let i = 0; i < 5; i++) {
+    for (let i = 0; i < 6; i++) {
         const hiddenDiv = document.createElement('div');
         hiddenDiv.className = 'hiddenDiv';
         
