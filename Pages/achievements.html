@@ -73,9 +73,29 @@
     body[data-theme="light"] .achievement-status[data-state="unlocked"] {
       color: #006e82;
     }
+
+    @media (max-width: 600px) {
+      .hero-content {
+        grid-template-columns: minmax(0, 1fr);
+        justify-items: stretch;
+      }
+
+      .hero-content > .intro,
+      .hero-content > .card {
+        width: 100%;
+        justify-self: stretch;
+      }
+      h1 {
+        font-size: 2rem; 
+      }
+    }
+
+
   </style>
 </head>
 <body>
+  <div class="container-all">
+
   <header>
     <!-- Primary navigation and branding -->
     <div class="nav" role="navigation" aria-label="Top navigation">
@@ -100,19 +120,20 @@
     </div>
   </header>
 
-  <main>
-    <section class="hero hero-static" id="achievements" aria-label="Achievementssammanfattning" style="height: 100vh;">
+
+
+ <main>
+    <!-- Hero Section -->
+    <section class="hero" id="home" aria-label="Hero" style="min-height: 100dvh; margin-bottom: 60px;">
       <div class="grad" aria-hidden="true"></div>
 
-      <div class="hero-content container">
-        <div class="intro firstintro" role="region" aria-label="Introduktion" style="min-height: 300px;">
+      <div class="hero-content container" style="padding-bottom: 50px;">
+        <div class="intro firstintro" role="region" aria-label="Intro">
           <h1>Achievements</h1>
-          <p>
-            Här samlas alla prestationer som går att låsa upp i portföljen. Uppdateringarna sparas automatiskt,
-            så du kan alltid återvända hit och följa din progression.
-          </br></br>
-          </p>
-          <div class="cta-row">
+          <p class="sub">Här samlas alla prestationer som går att låsa upp i portföljen. Uppdateringarna sparas automatiskt,
+            så du kan alltid återvända hit och följa din progression.</br></br></p>
+
+           <div class="cta-row">
             <a class="cta" href="../home.html">Till startsidan</a>
             <a class="ghost" href="./contact.html">Kontakta mig</a>
           </div>
@@ -137,6 +158,8 @@
         </aside>
       </div>
     </section>
+    
+    
 
     <section aria-label="Lista över achievements">
       <div class="container">
@@ -263,6 +286,14 @@
                 <span class="achievement-status-text" data-status-text>Låst</span>
               </span>
             </article>
+
+            <article class="card achievement-item" data-achievement-key="den-utvalda">
+              <h3>Den utvalda</h3>
+              <p class="small">Vinn spelet och bevisa din värdighet.</p>
+              <span class="achievement-status" data-state="locked" data-status-for="den-utvalda" aria-live="polite">
+                <span class="achievement-status-text" data-status-text>Låst</span>
+              </span>
+
           </div>
         </div>
       </div>
@@ -350,13 +381,21 @@
       <p>Du hittade hemsidans ljusa läge.</p>
     </article>
 
+    <article class="achievement cta"
+        data-trigger-selector=".game-victory"
+        data-duration="12000"
+        data-achievement-id="den-utvalda"
+        style="color: black; border: none;">
+      <h2>Den utvalda</h2>
+      <p>Du vann spelet och bevisade dig värdig.</p>
+    </article>
 </section>
 
 
   </main>
 
   <!-- Site Footer -->
-  <footer class="footer-color" style="color: black;">
+  <footer class="footer-color" style="color: black; margin-top: 120px;">
     © <span id="year"></span> Anton Ahlm — Web designer &amp; developer</br>
     <div style="margin-top: 8px; font-size: 12px; color: var(--muted); display: flex; justify-content: center; align-items: center;">
       <input id="checkbox" type="checkbox" />
@@ -375,4 +414,6 @@
   <script src="../Scripts/achievements.js"></script>
   <script src="../Scripts/achieve.js"></script>
 </body>
+</div>
+
 </html>
