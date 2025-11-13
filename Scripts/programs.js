@@ -1,4 +1,50 @@
 // Interactive demos for Kod.html consolidated into one file.
+
+const emphasiseDiceLetter = (letter) => `<span class="dice-emphasis">${letter}</span>`;
+
+function getRandomDiceImage() {
+	const randomNumber1 = Math.floor(Math.random() * 6) + 1;
+	const randomDiceImage = "dice" + randomNumber1 + ".png";
+	const img1 = document.querySelector(".imgdice1");
+	if (img1) {
+		img1.setAttribute("src", "../Styles/images/" + randomDiceImage);
+	}
+
+	const randomNumber2 = Math.floor(Math.random() * 6) + 1;
+	const randomDiceImage2 = "dice" + randomNumber2 + ".png";
+	const img2 = document.querySelector(".imgdice2");
+	if (img2) {
+		img2.setAttribute("src", "../Styles/images/" + randomDiceImage2);
+	}
+
+	const heading = document.querySelector(".h1dice");
+	if (!heading) return;
+
+	if (randomNumber1 > randomNumber2) {
+		heading.innerHTML = `🎲 ${emphasiseDiceLetter('S')}pelare ${emphasiseDiceLetter('1')}  ${emphasiseDiceLetter('V')}inner!`;
+	} else if (randomNumber2 > randomNumber1) {
+		heading.innerHTML = `${emphasiseDiceLetter('S')}pelare ${emphasiseDiceLetter('2')}  ${emphasiseDiceLetter('V')}inner! 🎲`;
+	} else {
+		heading.innerHTML = `🎲${emphasiseDiceLetter('O')}avgjort! 🎲`;
+	}
+}
+
+document.addEventListener(
+	"DOMContentLoaded",
+	() => {
+		const btn = document.querySelector(".button-dice");
+		if (!btn) return;
+
+		// ensure it won't submit a form if placed inside one
+		if (btn.tagName.toLowerCase() === "button" && !btn.getAttribute("type")) {
+			btn.setAttribute("type", "button");
+		}
+
+		btn.addEventListener("click", getRandomDiceImage);
+	},
+	{ once: true }
+);
+
 (function () {
 	const ready = (fn) => {
 		if (document.readyState === 'loading') {
@@ -60,13 +106,9 @@
 		if (!container) {
 			container = document.createElement('div');
 			container.id = 'typing';
-			container.style.fontFamily = 'monospace';
-			container.style.margin = '0.5rem 0 1rem';
-			container.style.whiteSpace = 'pre-wrap';
-			container.style.fontSize = '1.2em';
-			container.style.textAlign = 'center';
 			heading.insertAdjacentElement('afterend', container);
 		}
+		container.classList.add('typing-message');
 
 		let index = 0;
 		(function step() {
@@ -89,33 +131,23 @@
 
 		const notaContainer = document.createElement('div');
 		notaContainer.id = 'nota';
-		notaContainer.style.fontFamily = 'monospace';
-		notaContainer.style.margin = '0.5rem 0 1rem';
-		notaContainer.style.whiteSpace = 'pre-wrap';
-		notaContainer.style.fontSize = '1.2em';
 		applyProgramOutput(notaContainer);
+		notaContainer.classList.add('program-output--note');
 
 		const form = document.createElement('div');
-		form.style.display = 'flex';
-		form.style.gap = '0.5rem';
-		form.style.alignItems = 'center';
-		form.style.margin = '0.5rem 0';
+		form.classList.add('program-form', 'program-form--spaced');
 
 		const input = document.createElement('input');
 		input.type = 'text';
 		input.id = 'namesInput';
 		input.placeholder = 'Ange namn, separera med kommatecken';
-		input.style.flex = '1';
-		input.style.padding = '0.4rem';
-		input.style.fontSize = '1rem';
 		applyProgramInput(input);
+		input.classList.add('program-input--grow');
 
 		const button = document.createElement('button');
 		button.type = 'button';
 		button.textContent = 'Vem betalar?';
-		button.style.padding = '0.4rem 0.6rem';
-		button.style.fontSize = '1rem';
-		button.style.cursor = 'pointer';
+		button.classList.add('cta');
 
 		form.appendChild(input);
 		form.appendChild(button);
@@ -182,45 +214,31 @@
 		const MAX = 140;
 		const container = document.createElement('div');
 		container.dataset.program = 'char-count';
-		container.style.margin = '0.5rem 0 1rem';
-		container.style.fontFamily = 'system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial';
+		container.classList.add('program-section');
 
 		const label = document.createElement('label');
 		label.htmlFor = 'weatherInput';
 		label.textContent = 'Skriv din text (max 140 tecken):';
-		label.style.display = 'block';
-		label.style.marginBottom = '0.3rem';
+		label.classList.add('program-label');
 
 		const textarea = document.createElement('textarea');
 		textarea.id = 'weatherInput';
 		textarea.rows = 4;
 		textarea.maxLength = MAX;
 		textarea.placeholder = 'Skriv här...';
-		textarea.style.width = '100%';
-		textarea.style.padding = '0.4rem';
-		textarea.style.boxSizing = 'border-box';
-		textarea.style.fontSize = '1rem';
-		textarea.style.fontFamily = 'monospace';
-		textarea.style.marginBottom = '0.4rem';
 		applyProgramInput(textarea);
+		textarea.classList.add('program-textarea');
 
 		const controls = document.createElement('div');
-		controls.style.display = 'flex';
-		controls.style.alignItems = 'center';
-		controls.style.gap = '0.5rem';
-		controls.style.marginBottom = '0.5rem';
-		controls.style.color = 'var(--text)';
+		controls.classList.add('program-controls', 'program-controls--spaced');
 
 		const button = document.createElement('button');
 		button.type = 'button';
 		button.textContent = 'Visa förhandsgranskning';
-		button.style.padding = '0.4rem 0.6rem';
-		button.style.cursor = 'pointer';
+		button.classList.add('cta');
 
 		const counter = document.createElement('div');
-		counter.style.fontSize = '0.95rem';
-		counter.style.color = 'var(--muted)';
-		counter.style.whiteSpace = 'nowrap';
+		counter.classList.add('program-counter');
 		counter.textContent = `0 / ${MAX}`;
 
 		controls.appendChild(button);
@@ -228,18 +246,11 @@
 
 		const previewLabel = document.createElement('div');
 		previewLabel.textContent = 'Förhandsgranskning:';
-		previewLabel.style.margin = '0.4rem 0 0.2rem';
-		previewLabel.style.fontWeight = '600';
+		previewLabel.classList.add('program-subheading');
 
 		const preview = document.createElement('pre');
-		preview.style.background = 'var(--program-output-bg)';
-		preview.style.padding = '0.6rem';
-		preview.style.whiteSpace = 'pre-wrap';
-		preview.style.borderRadius = '4px';
-		preview.style.minHeight = '3rem';
-		preview.style.margin = '0';
-		preview.style.color = 'var(--program-output-color)';
 		applyProgramOutput(preview);
+		preview.classList.add('program-preview');
 
 		container.appendChild(label);
 		container.appendChild(textarea);
@@ -276,39 +287,31 @@
 
 		const container = document.createElement('div');
 		container.dataset.program = 'dog-years';
-		container.style.margin = '0.5rem 0 1rem';
-		container.style.fontFamily = 'system-ui, -apple-system, "Segoe UI", Roboto, Arial';
+		container.classList.add('program-section');
 
 		const label = document.createElement('label');
 		label.textContent = 'Ange din hunds ålder (år):';
-		label.style.display = 'block';
-		label.style.marginBottom = '0.3rem';
+		label.classList.add('program-label');
 
 		const controls = document.createElement('div');
-		controls.style.display = 'flex';
-		controls.style.alignItems = 'center';
-		controls.style.gap = '0.5rem';
+		controls.classList.add('program-controls');
 
 		const input = document.createElement('input');
 		input.type = 'number';
 		input.min = '0';
 		input.step = '0.1';
 		input.placeholder = 'e.g. 3.5';
-		input.style.padding = '0.4rem';
-		input.style.fontSize = '1rem';
-		input.style.width = '8rem';
 		applyProgramInput(input);
+		input.classList.add('program-input--short');
 
 		const button = document.createElement('button');
 		button.type = 'button';
 		button.textContent = 'Räkna ut';
-		button.style.padding = '0.4rem 0.6rem';
-		button.style.cursor = 'pointer';
+		button.classList.add('cta');
 
 		const result = document.createElement('div');
-		result.style.marginTop = '0.5rem';
-		result.style.fontWeight = '600';
 		applyProgramOutput(result);
+		result.classList.add('program-result');
 
 		controls.appendChild(input);
 		controls.appendChild(button);
@@ -354,35 +357,28 @@
 
 		const container = document.createElement('div');
 		container.dataset.program = 'guest-list';
-		container.style.margin = '0.5rem 0 1rem';
-		container.style.fontFamily = 'system-ui, -apple-system, "Segoe UI", Roboto, Arial';
+		container.classList.add('program-section');
 
 		const form = document.createElement('div');
-		form.style.display = 'flex';
-		form.style.gap = '0.5rem';
-		form.style.alignItems = 'center';
+		form.classList.add('program-form');
 
 		const input = document.createElement('input');
 		input.type = 'text';
 		input.placeholder = 'Skriv ditt namn här';
-		input.style.flex = '1';
-		input.style.padding = '0.4rem';
-		input.style.fontSize = '1rem';
 		applyProgramInput(input);
+		input.classList.add('program-input--grow');
 
 		const button = document.createElement('button');
 		button.type = 'button';
 		button.textContent = 'Kolla gästlista';
-		button.style.padding = '0.4rem 0.6rem';
-		button.style.cursor = 'pointer';
+		button.classList.add('cta');
 
 		form.appendChild(input);
 		form.appendChild(button);
 
 		const result = document.createElement('div');
-		result.style.marginTop = '0.4rem';
-		result.style.fontWeight = '600';
 		applyProgramOutput(result);
+		result.classList.add('program-result');
 
 		container.appendChild(form);
 		container.appendChild(result);
@@ -423,39 +419,31 @@
 
 		const container = document.createElement('div');
 		container.dataset.program = 'leap-year';
-		container.style.margin = '0.5rem 0 1rem';
-		container.style.fontFamily = 'system-ui, -apple-system, "Segoe UI", Roboto, Arial';
+		container.classList.add('program-section');
 
 		const label = document.createElement('label');
 		label.textContent = 'Ange ett år för att se om det är ett skottår:';
-		label.style.display = 'block';
-		label.style.marginBottom = '0.3rem';
+		label.classList.add('program-label');
 
 		const controls = document.createElement('div');
-		controls.style.display = 'flex';
-		controls.style.gap = '0.5rem';
-		controls.style.alignItems = 'center';
+		controls.classList.add('program-controls');
 
 		const input = document.createElement('input');
 		input.type = 'number';
 		input.min = '0';
 		input.step = '1';
 		input.placeholder = 't.ex. 2024';
-		input.style.padding = '0.4rem';
-		input.style.fontSize = '1rem';
-		input.style.width = '8rem';
 		applyProgramInput(input);
+		input.classList.add('program-input--short');
 
 		const button = document.createElement('button');
 		button.type = 'button';
 		button.textContent = 'Kontrollera';
-		button.style.padding = '0.4rem 0.6rem';
-		button.style.cursor = 'pointer';
+		button.classList.add('cta');
 
 		const result = document.createElement('div');
-		result.style.marginTop = '0.5rem';
-		result.style.fontWeight = '600';
 		applyProgramOutput(result);
+		result.classList.add('program-result');
 
 		controls.appendChild(input);
 		controls.appendChild(button);
@@ -520,54 +508,35 @@
 
 		const container = document.createElement('div');
 		container.dataset.program = 'love-tester';
-		container.style.margin = '0.5rem 0 1rem';
-		container.style.fontFamily = 'system-ui, -apple-system, "Segoe UI", Roboto, Arial';
+		container.classList.add('program-section');
 
 		const form = document.createElement('div');
-		form.style.display = 'flex';
-		form.style.flexWrap = 'wrap';
-		form.style.gap = '0.5rem';
-		form.style.alignItems = 'center';
+		form.classList.add('program-form', 'program-form--wrap');
 
 		const input1 = document.createElement('input');
 		input1.type = 'text';
 		input1.placeholder = 'Namn på person 1';
-		input1.style.flex = '1';
-		input1.style.minWidth = '10rem';
-		input1.style.padding = '0.4rem';
-		input1.style.fontSize = '1rem';
 		applyProgramInput(input1);
+		input1.classList.add('program-input--grow', 'program-input--wide');
 
 		const input2 = document.createElement('input');
 		input2.type = 'text';
 		input2.placeholder = 'Namn på person 2';
-		input2.style.flex = '1';
-		input2.style.minWidth = '10rem';
-		input2.style.padding = '0.4rem';
-		input2.style.fontSize = '1rem';
 		applyProgramInput(input2);
+		input2.classList.add('program-input--grow', 'program-input--wide');
 
 		const button = document.createElement('button');
 		button.type = 'button';
 		button.textContent = 'Kontrollera kärlekskompabilitet';
-		button.style.padding = '0.4rem 0.6rem';
-		button.style.cursor = 'pointer';
+		button.classList.add('cta');
 
 		form.appendChild(input1);
 		form.appendChild(input2);
 		form.appendChild(button);
 
 		const result = document.createElement('pre');
-		result.style.marginTop = '0.5rem';
-		result.style.fontWeight = '600';
-		result.style.whiteSpace = 'pre-wrap';
-		result.style.background = 'var(--program-output-bg)';
-		result.style.padding = '0.6rem';
-		result.style.borderRadius = '4px';
-		result.style.minHeight = '2.2rem';
-		result.style.margin = '0.5rem 0 0';
-		result.style.color = 'var(--program-output-color)';
 		applyProgramOutput(result);
+		result.classList.add('program-output--block');
 
 		container.appendChild(form);
 		container.appendChild(result);
@@ -618,39 +587,31 @@
 
 		const container = document.createElement('div');
 		container.dataset.program = 'life-calculator';
-		container.style.margin = '0.5rem 0 1rem';
-		container.style.fontFamily = 'system-ui, -apple-system, "Segoe UI", Roboto, Arial';
+		container.classList.add('program-section');
 
 		const label = document.createElement('label');
 		label.textContent = 'Ange din ålder i år:';
-		label.style.display = 'block';
-		label.style.marginBottom = '0.3rem';
+		label.classList.add('program-label');
 
 		const controls = document.createElement('div');
-		controls.style.display = 'flex';
-		controls.style.gap = '0.5rem';
-		controls.style.alignItems = 'center';
+		controls.classList.add('program-controls');
 
 		const input = document.createElement('input');
 		input.type = 'number';
 		input.min = '0';
 		input.step = '0.1';
 		input.placeholder = 't.ex. 29.5';
-		input.style.padding = '0.4rem';
-		input.style.fontSize = '1rem';
-		input.style.width = '8rem';
 		applyProgramInput(input);
+		input.classList.add('program-input--short');
 
 		const button = document.createElement('button');
 		button.type = 'button';
 		button.textContent = 'Beräkna';
-		button.style.padding = '0.4rem 0.6rem';
-		button.style.cursor = 'pointer';
+		button.classList.add('cta');
 
 		const result = document.createElement('div');
-		result.style.marginTop = '0.5rem';
-		result.style.fontWeight = '600';
 		applyProgramOutput(result);
+		result.classList.add('program-result');
 
 		controls.appendChild(input);
 		controls.appendChild(button);
@@ -698,55 +659,37 @@
 
 		const container = document.createElement('div');
 		container.dataset.program = 'fizzbuzz';
-		container.style.margin = '0.5rem 0 1rem';
-		container.style.fontFamily = 'system-ui, -apple-system, "Segoe UI", Roboto, Arial';
+		container.classList.add('program-section');
 
 		const label = document.createElement('label');
 		label.textContent = 'FizzBuzz (kontrollera delbarhet med 2, 3 och 5). Ange högsta tal:';
-		label.style.display = 'block';
-		label.style.marginBottom = '0.3rem';
+		label.classList.add('program-label');
 
 		const controls = document.createElement('div');
-		controls.style.display = 'flex';
-		controls.style.gap = '0.5rem';
-		controls.style.alignItems = 'center';
-		controls.style.marginBottom = '0.5rem';
+		controls.classList.add('program-controls', 'program-controls--spaced');
 
 		const input = document.createElement('input');
 		input.type = 'number';
 		input.min = '1';
 		input.max = '10000';
 		input.value = '10';
-		input.style.padding = '0.4rem';
-		input.style.fontSize = '1rem';
-		input.style.width = '8rem';
 		applyProgramInput(input);
+		input.classList.add('program-input--short');
 
 		const button = document.createElement('button');
 		button.type = 'button';
 		button.textContent = 'Kör FizzBuzz';
-		button.style.padding = '0.4rem 0.6rem';
-		button.style.cursor = 'pointer';
+		button.classList.add('cta');
 
 		controls.appendChild(input);
 		controls.appendChild(button);
 
 		const outputInfo = document.createElement('div');
-		outputInfo.style.margin = '0.25rem 0';
-		outputInfo.style.fontSize = '0.95rem';
-		outputInfo.style.color = 'var(--muted)';
+		outputInfo.classList.add('program-info');
 
 		const result = document.createElement('div');
-		result.style.marginTop = '0.5rem';
-		result.style.padding = '0.5rem';
-		result.style.background = 'var(--program-output-bg)';
-		result.style.borderRadius = '6px';
-		result.style.maxHeight = '320px';
-		result.style.overflow = 'auto';
-		result.style.fontFamily = 'monospace';
-		result.style.whiteSpace = 'pre-wrap';
-		result.style.color = 'var(--program-output-color)';
 		applyProgramOutput(result);
+		result.classList.add('program-output--scroll');
 
 		container.appendChild(label);
 		container.appendChild(controls);
@@ -780,9 +723,7 @@
 			}
 
 			const list = document.createElement('ul');
-			list.style.listStyle = 'none';
-			list.style.padding = '0';
-			list.style.margin = '0';
+			list.classList.add('program-list');
 
 			for (let i = 1; i <= n; i++) {
 				const divisors = [];
@@ -797,15 +738,15 @@
 				}
 
 				const item = document.createElement('li');
-				item.style.padding = '0.15rem 0';
+				item.classList.add('program-list-item');
 				if (divisors.length === 3) {
-					item.style.color = '#6a0dad';
+					item.classList.add('program-list-item--three');
 				} else if (divisors.length === 2) {
-					item.style.color = '#d2691e';
+					item.classList.add('program-list-item--two');
 				} else if (divisors.length === 1) {
-					item.style.color = '#007700';
+					item.classList.add('program-list-item--one');
 				} else {
-					item.style.color = 'var(--program-output-color)';
+					item.classList.add('program-list-item--zero');
 				}
 
 				if (divisors.length === 0) {
@@ -844,49 +785,34 @@
 
 		const container = document.createElement('div');
 		container.dataset.program = 'fibonacci';
-		container.style.margin = '0.5rem 0 1rem';
-		container.style.fontFamily = 'system-ui, -apple-system, "Segoe UI", Roboto, Arial';
+		container.classList.add('program-section');
 
 		const label = document.createElement('label');
 		label.textContent = 'Generera Fibonacci-sekvens (antal tal):';
-		label.style.display = 'block';
-		label.style.marginBottom = '0.3rem';
+		label.classList.add('program-label');
 
 		const controls = document.createElement('div');
-		controls.style.display = 'flex';
-		controls.style.gap = '0.5rem';
-		controls.style.alignItems = 'center';
+		controls.classList.add('program-controls');
 
 		const input = document.createElement('input');
 		input.type = 'number';
 		input.min = '0';
 		input.max = '500';
 		input.value = '10';
-		input.style.width = '6rem';
-		input.style.padding = '0.4rem';
-		input.style.fontSize = '1rem';
 		applyProgramInput(input);
+		input.classList.add('program-input--narrow');
 
 		const button = document.createElement('button');
 		button.type = 'button';
 		button.textContent = 'Generera';
-		button.style.padding = '0.4rem 0.6rem';
-		button.style.cursor = 'pointer';
+		button.classList.add('cta');
 
 		const info = document.createElement('div');
-		info.style.marginTop = '0.4rem';
-		info.style.fontSize = '0.95rem';
-		info.style.color = 'var(--muted)';
+		info.classList.add('program-info');
 
 		const output = document.createElement('pre');
-		output.style.marginTop = '0.5rem';
-		output.style.whiteSpace = 'pre-wrap';
-		output.style.background = 'var(--program-output-bg)';
-		output.style.padding = '0.6rem';
-		output.style.borderRadius = '4px';
-		output.style.fontFamily = 'monospace';
-		output.style.color = 'var(--program-output-color)';
 		applyProgramOutput(output);
+		output.classList.add('program-output--block');
 
 		container.appendChild(label);
 		container.appendChild(controls);
@@ -958,51 +884,34 @@
 
 		const container = document.createElement('div');
 		container.dataset.program = 'bottles';
-		container.style.margin = '0.5rem 0 1rem';
-		container.style.fontFamily = 'system-ui, -apple-system, "Segoe UI", Roboto, Arial';
+		container.classList.add('program-section');
 
 		const label = document.createElement('label');
 		label.textContent = 'Ange antal flaskor öl som heltal (rekommenderar max 10):';
-		label.style.display = 'block';
-		label.style.marginBottom = '0.3rem';
+		label.classList.add('program-label');
 
 		const controls = document.createElement('div');
-		controls.style.display = 'flex';
-		controls.style.gap = '0.5rem';
-		controls.style.alignItems = 'center';
+		controls.classList.add('program-controls');
 
 		const input = document.createElement('input');
 		input.type = 'number';
 		input.min = '0';
 		input.max = '100';
 		input.value = '3';
-		input.style.width = '8rem';
-		input.style.padding = '0.4rem';
-		input.style.fontSize = '1rem';
 		applyProgramInput(input);
+		input.classList.add('program-input--short');
 
 		const button = document.createElement('button');
 		button.type = 'button';
 		button.textContent = 'Visa sången';
-		button.style.padding = '0.4rem 0.6rem';
-		button.style.cursor = 'pointer';
+		button.classList.add('cta');
 
 		const info = document.createElement('div');
-		info.style.marginTop = '0.4rem';
-		info.style.fontSize = '0.95rem';
-		info.style.color = 'var(--muted)';
+		info.classList.add('program-info');
 
 		const output = document.createElement('pre');
-		output.style.marginTop = '0.5rem';
-		output.style.whiteSpace = 'pre-wrap';
-		output.style.background = 'var(--program-output-bg)';
-		output.style.padding = '0.6rem';
-		output.style.borderRadius = '4px';
-		output.style.fontFamily = 'monospace';
-		output.style.maxHeight = '320px';
-		output.style.overflow = 'auto';
-		output.style.color = 'var(--program-output-color)';
 		applyProgramOutput(output);
+		output.classList.add('program-output--scroll');
 
 		controls.appendChild(input);
 		controls.appendChild(button);
@@ -1078,4 +987,3 @@
 		showSong();
 	}
 })();
-
