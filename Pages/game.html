@@ -13,6 +13,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../Styles/Portfolio.css" />
+  <link rel="stylesheet" href="../Styles/spel.css" />
 
     <style>
 .game-container {
@@ -46,16 +47,21 @@ transform: none;
   justify-content: center;
   align-items: center;
   text-align: center;
-  background-color: var(--background-accent);
   transform: 200ms ease-in-out;
   border: 5px solid #FFCC00;
+}
+
+.started, .deeper {
+  background-color: var(--background-accent);
 }
 
 .steptwo {
 width: 100%;
 height: 200px;
 padding: 0;
-background-image: url('https://www.peakpx.com/en/hd-wallpaper-desktop-njtyq');
+background-image: url('../Styles/images/deeper.jpg');
+background-size: cover;
+background-position: center;
 }
 
 .game img, .result-image {
@@ -76,7 +82,7 @@ background-image: url('https://www.peakpx.com/en/hd-wallpaper-desktop-njtyq');
 width: 50px;
 height: 50px;
 border: 2px solid #FFCC00;
-border-radius: 50%;
+border-radius: 25%;
 }
 
     </style>
@@ -103,9 +109,6 @@ border-radius: 50%;
           <li><a class="btn" href="./Pages/mittCV.html">CV</a></li>
           <li><a class="btn" href="./Pages/contact.html">Kontakt</a></li>
           <li><a class="btn" href="./Pages/Kod.html">&lt;Kod&gt;</a></li>
-          <li><a class="btn" href="./game.html" style="flex-direction: column; line-height: 0.8;">
-            Spel</br><span style="font-size: 10px; line-height: 0.1; color: #FFCC00;">
-              Den utvalda</span></a></li>
         </ul>
       </nav>
 
@@ -118,7 +121,7 @@ border-radius: 50%;
     <div class="game cta" data-trigger-click="Spela">
       <h1>Den utvalda</h1>
       <p style="font-weight: 400; margin-top: 20px;">Ett JavaScript spel om <strong>Kido</strong>, en karaktär vars legend säger att han är <span style="color:#FFCC00; background-color: #00000047; padding:2px 8px; border-radius: 12px;">den utvalda</span> som en dag ska styra kungariket.</br></br><span style="font-size: 1.3rem; font-weight: 900;">Klara alla prövningar och bevisa dig värdig.</span></br></br>Klicka var som helst för att spela.</p>
-      <div class="dice" style="display: none;" data-duration="300">
+      <div class="dice" data-duration="300">
         <p>Den första utmaningen på din resa. Är oddsen på din sida?</p>
         <img class="imgdice1" src="../Styles/images/dice6.png" />
       </div>
@@ -260,6 +263,7 @@ border-radius: 50%;
 </div>
   </footer>
 
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script src="../Scripts/portfolio.js"></script>
   <script src="../Scripts/achievements.js"></script>
   <script src="../Scripts/spel.js"></script>
