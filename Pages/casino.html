@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="utf-8" />
+  <meta name="description" content="Spel utvecklat av Anton Ahlm, webbutvecklare och designer.">
+  <meta name="keywords" content="Web app, webbapp, webbspel, web development, webbutveckling, javascript game, javascript spel, html, css, javascript, den utvalda, spel">
+  <meta name="author" content="Anton Ahlm">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>JS Slot Machine</title>
+  <link rel="icon" type="image/x-icon" href="../Assets/Anton-favicon.png">
+
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Fredoka+One&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../Styles/Portfolio.css" />
+  <link rel="stylesheet" href="../Styles/casino.css" />
+
+    <style>
+
+
+  </style>
+
+</head>
+<body>
+
+<div class="container-all">
+
+<!-- Site Header Start -->
+  <header>
+    <div class="nav" role="navigation" aria-label="Top navigation">
+      <div class="brand">
+        <a class="logo" href="/PortfolioWebsite/home.html"><code>&lt;Anton<br/>Ahlm&gt;</code></a>
+        <div>
+          <div style="font-weight: 700">Portfolio</div>
+          <div style="font-size: 12px; color: var(--muted)">Web designer & developer</div>
+        </div>
+      </div>
+<!-- Site Header End -->
+
+
+
+<!-- Primary Navigation Start-->
+      <nav>
+        <ul id="navMenu">
+          <li><a class="btn" href="../home.html">Hem</a></li>
+          <li><a class="btn" href="./mittCV.html">CV</a></li>
+          <li><a class="btn" href="./contact.html">Kontakt</a></li>
+          <li><a class="btn" href="./Kod.html">&lt;Kod&gt;</a></li>
+          <li><a class="btn" href="./Pages/game.html" style="flex-direction: column; line-height: 0.8;">Spel</br><span style="font-size: 10px; line-height: 0.1; color: #FFCC00;">Den utvalda</span></a></li>
+        </ul>
+      </nav>
+
+      <button class="menu-toggle btn" aria-expanded="false" aria-controls="navMenu">Meny ☰</button>
+        <div class="scroll-watcher"></div>
+    </div>
+  </header>
+<!-- Primary Navigation End-->
+
+
+
+<!-- Main Content  -->
+  <main>
+    
+    <!-- Casino Hero Section -->
+    <section class="hero hero-static" aria-label="Slot Machine Casino">
+      <div class="grad" aria-hidden="true"></div>
+      
+      <div class="casino-container">
+        <!-- Casino Header -->
+        <div class="casino-header">
+          <h1>🎰 JS Slot Machine</h1>
+          <p class="sub">Prova din lycka i denna klassiska slot machine!</p>
+          <p class="sub">Obs: Detta spel är endast för underhållningsändamål och involverar inga riktiga pengar.</p>
+        </div>
+
+        <!-- Balance Display -->
+        <div class="balance-card">
+          <div class="balance-label">Kontots balans (låtsaspengar)</div>
+          <div class="balance-amount" id="balance-display">0 kr</div>
+        </div>
+
+        <!-- Game Status Message -->
+        <button class="cta" id="deposit-btn">Sätt in pengar</button>
+
+        <div class="message-box" id="message-box">
+          <p id="message-text">Välkommen! Sätt in pengar för att börja spela.</p>
+        </div>
+        
+
+        <!-- Slot Machine Display -->
+        <div class="slot-machine-wrapper">
+          <!-- Win Lines Indicators -->
+          <div class="win-lines">
+            <div class="win-line" id="line-1" data-active="false">Rad 1</div>
+            <div class="win-line" id="line-2" data-active="false">Rad 2</div>
+            <div class="win-line" id="line-3" data-active="false">Rad 3</div>
+          </div>
+          
+          <div class="slot-machine">
+            <div class="slot-row">
+              <div class="slot-cell" id="slot-0-0">🍒</div>
+              <div class="slot-cell" id="slot-1-0">🍋</div>
+              <div class="slot-cell" id="slot-2-0">🍊</div>
+            </div>
+            <div class="slot-row">
+              <div class="slot-cell" id="slot-0-1">🍉</div>
+              <div class="slot-cell" id="slot-1-1">⭐</div>
+              <div class="slot-cell" id="slot-2-1">💎</div>
+            </div>
+            <div class="slot-row">
+              <div class="slot-cell" id="slot-0-2">🍒</div>
+              <div class="slot-cell" id="slot-1-2">🍋</div>
+              <div class="slot-cell" id="slot-2-2">🍊</div>
+            </div>
+          </div>
+          
+          <!-- Slot Machine Lever -->
+          <div class="lever-container" id="lever-container">
+            <div class="lever-arm" id="lever-arm">
+              <div class="lever-handle" id="lever-handle"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Betting Controls -->
+        <div class="betting-controls" id="betting-controls">
+          <div class="control-group">
+            <label for="lines-input">Antal rader (1-3)</label>
+            <div class="input-with-buttons">
+              <button class="control-btn" id="lines-decrease">−</button>
+              <input type="number" id="lines-input" min="1" max="3" value="1" readonly>
+              <button class="control-btn" id="lines-increase">+</button>
+            </div>
+          </div>
+
+          <div class="control-group">
+            <label for="bet-input">Insats per rad (1-1000 kr)</label>
+            <div class="input-with-buttons">
+              <button class="control-btn" id="bet-decrease">−</button>
+              <input type="number" id="bet-input" min="1" max="1000" value="10" step="10">
+              <button class="control-btn" id="bet-increase">+</button>
+            </div>
+          </div>
+
+          <div class="total-bet">
+            <span>Total insats:</span>
+            <span id="total-bet-display">10 kr</span>
+          </div>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="action-buttons">
+          <button class="cta spin-btn" id="spin-btn" disabled url="#message-box">🎰 Snurra!</button>
+          <button class="cta" id="deposit-btn">Sätt in pengar</button>
+          <button class="ghost" id="cashout-btn" disabled>Ta ut vinst</button>
+        </div>
+
+        <!-- Deposit Modal -->
+        <div class="modal-overlay" id="deposit-modal">
+          <div class="modal-content">
+            <h2>Sätt in pengar</h2>
+            <p class="sub">Hur mycket vill du sätta in?</p>
+            <div class="control-group">
+              <input type="number" id="deposit-input" min="1" value="100" placeholder="Belopp i SEK">
+            </div>
+            <div class="modal-buttons">
+              <button class="cta" id="confirm-deposit-btn">Bekräfta</button>
+              <button class="ghost" id="cancel-deposit-btn">Avbryt</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Paytable -->
+        <div class="paytable">
+          <h3>Utbetalningstabell</h3>
+          <div class="paytable-grid">
+            <div class="paytable-item">
+              <span class="symbol">💎</span>
+              <span class="multiplier">×10</span>
+            </div>
+            <div class="paytable-item">
+              <span class="symbol">⭐</span>
+              <span class="multiplier">×4</span>
+            </div>
+            <div class="paytable-item">
+              <span class="symbol">🍉</span>
+              <span class="multiplier">×2</span>
+            </div>
+            <div class="paytable-item">
+              <span class="symbol">🍊</span>
+              <span class="multiplier">×2</span>
+            </div>
+            <div class="paytable-item">
+              <span class="symbol">🍋</span>
+              <span class="multiplier">×1.5</span>
+            </div>
+            <div class="paytable-item">
+              <span class="symbol">🍒</span>
+              <span class="multiplier">×1.1</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+<!-- Main Content End -->
+</div>
+  <script src="../Scripts/casino.js"></script>
+</body>
+</html>
