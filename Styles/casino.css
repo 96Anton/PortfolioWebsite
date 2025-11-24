@@ -1,3 +1,171 @@
+.slot-cell {
+  font-size: 26px !important;
+}
+/* --- Mobile First: 600px wide screens --- */
+@media (max-width: 600px) {
+  .casino-container {
+    max-width: 100vw;
+    width: 100vw;
+    min-width: 0;
+    padding: 4vw 2vw;
+    gap: 16px;
+  }
+  .slot-machine-wrapper {
+    flex-direction: column;
+    gap: 8px;
+    align-items: stretch;
+  }
+  .slot-machine {
+    padding: 4vw;
+    gap: 6px;
+  }
+  .slot-row {
+    gap: 4px;
+  }
+  .slot-cell {
+    width: 10vw;
+    height: 10vw;
+    font-size: 26px;
+    min-width: 28px;
+    min-height: 28px;
+    max-width: 80px;
+    max-height: 80px;
+  }
+  .win-lines {
+    flex-direction: row;
+    gap: 4px;
+    margin-bottom: 8px;
+  }
+  .win-line {
+    min-width: 0;
+    width: 28px;
+    height: 28px;
+    font-size: 12px;
+    padding: 0;
+  }
+  .lever-container {
+    width: 20px;
+    min-width: 20px;
+    padding-top: 0;
+  }
+  .lever-arm {
+    width: 8px;
+    height: 40px;
+  }
+  .lever-handle {
+    width: 22px;
+    height: 22px;
+  }
+  .betting-controls {
+    padding: 4px;
+    gap: 10px;
+  }
+  .action-buttons {
+    flex-direction: column;
+    gap: 8px;
+  }
+  .action-buttons .cta,
+  .action-buttons .ghost {
+    min-width: 0;
+    width: 100%;
+    padding: 12px 0;
+    font-size: 16px;
+  }
+  .paytable {
+    padding: 8px;
+  }
+  .paytable-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+  }
+  .modal-content {
+    padding: 12px;
+    max-width: 95vw;
+  }
+  .balance-amount {
+    font-size: 20vw;
+  }
+}
+
+/* --- Responsive for larger screens --- */
+@media (min-width: 601px) and (max-width: 900px) {
+  .casino-container {
+    max-width: 90vw;
+    padding: 14px 2vw;
+    gap: 20px;
+  }
+  .slot-machine-wrapper {
+    flex-direction: row;
+    gap: 12px;
+  }
+  .slot-machine {
+    padding: 14px;
+    gap: 10px;
+  }
+  .slot-row {
+    gap: 8px;
+  }
+  .slot-cell {
+    width: 8vw;
+    height: 8vw;
+    font-size: 26px;
+    min-width: 60px;
+    min-height: 60px;
+    max-width: 90px;
+    max-height: 90px;
+  }
+  .win-lines {
+    flex-direction: column;
+    gap: 8px;
+  }
+  .win-line {
+    min-width: 60px;
+    width: 80px;
+    height: 60px;
+    font-size: 14px;
+    padding: 8px 0;
+  }
+  .lever-container {
+    width: 60px;
+    min-width: 60px;
+    padding-top: 8px;
+  }
+  .lever-arm {
+    width: 10px;
+    height: 90px;
+  }
+  .lever-handle {
+    width: 40px;
+    height: 40px;
+  }
+  .betting-controls {
+    padding: 16px;
+    gap: 14px;
+  }
+  .action-buttons {
+    flex-direction: row;
+    gap: 10px;
+  }
+  .action-buttons .cta,
+  .action-buttons .ghost {
+    min-width: 80px;
+    font-size: 18px;
+  }
+  .paytable {
+    padding: 16px;
+  }
+  .paytable-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+  }
+  .modal-content {
+    padding: 20px;
+    max-width: 80vw;
+  }
+  .balance-amount {
+    font-size: 8vw;
+  }
+}
 /* ===================================
    Casino Slot Machine Styles
    =================================== */
@@ -5,6 +173,7 @@
 /* Casino Container */
 .casino-container {
   max-width: 800px;
+  width: 100%;
   margin: 0 auto;
   padding: 20px;
   position: relative;
@@ -12,6 +181,16 @@
   display: flex;
   flex-direction: column;
   gap: 24px;
+  overflow-x: hidden;
+  box-sizing: border-box;
+}
+
+#deposit-input {
+  padding: 8px 16px;
+  margin-bottom: 20px;
+  color: #7afcff;
+  font-weight: 500;
+  font-size: 16px;
 }
 
 /* Casino Header */
@@ -118,6 +297,8 @@
   gap: 10px;
   align-items: center;
   justify-content: center;
+  width: 100%;
+  max-width: 100%;
 }
 
 /* Slot Machine Display */
@@ -125,7 +306,7 @@
   background: linear-gradient(135deg, rgba(15, 23, 36, 0.95) 0%, rgba(21, 32, 52, 0.95) 100%);
   border: 3px solid rgba(122, 252, 255, 0.2);
   border-radius: var(--radius);
-  padding: 32px;
+  padding: clamp(16px, 4vw, 32px);
   box-shadow: 
     0 0 40px rgba(122, 252, 255, 0.2),
     inset 0 2px 10px rgba(0, 0, 0, 0.5);
@@ -133,6 +314,7 @@
   flex-direction: column;
   gap: 12px;
   position: relative;
+  flex-shrink: 1;
 }
 
 .slot-machine::before {
@@ -172,17 +354,18 @@
 }
 
 .slot-cell {
-  width: 100px;
-  height: 100px;
+  width: clamp(60px, 15vw, 100px);
+  height: clamp(60px, 15vw, 100px);
   background: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.02) 100%);
   border: 2px solid rgba(255, 255, 255, 0.1);
   border-radius: 12px;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 56px;
+  font-size: clamp(36px, 8vw, 56px);
   transition: all 0.3s ease;
   box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.3);
+  flex-shrink: 0;
 }
 
 .slot-cell.spinning {
@@ -222,20 +405,21 @@
 }
 
 .win-line {
-  padding: 8px 16px;
+  padding: 8px 12px;
   background: rgba(18, 26, 38, 0.8);
   border: 1px solid rgba(255, 255, 255, 0.04);
   border-radius: 8px;
-  font-size: 14px;
+  font-size: clamp(12px, 2.5vw, 14px);
   font-weight: 600;
   color: var(--muted);
   transition: all 0.3s ease;
-  min-width: 70px;
+  min-width: clamp(50px, 12vw, 70px);
   text-align: center;
-  height: 100px;
+  height: clamp(60px, 15vw, 100px);
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-shrink: 0;
 }
 
 .win-line[data-active="true"] {
@@ -248,18 +432,19 @@
 /* Slot Machine Lever */
 .lever-container {
   position: relative;
-  width: 70px;
+  width: clamp(50px, 12vw, 70px);
   height: 100%;
   display: flex;
   align-items: flex-start;
   justify-content: center;
   padding-top: 10px;
+  flex-shrink: 0;
 }
 
 .lever-arm {
   position: relative;
-  width: 10px;
-  height: 120px;
+  width: clamp(8px, 2vw, 10px);
+  height: clamp(80px, 20vw, 120px);
   background: linear-gradient(180deg, rgba(255, 138, 138, 0.4) 0%, rgba(255, 138, 138, 0.8) 100%);
   border-radius: 5px;
   cursor: grab;
@@ -294,8 +479,8 @@
   top: -12px;
   left: 50%;
   transform: translateX(-50%);
-  width: 50px;
-  height: 50px;
+  width: clamp(35px, 9vw, 50px);
+  height: clamp(35px, 9vw, 50px);
   background: linear-gradient(135deg, #ff8a8a 0%, #ff6b6b 100%);
   border: 3px solid rgba(255, 255, 255, 0.4);
   border-radius: 50%;
@@ -596,7 +781,7 @@
 }
 
 .paytable-item .symbol {
-  font-size: 36px;
+  font-size: 26px;
 }
 
 .paytable-item .multiplier {
@@ -608,7 +793,7 @@
 /* Responsive Design */
 @media (max-width: 768px) {
   .casino-container {
-    padding: 16px;
+    padding: 12px;
     gap: 20px;
   }
 
@@ -617,17 +802,19 @@
   }
 
   .slot-machine {
-    padding: 20px;
+    padding: 12px;
+  }
+  
+  .slot-machine-wrapper {
+    gap: 8px;
   }
 
-  .slot-cell {
-    width: 80px;
-    height: 80px;
-    font-size: 44px;
+  .slot-row {
+    gap: 8px;
   }
 
   .betting-controls {
-    padding: 20px;
+    padding: 16px;
   }
 
   .action-buttons {
@@ -645,55 +832,41 @@
 }
 
 @media (max-width: 480px) {
+  .casino-container {
+    padding: 8px;
+  }
+  
   .casino-header h1 {
-    font-size: 28px;
-  }
-
-  .slot-cell {
-    width: 70px;
-    height: 70px;
-    font-size: 36px;
-  }
-
-  .slot-row {
-    gap: 8px;
+    font-size: 24px;
   }
 
   .slot-machine {
-    padding: 16px;
-    gap: 8px;
+    padding: 8px;
+    gap: 6px;
+  }
+  
+  .slot-machine-wrapper {
+    gap: 6px;
+  }
+
+  .slot-row {
+    gap: 6px;
   }
 
   .modal-content {
-    padding: 24px;
+    padding: 20px;
   }
 
   .balance-amount {
-    font-size: 32px;
-  }
-  
-  .win-line {
-    height: 70px;
-    min-width: 60px;
-    font-size: 12px;
-  }
-  
-  .lever-arm {
-    height: 100px;
-    width: 8px;
-  }
-  
-  .lever-handle {
-    width: 40px;
-    height: 40px;
+    font-size: 28px;
   }
   
   .lever-handle::after {
-    font-size: 16px;
+    font-size: 14px;
   }
   
-  .lever-container {
-    width: 50px;
+  .betting-controls {
+    padding: 12px;
   }
 }
 
