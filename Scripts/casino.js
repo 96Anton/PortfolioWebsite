@@ -1,7 +1,7 @@
 // Casino Slot Machine Application - DOM-based version
 const maxLines = 3;
 const minLines = 1;
-const maxBet = 1000;
+const maxBet = 10000;
 const minBet = 1;
 
 const rows = 3;
@@ -19,12 +19,12 @@ const symbolCount = {
 };
 
 const symbolValues = {
-  "🍒": 1.1,
-  "🍋": 1.5,
-  "🍊": 2,
-  "🍉": 2,
-  "⭐": 4,
-  "💎": 10
+  "🍒": 3.1,
+  "🍋": 4,
+  "🍊": 6,
+  "🍉": 8,
+  "⭐": 10,
+  "💎": 60
 };
 
 // Game state
