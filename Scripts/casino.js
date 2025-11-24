@@ -10,27 +10,27 @@ const columns = 3;
 const symbols = ["🍒", "🍋", "🍊", "🍉", "⭐", "💎"];
 
 const symbolCount = {
-  "🍒": 8,
-  "🍋": 7,
-  "🍊": 6,
-  "🍉": 6,
-  "⭐": 5,
-  "💎": 2
+  "🍒": 50,
+  "🍋": 25,
+  "🍊": 10,
+  "🍉": 10,
+  "⭐": 7,
+  "💎": 5
 };
 
 const symbolValues = {
-  "🍒": 3.1,
-  "🍋": 4,
-  "🍊": 6,
-  "🍉": 8,
-  "⭐": 10,
-  "💎": 60
+  "🍒": 6,
+  "🍋": 8,
+  "🍊": 16,
+  "🍉": 32,
+  "⭐": 64,
+  "💎": 300
 };
 
 // Game state
 let balance = 0;
-let currentLines = 1;
-let currentBet = 10;
+let currentLines = 2;
+let currentBet = 100;
 let isSpinning = false;
 
 // DOM elements
@@ -43,12 +43,14 @@ let slotCells = [];
 let winLineElements = [];
 let leverArm, leverHandle;
 
+
 // Initialize the application when DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {
   initializeDOM();
   setupEventListeners();
   updateDisplay();
 });
+
 
 // Initialize DOM element references
 function initializeDOM() {
@@ -133,7 +135,7 @@ function setupEventListeners() {
   
   document.getElementById('bet-increase').addEventListener('click', () => {
     if (currentBet < maxBet) {
-      currentBet = Math.min(maxBet, currentBet + 10);
+      currentBet = Math.min(maxBet, currentBet + 100);
       updateDisplay();
     }
   });
@@ -206,7 +208,7 @@ function showMessage(text, type = 'info') {
 // Open deposit modal
 function openDepositModal() {
   depositModal.classList.add('active');
-  depositInput.value = '100';
+  depositInput.value = '1000';
   depositInput.focus();
 }
 
@@ -441,6 +443,6 @@ async function handleSpin() {
   // Check if player is out of money
   if (balance === 0) {
     await sleep(1500);
-    showMessage('Du är slut på pengar! Sätt in mer för att fortsätta spela.', 'error');
+    showMessage('Du har tagit slut på pengarna! Sätt in mer för att fortsätta spela, eller erkänn ditt beroende och skaffa hjälp.', 'error');
   }
 }
