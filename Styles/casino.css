@@ -240,13 +240,16 @@
 }
 
 /* Message Box */
-.message-box {
+.message-box, #message-box {
   background: rgba(18, 26, 38, 0.8);
   border: 1px solid rgba(255, 255, 255, 0.04);
   border-radius: var(--radius);
   padding: 18px;
   text-align: center;
   min-height: 60px;
+  max-height: 60px;
+  height: 60px;
+  overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -254,18 +257,21 @@
 }
 
 .message-box.message-update {
-  animation: messageScale 0.3s ease;
+  animation: messageGlow 1s ease;
+  box-shadow: 0 0 0 0 #7afcff, 0 0 0 0 #ffd87a;
+  max-height: 60px;
+  min-height: 60px;
 }
 
-@keyframes messageScale {
+@keyframes messageGlow {
   0% {
-    transform: scale(1);
+    box-shadow: 0 0 0 0 #7afcff, 0 0 0 0 #ffd87a;
   }
   50% {
-    transform: scale(1.2);
+    box-shadow: 0 0 6px 2px #7afcff, 0 0 8px 4px #ffd87a;
   }
-  100% {
-    transform: scale(1);
+    100% {
+    box-shadow: 0 0 0 0 #7afcff, 0 0 0 0 #ffd87a;
   }
 }
 
@@ -288,6 +294,7 @@
   margin: 0;
   font-size: 16px;
   font-weight: 500;
+  line-height: 1;
 }
 
 /* Slot Machine Wrapper */
