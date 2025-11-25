@@ -1,4 +1,5 @@
 
+
 // Generate password based on user criteria
 function generate_password(length = 12, use_uppercase = true, use_numbers = true, use_special_chars = true) {
     if (length < 4) {
@@ -141,18 +142,53 @@ document.addEventListener("DOMContentLoaded", function () {
 
     generateBtn.addEventListener("click", updatePassword);
 
-    copyBtn.addEventListener("click", function () {
-        const password = passwordDisplay.textContent;
-        if (password && !password.includes("Lösenordet måste vara minst")) {
-            add_password_to_clipboard(password);
-            copyBtn.textContent = "Kopierat!";
+    copyBtn.addEventListener("click", async function () {
+        const password = passwordDisplay.textContent.trim();
+        if (
+            password &&
+            password !== "Ditt genererade lösenord visas här" &&
+            !password.includes("Lösenordet måste vara minst")
+        ) {
+            let copied = false;
+            // Try modern clipboard API first
+            if (navigator.clipboard && window.isSecureContext) {
+                try {
+                    await navigator.clipboard.writeText(password);
+                    copied = true;
+                } catch (err) {
+                    console.error("Clipboard copy failed:", err);
+                }
+            }
+            // Fallback for older browsers or insecure context
+            if (!copied) {
+                try {
+                    const textarea = document.createElement("textarea");
+                    textarea.value = password;
+                    textarea.style.position = "fixed";
+                    textarea.style.left = "-9999px";
+                    document.body.appendChild(textarea);
+                    textarea.focus();
+                    textarea.select();
+                    const successful = document.execCommand("copy");
+                    document.body.removeChild(textarea);
+                    if (successful) {
+                        copied = true;
+                    }
+                } catch (err) {
+                    console.error("Fallback clipboard copy failed:", err);
+                }
+            }
+            if (copied) {
+                copyBtn.textContent = "Kopierat!";
+            } else {
+                copyBtn.textContent = "Fel vid kopiering!";
+            }
             setTimeout(() => {
                 copyBtn.textContent = "Kopiera";
-            }, 1200);
+            }, 1500);
         }
     });
 });
-
 
 
 
