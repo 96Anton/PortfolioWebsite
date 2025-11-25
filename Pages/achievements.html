@@ -8,7 +8,7 @@
   <meta name="author" content="Anton Ahlm">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Achievements - Anton Ahlm</title>
-  <link rel="icon" type="image/x-icon" href="../Styles/Anton-favicon.png">
+  <link rel="icon" type="image/x-icon" href="../Assets/Anton-favicon.png">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../Styles/Portfolio.css">
@@ -32,15 +32,18 @@
       <nav>
         <ul id="navMenu">
           <li><a class="btn" href="../home.html">Hem</a></li>
-          <li><a class="btn" href="./mittCV.html">Mitt CV</a></li>
+          <li><a class="btn" href="./mittCV.html">CV</a></li>
           <li><a class="btn" href="./contact.html">Kontakt</a></li>
-          <li><a class="btn" href="./widgets.html">CSS widgets</a>
+          <li><a class="btn" href="./widgets.html">CSS widgets</a></li>
           <li><a class="btn" href="./Kod.html">&lt;Kod&gt;</a></li>
+          <li><a class="btn" href="./pattern-memory.html" style="flex-direction: column; line-height: 0.8;">Spel</br><span style="font-size: 10px; line-height: 0.1; color: #FFCC00;">Pattern Memory</span></a></li>
           <li><a class="btn" href="./game.html" style="flex-direction: column; line-height: 0.8;">Spel</br><span style="font-size: 10px; line-height: 0.1; color: #FFCC00;">Den utvalda</span></a></li>
+          <li><a class="btn" href="./casino.html" style="flex-direction: column; line-height: 0.8;">Casino</br><span style="font-size: 10px; line-height: 0.1; color: #FFCC00;">Slot Machine</span></a></li>
         </ul>
       </nav>
 
       <button class="menu-toggle btn" aria-expanded="false" aria-controls="navMenu">Meny ☰</button>
+        <div class="scroll-watcher">
     </div>
   </header>
 
@@ -225,6 +228,31 @@
               <span class="achievement-status" data-state="locked" data-status-for="den-utvalda" aria-live="polite">
                 <span class="achievement-status-text" data-status-text>Låst</span>
               </span>
+            </article>
+
+            <article class="card achievement-item" data-achievement-key="casino-gambler">
+              <h3>Casino Gambler</h3>
+              <p class="small">Besök casinot och prova lyckan.</p>
+              <span class="achievement-status" data-state="locked" data-status-for="casino-gambler" aria-live="polite">
+                <span class="achievement-status-text" data-status-text>Låst</span>
+              </span>
+            </article>
+
+            <article class="card achievement-item" data-achievement-key="casino-winner">
+              <h3>Du vann!</h3>
+              <p class="small">Vinn låtsaspengar i casinot.</p>
+              <span class="achievement-status" data-state="locked" data-status-for="casino-winner" aria-live="polite">
+                <span class="achievement-status-text" data-status-text>Låst</span>
+              </span>
+            </article>
+
+            <article class="card achievement-item" data-achievement-key="casino-jackpot">
+              <h3>JACKPOT!</h3>
+              <p class="small">Vinn den största jackpot-vinsten i casinot.</p>
+              <span class="achievement-status" data-state="locked" data-status-for="casino-jackpot" aria-live="polite">
+                <span class="achievement-status-text" data-status-text>Låst</span>
+              </span>
+            </article>
 
           </div>
         </div>
@@ -321,6 +349,27 @@
       <h2>Den utvalda</h2>
       <p>Du vann spelet och bevisade dig värdig.</p>
     </article>
+
+    <article class="achievement"
+      data-trigger-navigation="casino"  
+        data-duration="8000"
+        data-achievement-id="casino-gambler">
+      <h2>Casino Gambler</h2>
+      <p>Prova din lycka i casinot!</p>
+    </article>
+
+    <article class="achievement"
+      data-trigger-selector=".casino-win"  
+        data-duration="8000"
+        data-achievement-id="casino-winner">
+      <h2>Du vann!</h2>
+      <p>Du vann låtsaspengar, grattis!</p>
+    </article>
+
+      <article class="achievement cta" data-trigger-selector=".casino-jackpot" data-duration="12000" data-achievement-id="casino-jackpot" style="color: black; border: none;">
+    <h2>JACKPOT!</h2>
+    <p>Du vann den största jackpot-vinsten!</p>
+  </article>
 </section>
 
 
