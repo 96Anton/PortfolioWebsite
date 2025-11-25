@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="sv">
 <head>
@@ -122,9 +123,18 @@
           </div>
         </div>
 
+          <div class="win-lines" style="flex-direction: row; padding: 0; margin-top: -12px; margin-bottom: 0;">
+            <div class="win-line" id="line-1" data-active="true">Kolumn 1</div>
+            <div class="win-line" id="line-2" data-active="true">Kolumn 2</div>
+            <div class="win-line" id="line-3" data-active="true">Kolumn 3</div>
+          </div>
+
+
         <!-- Betting Controls -->
         <div class="betting-controls" id="betting-controls">
+
           <div class="control-group">
+            <p class="sub" style="padding-top:10px">Du kan alltid vinna på alla 3 kolumner.</p>
             <label for="lines-input">Antal rader (1-3)</label>
             <div class="input-with-buttons">
               <button class="control-btn" id="lines-decrease">−</button>
@@ -134,17 +144,17 @@
           </div>
 
           <div class="control-group">
-            <label for="bet-input">Insats per rad (1-1000 kr)</label>
+            <label for="bet-input">Insats per rad</br>(max totalinsats: 10000 kr)</label>
             <div class="input-with-buttons">
               <button class="control-btn" id="bet-decrease">−</button>
-              <input type="number" id="bet-input" min="1" max="10000" value="100" step="100">
+              <input type="number" id="bet-input" min="1" max="10000" value="100" step="10">
               <button class="control-btn" id="bet-increase">+</button>
             </div>
           </div>
 
           <div class="total-bet">
             <span>Total insats:</span>
-            <span id="total-bet-display">100 kr</span>
+            <span id="total-bet-display">10 kr</span>
           </div>
         </div>
 
