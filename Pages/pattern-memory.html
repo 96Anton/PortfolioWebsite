@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="utf-8" />
+  <meta name="description" content="Pattern Memory Game - Ett minnesspel utvecklat av Anton Ahlm">
+  <meta name="keywords" content="Memory game, minnesspel, pattern game, web game, javascript game">
+  <meta name="author" content="Anton Ahlm">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>Pattern Memory Game - Anton Ahlm</title>
+  <link rel="icon" type="image/x-icon" href="../Assets/Anton-favicon.png">
+
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../Styles/Portfolio.css" />
+  <link rel="stylesheet" href="../Styles/pattern-game.css" />
+  
+  <style>
+
+  </style>
+</head>
+<body>
+
+<div class="container-all">
+
+  <!-- Site Header -->
+  <header>
+    <div class="nav" role="navigation" aria-label="Top navigation">
+      <div class="brand">
+        <a class="logo" href="/PortfolioWebsite/home.html"><code>&lt;Anton<br/>Ahlm&gt;</code></a>
+        <div>
+          <div style="font-weight: 700">Portfolio</div>
+          <div style="font-size: 12px; color: var(--muted)">Web designer & developer</div>
+        </div>
+      </div>
+
+      <!-- Primary Navigation -->
+      <nav>
+        <ul id="navMenu">
+          <li><a class="btn" href="../home.html">Hem</a></li>
+          <li><a class="btn" href="./mittCV.html">CV</a></li>
+          <li><a class="btn" href="./contact.html">Kontakt</a></li>
+          <li><a class="btn" href="./widgets.html">CSS widgets</a></li>
+          <li><a class="btn" href="./Kod.html">&lt;Kod&gt;</a></li>
+          <li><a class="btn" href="./game.html" style="flex-direction: column; line-height: 0.8;">Spel</br><span style="font-size: 10px; line-height: 0.1; color: #FFCC00;">Den utvalda</span></a></li>
+          <li><a class="btn" href="./casino.html" style="flex-direction: column; line-height: 0.8;">Casino</br><span style="font-size: 10px; line-height: 0.1; color: #FFCC00;">Slot Machine</span></a></li>
+        </ul>
+      </nav>
+
+      <button class="menu-toggle btn" aria-expanded="false" aria-controls="navMenu">Meny ☰</button>
+      <div class="scroll-watcher"></div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Game Section -->
+    <section class="game-container-pattern">
+      <div class="pattern-game-wrapper">
+        <h1>🎮 Pattern Memory Game</h1>
+        
+        <div class="stats-container">
+          <div class="stat-box">
+            <div class="stat-label">Score</div>
+            <div class="stat-value" id="score">0</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-label">High Score</div>
+            <div class="stat-value" id="high-score">0</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-label">Combo</div>
+            <div class="stat-value" id="combo">0</div>
+          </div>
+        </div>
+
+        <div class="difficulty-indicator" id="difficulty">Easy</div>
+
+        <div class="lives-container" id="lives-container">
+          <span class="heart">❤️</span>
+          <span class="heart">❤️</span>
+          <span class="heart">❤️</span>
+        </div>
+
+        <div class="combo-display" id="combo-display"></div>
+
+        <div class="game-grid" id="game-grid">
+          <button id="red" class="game-btn" style="background-color: #ff6b6b;" data-symbol="●" data-key="1"></button>
+          <button id="blue" class="game-btn" style="background-color: #4ecdc4;" data-symbol="■" data-key="2"></button>
+          <button id="yellow" class="game-btn" style="background-color: #ffe66d;" data-symbol="▲" data-key="3"></button>
+          <button id="green" class="game-btn" style="background-color: #95e1d3;" data-symbol="★" data-key="4"></button>
+        </div>
+
+        <div class="power-ups">
+          <button id="peek-btn" title="Replay the sequence once">👁️ Peek</button>
+          <button id="slowmo-btn" title="See sequence at half speed">🐌 Slow-Mo</button>
+        </div>
+
+        <div class="button-container">
+          <button id="start-btn">Start Game</button>
+          <button id="pause-btn" style="display:none;">Pause</button>
+        </div>
+
+        <div class="settings">
+          <label class="checkbox-label">
+            <input type="checkbox" id="colorblind-mode">
+            <span>Colorblind Mode</span>
+          </label>
+        </div>
+      </div>
+    </section>
+
+    <!-- Game Over Modal -->
+    <div class="modal" id="game-over-modal">
+      <div class="modal-content">
+        <h2>🎯 Game Over!</h2>
+        <p>Final Score: <strong id="final-score">0</strong></p>
+        <p id="new-high-score-msg" style="display:none; color: #7afcff; font-weight: bold;">🎉 New High Score!</p>
+        <div class="leaderboard" id="leaderboard"></div>
+        <button id="play-again-btn" class="cta">Play Again</button>
+      </div>
+    </div>
+
+    <!-- Pause Modal -->
+    <div class="modal" id="pause-modal">
+      <div class="modal-content">
+        <h2>⏸️ Paused</h2>
+        <p>Take a break!</p>
+        <button id="resume-btn" class="cta">Resume</button>
+        <button id="quit-btn" class="ghost">Quit</button>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <p>&copy; 2024 Anton Ahlm. Pattern Memory Game - En modern twist på klassiska minnesspel.</p>
+    </div>
+  </footer>
+
+</div>
+
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script src="../Scripts/portfolio.js"></script>
+<script src="../Scripts/pattern-game.js"></script>
+
+</body>
+</html>
