@@ -10,12 +10,12 @@ const columns = 3;
 const symbols = ["🍒", "🍋", "🍊", "🍉", "⭐", "💎"];
 
 const symbolCount = {
-  "🍒": 50,
-  "🍋": 25,
-  "🍊": 10,
-  "🍉": 10,
-  "⭐": 7,
-  "💎": 5
+  "🍒": 30,
+  "🍋": 28,
+  "🍊": 25,
+  "🍉": 25,
+  "⭐": 22,
+  "💎": 20
 };
 
 const symbolValues = {
@@ -29,7 +29,7 @@ const symbolValues = {
 
 // Game state
 let balance = 0;
-let currentLines = 2;
+let currentLines = 1;
 let currentBet = 100;
 let isSpinning = false;
 
@@ -43,14 +43,12 @@ let slotCells = [];
 let winLineElements = [];
 let leverArm, leverHandle;
 
-
 // Initialize the application when DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {
   initializeDOM();
   setupEventListeners();
   updateDisplay();
 });
-
 
 // Initialize DOM element references
 function initializeDOM() {
@@ -128,7 +126,7 @@ function setupEventListeners() {
   // Bet controls
   document.getElementById('bet-decrease').addEventListener('click', () => {
     if (currentBet > minBet) {
-      currentBet = Math.max(minBet, currentBet - 10);
+      currentBet = Math.max(minBet, currentBet - 50);
       updateDisplay();
     }
   });
@@ -325,18 +323,19 @@ function checkWinningLines(cols, lines) {
   let winningLines = [];
   let totalWinnings = 0;
   let winDetails = [];
-  
+  let winningColumns = [];
+  let columnWinDetails = [];
+
+  // Check rows (left to right)
   for (let line = 0; line < lines; line++) {
     let symbol = cols[0][line];
     let won = true;
-    
     for (let col = 1; col < cols.length; col++) {
       if (cols[col][line] !== symbol) {
         won = false;
         break;
       }
     }
-    
     if (won) {
       winningLines.push(line);
       let symbolValue = symbolValues[symbol];
@@ -345,23 +344,56 @@ function checkWinningLines(cols, lines) {
       winDetails.push({ line: line + 1, symbol, winnings });
     }
   }
-  
-  return { winningLines, totalWinnings, winDetails };
+
+  // Check columns (top to bottom)
+  for (let col = 0; col < cols.length; col++) {
+    let symbol = cols[col][0];
+    let won = true;
+    for (let row = 1; row < rows; row++) {
+      if (cols[col][row] !== symbol) {
+        won = false;
+        break;
+      }
+    }
+    if (won) {
+      winningColumns.push(col);
+      let symbolValue = symbolValues[symbol];
+      let winnings = Math.round(currentBet * symbolValue);
+      totalWinnings += winnings;
+      columnWinDetails.push({ column: col + 1, symbol, winnings });
+    }
+  }
+
+  return { winningLines, totalWinnings, winDetails, winningColumns, columnWinDetails };
 }
 
 // Highlight winning cells
 async function highlightWinningCells(winningLines) {
-  if (winningLines.length === 0) return;
-  
-  for (let line of winningLines) {
-    for (let col = 0; col < columns; col++) {
-      const cellIndex = col * rows + line;
-      slotCells[cellIndex].classList.add('winning');
+  if ((!winningLines || winningLines.length === 0) && (!arguments[1] || arguments[1].length === 0)) return;
+
+  // Highlight winning rows
+  if (winningLines && winningLines.length > 0) {
+    for (let line of winningLines) {
+      for (let col = 0; col < columns; col++) {
+        const cellIndex = col * rows + line;
+        slotCells[cellIndex].classList.add('winning');
+      }
     }
   }
-  
+
+  // Highlight winning columns
+  const winningColumns = arguments[1];
+  if (winningColumns && winningColumns.length > 0) {
+    for (let col of winningColumns) {
+      for (let row = 0; row < rows; row++) {
+        const cellIndex = col * rows + row;
+        slotCells[cellIndex].classList.add('winning');
+      }
+    }
+  }
+
   await sleep(2000);
-  
+
   slotCells.forEach(cell => {
     cell.classList.remove('winning');
   });
@@ -413,24 +445,30 @@ async function handleSpin() {
   // Animate the spin
   await animateSpin(spinResult);
   
-  // Check for wins
-  const { winningLines, totalWinnings, winDetails } = checkWinningLines(spinResult, currentLines);
-  
-  if (winningLines.length > 0) {
-    // Highlight winning cells
-    await highlightWinningCells(winningLines);
-    
+  // Check for wins (rows and columns)
+  const { winningLines, totalWinnings, winDetails, winningColumns, columnWinDetails } = checkWinningLines(spinResult, currentLines);
+
+  if ((winningLines && winningLines.length > 0) || (winningColumns && winningColumns.length > 0)) {
+    // Highlight winning cells (rows and columns)
+    await highlightWinningCells(winningLines, winningColumns);
+
     // Update balance with winnings
     balance += totalWinnings;
     updateDisplay();
-    
+
     // Show win message
     let winMessage = `🎉 Grattis! Du vann ${totalWinnings} kr! `;
-    if (winDetails.length === 1) {
-      const detail = winDetails[0];
-      winMessage += `(Rad ${detail.line}: ${detail.symbol} × ${detail.winnings} kr)`;
-    } else {
-      winMessage += `(${winDetails.length} vinnande rader)`;
+    let details = [];
+    if (winDetails && winDetails.length > 0) {
+      details = details.concat(winDetails.map(detail => `Rad ${detail.line}: ${detail.symbol} × ${detail.winnings} kr`));
+    }
+    if (columnWinDetails && columnWinDetails.length > 0) {
+      details = details.concat(columnWinDetails.map(detail => `Kolumn ${detail.column}: ${detail.symbol} × ${detail.winnings} kr`));
+    }
+    if (details.length === 1) {
+      winMessage += `(${details[0]})`;
+    } else if (details.length > 1) {
+      winMessage += `(${details.join(", ")})`;
     }
     showMessage(winMessage, 'success');
   } else {
@@ -443,6 +481,6 @@ async function handleSpin() {
   // Check if player is out of money
   if (balance === 0) {
     await sleep(1500);
-    showMessage('Du har tagit slut på pengarna! Sätt in mer för att fortsätta spela, eller erkänn ditt beroende och skaffa hjälp.', 'error');
+    showMessage('Du har fått slut på pengar! Sätt in mer för att fortsätta spela, eller erkänn att du har ett problem och skaffa hjälp.', 'error');
   }
 }
