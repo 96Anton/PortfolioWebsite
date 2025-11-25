@@ -9,13 +9,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <title>Anton Ahlm — Web designer & developer</title>
-  <link rel="icon" type="image/x-icon" href="./Styles/Anton-favicon.png">
+  <link rel="icon" type="image/x-icon" href="./Assets/Anton-favicon.png">
 
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./Styles/Portfolio.css" />
     <style>
-
+     input::placeholder, textarea::placeholder {
+      color: var(--muted);
+     }
     </style>
 </head>
 <body>
@@ -40,11 +42,14 @@
           <li><a class="btn" href="./Pages/contact.html">Kontakt</a></li>
           <li><a class="btn" href="./Pages/widgets.html">CSS widgets</a></li>
           <li><a class="btn" href="./Pages/Kod.html">&lt;Kod&gt;</a></li>
+          <li><a class="btn" href="./Pages/pattern-memory.html" style="flex-direction: column; line-height: 0.8;">Spel</br><span style="font-size: 10px; line-height: 0.1; color: #FFCC00;">Pattern Memory</span></a></li>
           <li><a class="btn" href="./Pages/game.html" style="flex-direction: column; line-height: 0.8;">Spel</br><span style="font-size: 10px; line-height: 0.1; color: #FFCC00;">Den utvalda</span></a></li>
+          <li><a class="btn" href="./Pages/casino.html" style="flex-direction: column; line-height: 0.8;">Casino</br><span style="font-size: 10px; line-height: 0.1; color: #FFCC00;">Slot Machine</span></a></li>
         </ul>
       </nav>
 
       <button class="menu-toggle btn" aria-expanded="false" aria-controls="navMenu">Meny ☰</button>
+        <div class="scroll-watcher"></div>
     </div>
   </header>
 
@@ -202,7 +207,7 @@
             </div>
 
             <div style="margin-top: 50px; width: clamp(200px, 100%, 500px);" class="conic-grad">
-              <img class="PS" src="./Styles/Anton-grad.png" alt="Anton Ahlm" style="width: clamp(200px, 100%, 500px);">
+              <img class="PS" src="./Assets/Anton-grad.png" alt="Anton Ahlm" style="width: clamp(200px, 100%, 500px);">
             </div>
           </div>
         </aside>
