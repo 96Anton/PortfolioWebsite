@@ -44,10 +44,35 @@ let winLineElements = [];
 let leverArm, leverHandle;
 
 // Initialize the application when DOM is loaded
+
+// Utility: Trigger achievement by selector (for achievements.js system)
+function triggerAchievementBySelector(selector) {
+  // Find the achievement element in the DOM
+  const achievement = document.querySelector(`[data-achievement-id="${selector.replace('.', '')}"]`);
+  if (achievement) {
+    // Add the selector class to body temporarily to trigger selector-based achievement
+    document.body.classList.add(selector.replace('.', ''));
+    // Also add the selector to the slot machine for more robust matching
+    const slotMachine = document.querySelector('.slot-machine');
+    if (slotMachine) slotMachine.classList.add(selector.replace('.', ''));
+    // Also add to documentElement for global selectors
+    document.documentElement.classList.add(selector.replace('.', ''));
+    // Remove after a short delay
+    setTimeout(() => {
+      document.body.classList.remove(selector.replace('.', ''));
+      if (slotMachine) slotMachine.classList.remove(selector.replace('.', ''));
+      document.documentElement.classList.remove(selector.replace('.', ''));
+    }, 1000);
+  }
+}
+
 document.addEventListener('DOMContentLoaded', () => {
   initializeDOM();
   setupEventListeners();
   updateDisplay();
+
+  // Trigger "Gambler" achievement on casino.html navigation
+  triggerAchievementBySelector('casino-gambler');
 });
 
 // Initialize DOM element references
@@ -105,47 +130,68 @@ function setupEventListeners() {
   // Spin button
   spinBtn.addEventListener('click', handleSpin);
   
-  // Cashout button
-  cashoutBtn.addEventListener('click', handleCashout);
+  // Handle spin action
+  async function handleSpin() {
+    if (isSpinning) return;
   
-  // Lines controls
-  document.getElementById('lines-decrease').addEventListener('click', () => {
-    if (currentLines > minLines) {
-      currentLines--;
-      updateDisplay();
-    }
-  });
+    const totalBet = currentBet * currentLines;
   
-  document.getElementById('lines-increase').addEventListener('click', () => {
-    if (currentLines < maxLines) {
-      currentLines++;
-      updateDisplay();
+    if (balance < totalBet) {
+      showMessage('Du har inte tillräckligt med pengar för denna insats!', 'error');
+      return;
     }
-  });
   
-  // Bet controls
-  document.getElementById('bet-decrease').addEventListener('click', () => {
-    if (currentBet > minBet) {
-      currentBet = Math.max(minBet, currentBet - 50);
-      updateDisplay();
-    }
-  });
+    // Scroll to message box
+    messageBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
   
-  document.getElementById('bet-increase').addEventListener('click', () => {
-    if (currentBet < maxBet) {
-      currentBet = Math.min(maxBet, currentBet + 100);
-      updateDisplay();
-    }
-  });
+    isSpinning = true;
+    balance -= totalBet;
+    updateDisplay();
   
-  // Bet input direct change
-  betInput.addEventListener('input', () => {
-    let value = parseInt(betInput.value);
-    if (!isNaN(value)) {
-      currentBet = Math.max(minBet, Math.min(maxBet, value));
-      updateDisplay();
-    }
-  });
+    showMessage('Snurrar...', 'info');
+  
+    // Generate spin result
+    const spinResult = generateSpin();
+  
+    // Animate the spin
+    await animateSpin(spinResult);
+  
+    // Check for wins (rows and columns)
+    const { winningLines, totalWinnings, winDetails, winningColumns, columnWinDetails } = checkWinningLines(spinResult, currentLines);
+
+    let won = (winningLines && winningLines.length > 0) || (winningColumns && winningColumns.length > 0);
+    let jackpot = false;
+    if (won) {
+      // Highlight winning cells (rows and columns)
+      await highlightWinningCells(winningLines, winningColumns);
+      // Trigger "Winner!" achievement for any win
+      triggerAchievementBySelector('casino-winner');
+
+      // Check for JACKPOT: 3 diamonds (💎) in a row or column
+      // Check rows
+      for (let line = 0; line < currentLines; line++) {
+        if (spinResult[0][line] === '💎' && spinResult[1][line] === '💎' && spinResult[2][line] === '💎') {
+          jackpot = true;
+        }
+      }
+      // Check columns
+      for (let col = 0; col < spinResult.length; col++) {
+        if (spinResult[col][0] === '💎' && spinResult[col][1] === '💎' && spinResult[col][2] === '💎') {
+          jackpot = true;
+        }
+      }
+      if (jackpot) {
+        triggerAchievementBySelector('casino-jackpot');
+      }
+      /* Lines 454-474 omitted */
+    } else {/* Lines 475-476 omitted */}
+  
+    isSpinning = false;
+    updateDisplay();
+  
+    // Check if player is out of money
+    if (balance === 0) {/* Lines 483-485 omitted */}
+  }
   
   // Close modal on overlay click
   depositModal.addEventListener('click', (e) => {
