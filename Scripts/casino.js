@@ -115,6 +115,40 @@ function initializeDOM() {
 
 // Setup event listeners
 function setupEventListeners() {
+    // Lines and Bet controls
+    const linesDecreaseBtn = document.getElementById('lines-decrease');
+    const linesIncreaseBtn = document.getElementById('lines-increase');
+    const betDecreaseBtn = document.getElementById('bet-decrease');
+    const betIncreaseBtn = document.getElementById('bet-increase');
+
+    linesDecreaseBtn.addEventListener('click', () => {
+      if (isSpinning) return;
+      if (currentLines > minLines) {
+        currentLines--;
+        updateDisplay();
+      }
+    });
+    linesIncreaseBtn.addEventListener('click', () => {
+      if (isSpinning) return;
+      if (currentLines < maxLines) {
+        currentLines++;
+        updateDisplay();
+      }
+    });
+    betDecreaseBtn.addEventListener('click', () => {
+      if (isSpinning) return;
+      if (currentBet > minBet) {
+        currentBet = Math.max(minBet, currentBet - 10);
+        updateDisplay();
+      }
+    });
+    betIncreaseBtn.addEventListener('click', () => {
+      if (isSpinning) return;
+      if (currentBet < maxBet) {
+        currentBet = Math.min(maxBet, currentBet + 10);
+        updateDisplay();
+      }
+    });
   // Deposit button
   depositBtn.addEventListener('click', openDepositModal);
   confirmDepositBtn.addEventListener('click', confirmDeposit);
