@@ -13,7 +13,6 @@ This repository contains the source for a portfolio site to showcase projects, s
 
 ## Demo
 Click here to view my full site: https://96anton.github.io/PortfolioWebsite/home.html 
-Click here to play my game https://96anton.github.io/PortfolioWebsite/Pages/game.html
 
 ## Built with
 - HTML
