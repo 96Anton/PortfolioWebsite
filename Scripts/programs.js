@@ -7,14 +7,14 @@ function getRandomDiceImage() {
 	const randomDiceImage = "dice" + randomNumber1 + ".png";
 	const img1 = document.querySelector(".imgdice1");
 	if (img1) {
-		img1.setAttribute("src", "../Styles/images/" + randomDiceImage);
+		img1.setAttribute("src", "../Assets/" + randomDiceImage);
 	}
 
 	const randomNumber2 = Math.floor(Math.random() * 6) + 1;
 	const randomDiceImage2 = "dice" + randomNumber2 + ".png";
 	const img2 = document.querySelector(".imgdice2");
 	if (img2) {
-		img2.setAttribute("src", "../Styles/images/" + randomDiceImage2);
+		img2.setAttribute("src", "../Assets/" + randomDiceImage2);
 	}
 
 	const heading = document.querySelector(".h1dice");
