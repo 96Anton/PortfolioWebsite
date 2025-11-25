@@ -8,7 +8,7 @@
     <meta name="author" content="Anton Ahlm">
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Portfolio — Code &amp; Functions</title>
-    <link rel="icon" type="image/x-icon" href="../Styles/Anton-favicon.png">
+    <link rel="icon" type="image/x-icon" href="../Assets/Anton-favicon.png">
 
     <link rel="stylesheet" href="../Styles/Portfolio.css" />
     <link rel="stylesheet" href="../Styles/kod.css" />
@@ -43,6 +43,7 @@
         </ul>
       </nav>
         <button class="menu-toggle btn" aria-expanded="false" aria-controls="navMenu">Meny ☰</button>
+        <div class="scroll-watcher"></div>
       </div>
     </header>
 
@@ -73,16 +74,48 @@
       <div class="flex-container">
       <div class="dice">
         <p class="pdice">Spelare 1</p>
-        <img class="imgdice1" src="../Styles/images/dice6.png" />
+        <img class="imgdice1" src="../Assets/dice6.png" />
       </div>
 
       <div class="dice">
         <p class="pdice">Spelare 2</p>
-        <img class="imgdice2" src="../Styles/images/dice6.png" />
+        <img class="imgdice2" src="../Assets/dice6.png" />
       </div>
       </div>
       </div>
 </div>
+
+<div class="container" style="display: flex; justify-content: center;">
+  <div class="Koder">
+  <div class="password-generator">
+   <h2>Lösenordsgenerator</h2>
+        <p>En slumpmässig lösenordsgenerator jag kodade i Python och sedan översatte till JavaScript, som skapar säkra lösenord baserat på dina val.</p>
+        <div class="password-options">
+          <label>
+            Längd:
+            <input type="number" class="password-length" min="4" max="64" value="12" />
+          </label>
+          <label>
+            <input type="checkbox" class="include-uppercase" checked />
+            Inkludera versaler (A-Z)
+          </label>
+          <label>
+            <input type="checkbox" class="include-numbers" checked />
+            Inkludera siffror (0-9)
+          </label>
+          <label>
+            <input type="checkbox" class="include-special-chars" checked />
+            Inkludera specialtecken (!@#$%^&*)
+          </label>
+        </div>
+        <button class="button-generate-password cta" style="margin-top:10px; margin-bottom: 10px;">Generera Lösenord</button>
+        <p class="generated-password-display">Ditt genererade lösenord visas här</p>
+   <button class="button-copy-password" type="button">Kopiera</button>
+    <p class="password-strength-display" style="margin-top:8px;"></p>
+  </div>
+</div>
+</div>
+
 
       <div class="container">
 
@@ -245,6 +278,7 @@
   </footer>
 
     <!-- Page Enhancements -->
+     <script src="../Scripts/passwordGenerator.js"></script>
     <script src="../Scripts/programs.js"></script>
     <script src="../Scripts/portfolio.js"></script>
     <script src="../Scripts/achievements.js"></script>
