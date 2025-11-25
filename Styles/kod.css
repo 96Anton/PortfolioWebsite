@@ -305,3 +305,53 @@
   justify-content: center;
   gap: 60px;
 }
+
+.password-length {
+  width: 80px;
+  text-align: start;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.password-length::-webkit-inner-spin-button {
+  width: 30px;
+  height: 30px;
+  border: 1px solid var(--program-input-border);
+  border-radius: 6px;
+  background-color: var(--muted);
+  color: var(--program-input-color);
+  cursor: pointer;
+  user-select: none;
+}
+
+.password-options label {
+  font-size: 14px;
+  margin-right: 0;
+  width: 100%;
+  display: block;
+  margin-bottom: 8px;
+  line-height: 0;
+}
+
+.generated-password-display {
+  font-family: monospace;
+  font-size: 1rem;
+  background-color: var(--program-output-bg);
+  color: var(--program-output-color);
+  border: 1px solid var(--program-output-border);
+  border-radius: 6px;
+  padding: 10px;
+  margin: 0px;
+  word-break: break-all;
+}
+
+.password-strength-display {
+  font-family: monospace;
+  font-size: 1rem;
+  background-color: var(--program-output-bg);
+  color: var(--program-output-color);
+  border-radius: 6px;
+  padding: 10px;
+  margin-top: 10px;
+  word-break: break-all;
+}
