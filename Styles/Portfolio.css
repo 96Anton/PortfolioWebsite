@@ -765,7 +765,7 @@ footer {
 /* Hero background for the interactive code page */
 #heroImage {
   width: 100%;
-  background-image: url("jpeg.jpg");
+  background-image: url("../Assets/jpeg.jpg");
   background-size: cover;
 }
 
@@ -998,19 +998,19 @@ body[data-theme="light"] .card-carousel > .row-carousel > .icon-carousel {
 
 
 .card-carousel[for="c1"] {
-  background-image: url('./cv.jpg');
+  background-image: url('../Assets/cv.jpg');
 }
 
 .card-carousel[for="c2"] {
-  background-image: url('./JavaScript.png');
+  background-image: url('../Assets/JavaScript.png');
 }
 
 .card-carousel[for="c3"] {
-  background-image: url('./liquid-glass.jpg');
+  background-image: url('../Assets/liquid-glass.jpg');
 }
 
 .card-carousel[for="c4"] {
-  background-image: url('./Hero\ Picture\ Or\ dont\ 18.jpg');
+  background-image: url('../Assets/Hero\ Picture\ Or\ dont\ 18.jpg');
 }
 
 @media (max-width: 900px) {
@@ -1194,3 +1194,31 @@ body[data-theme="light"] #contactForm textarea:focus {
   opacity: 1;
 }
 
+.scroll-watcher {
+  position: fixed;
+  height: 1px;
+  width: 100%;
+  top: 94px;
+  left: 0;
+  transform: scaleX(0);
+  background: linear-gradient(90deg, #7afcff, #7affc7, #ffd87a);
+  transform-origin: left;
+  z-index: 2;
+  animation: scroll-watcher linear forwards;
+  animation-timeline: scroll();
+  border-radius: 0 0 4px 4px;
+  box-shadow: 
+    0 0 3px rgba(122, 252, 255, 0.4);
+  filter: drop-shadow(0 1px 3px rgba(122, 252, 255, 0.5));
+}
+@keyframes scroll-watcher {
+  to {
+    transform: scaleX(1);
+  }
+} 
+
+@media (max-width: 600px) {
+  .scroll-watcher {
+  top: 114px;
+  }
+}
