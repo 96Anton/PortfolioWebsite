@@ -48,7 +48,8 @@
           <li><a class="btn" href="./contact.html">Kontakt</a></li>
           <li><a class="btn" href="./widgets.html">CSS widgets</a></li>
           <li><a class="btn" href="./Kod.html">&lt;Kod&gt;</a></li>
-          <li><a class="btn" href="./Pages/game.html" style="flex-direction: column; line-height: 0.8;">Spel</br><span style="font-size: 10px; line-height: 0.1; color: #FFCC00;">Den utvalda</span></a></li>
+          <li><a class="btn" href="./pattern-memory.html" style="flex-direction: column; line-height: 0.8;">Spel</br><span style="font-size: 10px; line-height: 0.1; color: #FFCC00;">Pattern Memory</span></a></li>
+          <li><a class="btn" href="./game.html" style="flex-direction: column; line-height: 0.8;">Spel</br><span style="font-size: 10px; line-height: 0.1; color: #FFCC00;">Den utvalda</span></a></li>
         </ul>
       </nav>
 
@@ -218,7 +219,7 @@
 <!-- Main Content End -->
 
 
-  <!-- HIDDEN Section displaying the list of achievements -->
+<!-- HIDDEN Section displaying the list of achievements -->
 <section id="achievements-list" aria-label="List of achievements">
     <article class="achievement" data-trigger-click="1" data-duration="5000">
         <h2>Du klickade!</h2>
@@ -248,6 +249,22 @@
         <h2>1000 klick</h2>
         <p>Det måste vara ett rekord! <br>Tips: Om du anställer mig får du en super-achievement!</p>
     </article>
+
+  <!-- NEW: Casino Achievements -->
+  <article class="achievement" data-trigger-navigation="casino" data-duration="8000" data-achievement-id="casino-gambler">
+    <h2>Gambler</h2>
+    <p>Du gillar att slösa med pengar.</p>
+  </article>
+
+  <article class="achievement" data-trigger-selector=".casino-win" data-duration="9000" data-achievement-id="casino-winner">
+    <h2>Du vann!</h2>
+    <p>Du vann låtsaspengar, grattis!</p>
+  </article>
+
+  <article class="achievement cta" data-trigger-selector=".casino-jackpot" data-duration="12000" data-achievement-id="casino-jackpot" style="color: black; border: none;">
+    <h2>JACKPOT!</h2>
+    <p>Du vann den största jackpot-vinsten!</p>
+  </article>
 
     <article class="achievement"
         data-trigger-navigation="contact"
@@ -359,7 +376,6 @@
   </footer>
 <!-- Site Footer END -->
 
-  
 </div>
   <script src="../Scripts/portfolio.js"></script>
   <script src="../Scripts/achievements.js"></script>
