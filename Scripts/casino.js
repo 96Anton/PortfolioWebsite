@@ -232,6 +232,258 @@ function setupEventListeners() {
     if (e.target === depositModal) {
       closeDepositModal();
     }
+  // Casino Slot Machine Application - DOM-based version
+const maxLines = 3;
+const minLines = 1;
+const maxBet = 10000;
+const minBet = 1;
+
+const rows = 3;
+const columns = 3;
+
+const symbols = ["🍒", "🍋", "🍊", "🍉", "⭐", "💎"];
+
+const symbolCount = {
+  "🍒": 30,
+  "🍋": 28,
+  "🍊": 25,
+  "🍉": 25,
+  "⭐": 22,
+  "💎": 20
+};
+
+const symbolValues = {
+  "🍒": 6,
+  "🍋": 8,
+  "🍊": 16,
+  "🍉": 32,
+  "⭐": 64,
+  "💎": 300
+};
+
+// Game state
+let balance = 0;
+let currentLines = 1;
+let currentBet = 100;
+let isSpinning = false;
+
+// DOM elements
+let balanceDisplay, messageBox, messageText;
+let linesInput, betInput, totalBetDisplay;
+let depositBtn, spinBtn, cashoutBtn;
+let depositModal, depositInput, confirmDepositBtn, cancelDepositBtn;
+let bettingControls;
+let slotCells = [];
+let winLineElements = [];
+let leverArm, leverHandle;
+
+// Initialize the application when DOM is loaded
+
+// Utility: Trigger achievement by selector (for achievements.js system)
+function triggerAchievementBySelector(selector) {
+  // Find the achievement element in the DOM
+  const achievement = document.querySelector(`[data-achievement-id="${selector.replace('.', '')}"]`);
+  if (achievement) {
+    // Add the selector class to body temporarily to trigger selector-based achievement
+    document.body.classList.add(selector.replace('.', ''));
+    // Also add the selector to the slot machine for more robust matching
+    const slotMachine = document.querySelector('.slot-machine');
+    if (slotMachine) slotMachine.classList.add(selector.replace('.', ''));
+    // Also add to documentElement for global selectors
+    document.documentElement.classList.add(selector.replace('.', ''));
+    // Remove after a short delay
+    setTimeout(() => {
+      document.body.classList.remove(selector.replace('.', ''));
+      if (slotMachine) slotMachine.classList.remove(selector.replace('.', ''));
+      document.documentElement.classList.remove(selector.replace('.', ''));
+    }, 1000);
+  }
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  initializeDOM();
+  setupEventListeners();
+  updateDisplay();
+
+  // Trigger "Gambler" achievement on casino.html navigation
+  triggerAchievementBySelector('casino-gambler');
+});
+
+// Initialize DOM element references
+function initializeDOM() {
+  balanceDisplay = document.getElementById('balance-display');
+  messageBox = document.getElementById('message-box');
+  messageText = document.getElementById('message-text');
+  
+  linesInput = document.getElementById('lines-input');
+  betInput = document.getElementById('bet-input');
+  totalBetDisplay = document.getElementById('total-bet-display');
+  
+  depositBtn = document.getElementById('deposit-btn');
+  spinBtn = document.getElementById('spin-btn');
+  cashoutBtn = document.getElementById('cashout-btn');
+  
+  depositModal = document.getElementById('deposit-modal');
+  depositInput = document.getElementById('deposit-input');
+  confirmDepositBtn = document.getElementById('confirm-deposit-btn');
+  cancelDepositBtn = document.getElementById('cancel-deposit-btn');
+  
+  bettingControls = document.getElementById('betting-controls');
+  
+  // Get all slot cells
+  for (let col = 0; col < columns; col++) {
+    for (let row = 0; row < rows; row++) {
+      slotCells.push(document.getElementById(`slot-${col}-${row}`));
+    }
+  }
+  
+  // Get win line elements
+  for (let i = 1; i <= maxLines; i++) {
+    winLineElements.push(document.getElementById(`line-${i}`));
+  }
+  
+  // Get lever elements
+  leverArm = document.getElementById('lever-arm');
+  leverHandle = document.getElementById('lever-handle');
+}
+
+// Setup event listeners
+function setupEventListeners() {
+    // Lines and Bet controls
+    const linesDecreaseBtn = document.getElementById('lines-decrease');
+    const linesIncreaseBtn = document.getElementById('lines-increase');
+    const betDecreaseBtn = document.getElementById('bet-decrease');
+    const betIncreaseBtn = document.getElementById('bet-increase');
+
+    linesDecreaseBtn.addEventListener('click', () => {
+      if (isSpinning) return;
+      if (currentLines > minLines) {
+        currentLines--;
+        updateDisplay();
+      }
+    });
+    linesIncreaseBtn.addEventListener('click', () => {
+      if (isSpinning) return;
+      if (currentLines < maxLines) {
+        currentLines++;
+        updateDisplay();
+      }
+    });
+    betDecreaseBtn.addEventListener('click', () => {
+      if (isSpinning) return;
+      if (currentBet > minBet) {
+        currentBet = Math.max(minBet, currentBet - 10);
+        updateDisplay();
+      }
+    });
+    betIncreaseBtn.addEventListener('click', () => {
+      if (isSpinning) return;
+      if (currentBet < maxBet) {
+        currentBet = Math.min(maxBet, currentBet + 10);
+        updateDisplay();
+      }
+    });
+
+    // Sync bet input field with total bet when user types or changes value
+    betInput.addEventListener('input', () => {
+      if (isSpinning) return;
+      let value = parseInt(betInput.value, 10);
+      if (isNaN(value) || value < minBet) value = minBet;
+      if (value > maxBet) value = maxBet;
+      currentBet = value;
+      updateDisplay();
+    });
+    betInput.addEventListener('change', () => {
+      if (isSpinning) return;
+      let value = parseInt(betInput.value, 10);
+      if (isNaN(value) || value < minBet) value = minBet;
+      if (value > maxBet) value = maxBet;
+      currentBet = value;
+      updateDisplay();
+    });
+  // Deposit button
+  depositBtn.addEventListener('click', openDepositModal);
+  confirmDepositBtn.addEventListener('click', confirmDeposit);
+  cancelDepositBtn.addEventListener('click', closeDepositModal);
+  
+  // Allow Enter key in deposit modal
+  depositInput.addEventListener('keypress', (e) => {
+    if (e.key === 'Enter') {
+      confirmDeposit();
+    }
+  });
+  
+  // Spin button
+  spinBtn.addEventListener('click', handleSpin);
+  
+  // Handle spin action
+  async function handleSpin() {
+    if (isSpinning) return;
+  
+    const totalBet = currentBet * currentLines;
+  
+    if (balance < totalBet) {
+      showMessage('Du har inte tillräckligt med pengar för denna insats!', 'error');
+      return;
+    }
+  
+    // Scroll to message box
+    messageBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  
+    isSpinning = true;
+    balance -= totalBet;
+    updateDisplay();
+  
+    showMessage('Snurrar...', 'info');
+  
+    // Generate spin result
+    const spinResult = generateSpin();
+  
+    // Animate the spin
+    await animateSpin(spinResult);
+  
+    // Check for wins (rows and columns)
+    const { winningLines, totalWinnings, winDetails, winningColumns, columnWinDetails } = checkWinningLines(spinResult, currentLines);
+
+    let won = (winningLines && winningLines.length > 0) || (winningColumns && winningColumns.length > 0);
+    let jackpot = false;
+    if (won) {
+      // Highlight winning cells (rows and columns)
+      await highlightWinningCells(winningLines, winningColumns);
+      // Trigger "Winner!" achievement for any win
+      triggerAchievementBySelector('casino-winner');
+
+      // Check for JACKPOT: 3 diamonds (💎) in a row or column
+      // Check rows
+      for (let line = 0; line < currentLines; line++) {
+        if (spinResult[0][line] === '💎' && spinResult[1][line] === '💎' && spinResult[2][line] === '💎') {
+          jackpot = true;
+        }
+      }
+      // Check columns
+      for (let col = 0; col < spinResult.length; col++) {
+        if (spinResult[col][0] === '💎' && spinResult[col][1] === '💎' && spinResult[col][2] === '💎') {
+          jackpot = true;
+        }
+      }
+      if (jackpot) {
+        triggerAchievementBySelector('casino-jackpot');
+      }
+      /* Lines 454-474 omitted */
+    } else {/* Lines 475-476 omitted */}
+  
+    isSpinning = false;
+    updateDisplay();
+  
+    // Check if player is out of money
+    if (balance === 0) {/* Lines 483-485 omitted */}
+  }
+  
+  // Close modal on overlay click
+  depositModal.addEventListener('click', (e) => {
+    if (e.target === depositModal) {
+      closeDepositModal();
+    }
   });
   
   // Lever click/pull
