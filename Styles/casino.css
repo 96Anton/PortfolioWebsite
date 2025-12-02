@@ -212,7 +212,11 @@
 
 /* Balance Card */
 .balance-card {
-  background: linear-gradient(135deg, rgba(122, 252, 255, 0.15) 0%, rgba(255, 216, 122, 0.15) 100%);
+  background: linear-gradient(
+    135deg,
+    rgba(122, 252, 255, 0.15) 0%,
+    rgba(255, 216, 122, 0.15) 100%
+  );
   border: 2px solid rgba(122, 252, 255, 0.3);
   border-radius: var(--radius);
   padding: 24px;
@@ -240,7 +244,8 @@
 }
 
 /* Message Box */
-.message-box, #message-box {
+.message-box,
+#message-box {
   background: rgba(18, 26, 38, 0.8);
   border: 1px solid rgba(255, 255, 255, 0.04);
   border-radius: var(--radius);
@@ -270,7 +275,7 @@
   50% {
     box-shadow: 0 0 6px 2px #7afcff, 0 0 8px 4px #ffd87a;
   }
-    100% {
+  100% {
     box-shadow: 0 0 0 0 #7afcff, 0 0 0 0 #ffd87a;
   }
 }
@@ -310,12 +315,15 @@
 
 /* Slot Machine Display */
 .slot-machine {
-  background: linear-gradient(135deg, rgba(15, 23, 36, 0.95) 0%, rgba(21, 32, 52, 0.95) 100%);
+  background: linear-gradient(
+    135deg,
+    rgba(15, 23, 36, 0.95) 0%,
+    rgba(21, 32, 52, 0.95) 100%
+  );
   border: 3px solid rgba(122, 252, 255, 0.2);
   border-radius: var(--radius);
   padding: clamp(16px, 4vw, 32px);
-  box-shadow: 
-    0 0 40px rgba(122, 252, 255, 0.2),
+  box-shadow: 0 0 40px rgba(122, 252, 255, 0.2),
     inset 0 2px 10px rgba(0, 0, 0, 0.5);
   display: flex;
   flex-direction: column;
@@ -325,7 +333,7 @@
 }
 
 .slot-machine::before {
-  content: '';
+  content: "";
   position: absolute;
   inset: -2px;
   border-radius: var(--radius);
@@ -346,7 +354,8 @@
 }
 
 @keyframes borderGlow {
-  0%, 100% {
+  0%,
+  100% {
     opacity: 1;
   }
   50% {
@@ -363,7 +372,11 @@
 .slot-cell {
   width: clamp(60px, 15vw, 100px);
   height: clamp(60px, 15vw, 100px);
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.02) 100%);
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.05) 0%,
+    rgba(255, 255, 255, 0.02) 100%
+  );
   border: 2px solid rgba(255, 255, 255, 0.1);
   border-radius: 12px;
   display: flex;
@@ -382,24 +395,32 @@
 
 .slot-cell.winning {
   animation: winPulse 0.6s ease-in-out 3;
-  background: linear-gradient(135deg, rgba(122, 252, 199, 0.3) 0%, rgba(122, 252, 255, 0.3) 100%);
+  background: linear-gradient(
+    135deg,
+    rgba(122, 252, 199, 0.3) 0%,
+    rgba(122, 252, 255, 0.3) 100%
+  );
   border-color: rgba(122, 252, 199, 0.8);
-  box-shadow: 
-    0 0 20px rgba(122, 252, 199, 0.5),
+  box-shadow: 0 0 20px rgba(122, 252, 199, 0.5),
     inset 0 2px 8px rgba(0, 0, 0, 0.3);
 }
 
 @keyframes spin {
-  0% { transform: translateY(0); }
-  100% { transform: translateY(-10px); }
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-10px);
+  }
 }
 
 @keyframes winPulse {
-  0%, 100% { 
-    transform: scale(1); 
+  0%,
+  100% {
+    transform: scale(1);
   }
-  50% { 
-    transform: scale(1.1); 
+  50% {
+    transform: scale(1.1);
   }
 }
 
@@ -430,7 +451,11 @@
 }
 
 .win-line[data-active="true"] {
-  background: linear-gradient(90deg, rgba(122, 252, 255, 0.2) 0%, rgba(122, 252, 199, 0.2) 100%);
+  background: linear-gradient(
+    90deg,
+    rgba(122, 252, 255, 0.2) 0%,
+    rgba(122, 252, 199, 0.2) 100%
+  );
   border-color: rgba(122, 252, 255, 0.5);
   color: #7afcff;
   box-shadow: 0 0 15px rgba(122, 252, 255, 0.3);
@@ -452,18 +477,25 @@
   position: relative;
   width: clamp(8px, 2vw, 10px);
   height: clamp(80px, 20vw, 120px);
-  background: linear-gradient(180deg, rgba(255, 138, 138, 0.4) 0%, rgba(255, 138, 138, 0.8) 100%);
+  background: linear-gradient(
+    180deg,
+    rgba(193, 255, 138, 0.4) 0%,
+    rgba(80, 103, 60, 0.8) 100%
+  );
   border-radius: 5px;
   cursor: grab;
   transition: transform 0.3s ease;
   transform-origin: bottom center;
-  box-shadow: 
-    0 4px 8px rgba(0, 0, 0, 0.3),
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3),
     inset 2px 0 4px rgba(255, 255, 255, 0.2);
 }
 
 .lever-arm:hover {
-  background: linear-gradient(180deg, rgba(255, 138, 138, 0.6) 0%, rgba(255, 138, 138, 1) 100%);
+  background: linear-gradient(
+    180deg,
+    rgba(193, 255, 138, 0.6) 0%,
+    rgba(80, 103, 60, 0.55) 100%
+  );
 }
 
 .lever-arm:active {
@@ -488,11 +520,10 @@
   transform: translateX(-50%);
   width: clamp(35px, 9vw, 50px);
   height: clamp(35px, 9vw, 50px);
-  background: linear-gradient(135deg, #ff8a8a 0%, #ff6b6b 100%);
-  border: 3px solid rgba(255, 255, 255, 0.4);
+  background: linear-gradient(135deg, #3f5eb1 0%, #263b99 100%);
+  border: 2px solid rgba(148, 159, 226, 0.4);
   border-radius: 50%;
-  box-shadow: 
-    0 6px 16px rgba(0, 0, 0, 0.5),
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.5),
     inset -3px -3px 8px rgba(0, 0, 0, 0.4),
     inset 3px 3px 8px rgba(255, 255, 255, 0.4);
   transition: all 0.3s ease;
@@ -500,9 +531,7 @@
 }
 
 .lever-arm:hover .lever-handle {
-  box-shadow: 
-    0 8px 20px rgba(255, 138, 138, 0.6),
-    0 0 30px rgba(255, 138, 138, 0.4),
+  box-shadow: 0 8px 20px rgba(30, 58, 138, 0.6), 0 0 30px rgba(10, 23, 78, 0.4),
     inset -3px -3px 8px rgba(0, 0, 0, 0.4),
     inset 3px 3px 8px rgba(255, 255, 255, 0.4);
   transform: translateX(-50%) scale(1.05);
@@ -513,7 +542,7 @@
 }
 
 .lever-handle::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 10px;
   left: 10px;
@@ -525,15 +554,8 @@
 }
 
 .lever-handle::after {
-  content: '⬇';
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-size: 20px;
-  color: rgba(255, 255, 255, 0.8);
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
-  pointer-events: none;
+  content: "";
+  display: none;
 }
 
 /* Betting Controls */
@@ -594,7 +616,11 @@
 .control-btn {
   width: 44px;
   height: 44px;
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.03));
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.08),
+    rgba(255, 255, 255, 0.03)
+  );
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 8px;
   color: var(--text);
@@ -608,7 +634,11 @@
 }
 
 .control-btn:hover {
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.06));
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.12),
+    rgba(255, 255, 255, 0.06)
+  );
   transform: translateY(-2px);
 }
 
@@ -621,7 +651,11 @@
   justify-content: space-between;
   align-items: center;
   padding: 16px;
-  background: linear-gradient(90deg, rgba(122, 252, 255, 0.05) 0%, rgba(255, 216, 122, 0.05) 100%);
+  background: linear-gradient(
+    90deg,
+    rgba(122, 252, 255, 0.05) 0%,
+    rgba(255, 216, 122, 0.05) 100%
+  );
   border: 1px solid rgba(122, 252, 255, 0.2);
   border-radius: 8px;
   font-size: 18px;
@@ -811,7 +845,7 @@
   .slot-machine {
     padding: 12px;
   }
-  
+
   .slot-machine-wrapper {
     gap: 8px;
   }
@@ -842,7 +876,7 @@
   .casino-container {
     padding: 8px;
   }
-  
+
   .casino-header h1 {
     font-size: 24px;
   }
@@ -851,7 +885,7 @@
     padding: 8px;
     gap: 6px;
   }
-  
+
   .slot-machine-wrapper {
     gap: 6px;
   }
@@ -867,11 +901,11 @@
   .balance-amount {
     font-size: 28px;
   }
-  
+
   .lever-handle::after {
     font-size: 14px;
   }
-  
+
   .betting-controls {
     padding: 12px;
   }
