@@ -8,7 +8,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <title>Den utvalda - Ett JavaScript spel</title>
-  <link rel="icon" type="image/x-icon" href="../Styles/Anton-favicon.png">
+  <link rel="icon" type="image/x-icon" href="../Assets/Anton-favicon.png">
 
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Fredoka+One&display=swap" rel="stylesheet">
@@ -273,10 +273,41 @@
 <!--WIDGET 5 END - 3D Card Flip Gallery -->
 
 
-
-<!--WIDGET 6 START - Glassmorphism Card Stack -->
-  <hr/>
+<!--WIDGET 6 START - Scroll snap swiper section-->
+<hr/>
   <section id="widget6"></section>
+      <div class="container widget-heading">
+      <h2>Scroll snap swiper</h2>
+    <p class="prex">En mobilvänlig swiper med scroll-snap funktionalitet.</p>
+    <p class="prex">Man kan byta ut nuvarande a länkar + bilder med precis vad du vill, Även fler div element kan läggas in.</p>
+    <p class="prex">Swipea och prova! (Endast mobil)</p>
+      </div>
+<div class="swiper-container" aria-label="Swiper container">
+<div class ="swiper-section hold" aria-label="Swiper section">
+    <a href="./Pages/casino.html" aria-label="Left swiper" style="display: inline-block; text-align: center; text-decoration: none;" class="swiper-link"><span class="swiper-span">Lägg till vad<br/>du vill här</span></a>
+    <div>
+      <h2>Swiper för mobile</h2>
+      <p class="prex" style="text-align: center;"><--      --></p>
+    </div>
+    <a href="./Pages/pattern-memory.html" aria-label="Right swiper"><span class="swiper-span">Lägg till vad<br/> du vill här</span></a>
+  </div>
+</div>
+</div>
+<script>
+      document.addEventListener("DOMContentLoaded", function() {
+  const swiper = document.querySelector('.swiper-section');
+  const secondChild = swiper?.children[1];
+  if (secondChild) {
+    secondChild.scrollIntoView({ behavior: "auto", inline: "center", block: "nearest" });
+  }
+});
+</script>
+<!--WIDGET 6 END - Scroll snap swiper section-->
+
+
+<!--WIDGET 7 START - Glassmorphism Card Stack -->
+  <hr/>
+  <section id="widget7"></section>
     <div class="container widget-heading">
       <h2>Glassmorphism Card Stack</h2>
       <p class="prex">Moderna glassmorphism-kort med frostat glas-effekt och subtila skuggor.</p>
