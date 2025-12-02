@@ -74,7 +74,7 @@ async function getRandomDiceImage(event) {
     if (!$img.length) return;
 
     const randomNumber = Math.floor(Math.random() * 6) + 1;
-    $img.attr('src', `../Styles/images/dice${randomNumber}.png`);
+    $img.attr('src', `../Assets/dice${randomNumber}.png`);
 
     await delay(ROLL_DELAY);
     showResult($gameElement, randomNumber);
@@ -87,7 +87,7 @@ function showResult($gameElement, randomNumber) {
         ? 'Du klarade din första prövning och får fortsätta mot ditt mål.'
         : 'och har redan förlorat spelet.');
     const $resultImage = $('<img>').addClass('result-image')
-        .attr({src: `../Styles/images/dice${randomNumber}.png`, alt: `Dice showing ${randomNumber}`});
+        .attr({src: `../Assets/dice${randomNumber}.png`, alt: `Dice showing ${randomNumber}`});
 
     if (!isWorthy) {
         const $retryButton = createElement('button', 'retry-button', 'Försök igen')
@@ -127,10 +127,10 @@ function challenger() {
 
     const $vapenDiv = $('<div>').addClass('vapen');
     weapons.forEach(w => {
-        $vapenDiv.append($('<img>').attr({src: `../Styles/images/${w.src}`, alt: w.alt}).on('click', w.onClick));
+        $vapenDiv.append($('<img>').attr({src: `../Assets/${w.src}`, alt: w.alt}).on('click', w.onClick));
     });
 
-    const $utmanare = $('<img>').attr({src: '../Styles/images/challenger.png', alt: 'utmanare'});
+    const $utmanare = $('<img>').attr({src: '../Assets/challenger.png', alt: 'utmanare'});
     
     setGameContent($gameElement,
         createElement('h1', '', 'Utmanaren står i din väg.'),
@@ -565,7 +565,7 @@ function resetGame($gameElement) {
     if (!initialMarkup) return;
 
     $gameElement.html(initialMarkup).removeClass('started').addClass('cta');
-    $gameElement.find('.imgdice1').attr('src', '../Styles/images/dice6.png');
+    $gameElement.find('.imgdice1').attr('src', '../Assets/dice6.png');
 
     $container.one('click', startGame);
 }
