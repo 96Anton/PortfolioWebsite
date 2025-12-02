@@ -187,6 +187,195 @@
 
     .loader::after {
       content: '';
+          #widget1, #widget2, #widget3, #widget4, #widget5, #widget6 {
+        height: 0;
+        padding: 0;
+        margin-top: 0;
+      }
+
+      hr {
+      border: none; 
+      border-top: 1px solid var(--muted); 
+      opacity: 0.3; 
+      margin: 0 auto; 
+      max-width: 1200px;
+      margin-bottom: 30px;
+    }
+
+    .fancy-btn {
+      background: linear-gradient(45deg, #ff6ec4, #7873f5, #4ade80, #facc15, #f97316);
+      background-size: 400% 400%;
+      border: 2px solid transparent;
+      position: relative;
+      border-radius: 25px;
+      color: #2d1b4e;
+      padding: 15px 30px;
+      font-size: 16px;
+      cursor: pointer;
+      animation: gradientAnimation 8s ease infinite;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+      transition: filter 1500ms ease, border-radius 1000ms ease;
+      border-radius: 25% 75% 75% 25% / 25% 25% 75% 75%;
+      font-family: 'Fredoka One', cursive;
+      text-transform: uppercase;
+      left: 10px;
+      text-shadow: 4px 4px 10px rgba(105, 246, 223, 0.3);
+      overflow: visible;
+      filter: drop-shadow(12px 7px 5px rgba(0, 254, 254, 0.274));
+
+    }
+
+    .fancy-btn:hover {
+      filter: drop-shadow(-12px -2px 5px rgba(0, 254, 254, 0.274));
+      animation: gradientAnimation 5s ease infinite;
+      border-radius: 75% 25% 25% 75% / 75% 75% 25% 25%;
+    }
+
+
+    .fancy-btn span {
+      display: inline-block;
+      transform: translateY(0) translateX(-4px) rotate(-2deg);
+      transition: transform 2000ms ease;
+    }
+
+    .fancy-btn:hover span {
+      transform: translateY(3px) translateX(10px) rotate(2deg);
+    }
+
+
+    @keyframes textMovementWithShape {
+      0%, 100% {
+        transform: translateY(0) translateX(0) rotate(-2deg);
+      }
+      50% {
+        transform: translateY(3px) translateX(10px) rotate(2deg);
+      }
+    }
+
+    @keyframes gradientAnimation {
+      0% {
+        background-position: 0% 50%;
+      }
+      50% {
+        background-position: 100% 50%;
+      }
+      100% {
+        background-position: 0% 50%;
+      }
+    }
+
+    @keyframes shapeShifting {
+      0%, 100% {
+        border-radius: 25% 75% 75% 25% / 25% 25% 75% 75%;
+      }
+      50% {
+        border-radius: 75% 25% 25% 75% / 75% 75% 25% 25%;
+      }
+    }
+
+    .widget-heading {
+      text-align: center;
+      margin-bottom: 20px;
+      display: flex; 
+      flex-direction: column; 
+      align-items: start; 
+      max-width: 750px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .fancy-container {
+      display: flex;
+      justify-content: space-evenly;
+      align-items: center;
+      max-width: 500px;
+      gap: 30px;
+      padding: 50px 60px;
+      margin: 30px 10px;
+      background: linear-gradient(135deg, rgba(120, 115, 245, 0.1), rgba(74, 222, 128, 0.1), rgba(255, 110, 196, 0.1));
+      border: 2px solid rgba(120, 115, 245, 0.3);
+      border-radius: 20px;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2),
+      inset 0 1px 0 rgba(255, 255, 255, 0.1);
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--text);
+      transition: all 500ms ease;
+    }
+
+    .fancy-container:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 40px rgba(120, 115, 245, 0.4),
+      inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    }
+
+    .confetti-particle {
+      position: fixed;
+      width: 5px;
+      height: 12px;
+      border-radius: 30%;
+      pointer-events: none;
+      z-index: 9999;
+    }
+
+    @keyframes confettiFall {
+      0% {
+        transform: translateY(0) translateX(0) rotate(0deg) scale(1);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(var(--y)) translateX(var(--x)) rotate(720deg) scale(0.3);
+        opacity: 0;
+      }
+    }
+
+    .prex {
+      text-align: start;
+    }
+
+    .wid3 {
+      display: flex;
+      flex-direction: column;
+    }
+
+    @media (min-width: 700px) {
+      .widget-heading {
+        justify-self: center;
+        padding: 20px;
+      }
+      .fancy-container {
+        min-width: 400px;
+      }
+      .wid3 {
+        flex-direction: row;
+      }
+    }
+
+    /* Advanced CSS Loading Spinner Styles */
+    .loader {
+      position: relative;
+      width: 80px;
+      height: 80px;
+      background: conic-gradient(from 0deg, #6366f1, #8b5cf6, #d946ef, #ec4899, #f43f5e, #6366f1);
+      border-radius: 50%;
+      animation: spin 2s linear infinite;
+      filter: drop-shadow(0 0 25px rgba(139, 92, 246, 0.7)) 
+              drop-shadow(0 0 50px rgba(236, 72, 153, 0.5));
+    }
+
+    .loader::before {
+      content: '';
+      position: absolute;
+      inset: 8px;
+      background: conic-gradient(from 90deg, #a78bfa, #c084fc, #e879f9, #f0abfc, #fda4af, #a78bfa);
+      border-radius: 50%;
+      animation: spin .8s linear infinite reverse;
+      filter: blur(3px);
+    }
+
+    .loader::after {
+      content: '';
       position: absolute;
       inset: -5px;
       background: linear-gradient(90deg, 
