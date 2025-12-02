@@ -1,4 +1,4 @@
-   .achievements-grid {
+    .achievements-grid {
       display: grid;
       gap: 12px;
       grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
