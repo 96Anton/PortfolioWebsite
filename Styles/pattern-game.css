@@ -246,6 +246,254 @@
       font-weight: 600;
       font-family: Inter, system-ui, -apple-system, sans-serif;
     }
+    /* Pattern Memory Game Styles - Integrated with Portfolio Theme */
+    .game-container-pattern {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 120px auto 40px;
+      padding: 0 20px;
+      position: relative;
+    }
+
+    .game-container-pattern.shake {
+      animation: shake 0.2s;
+    }
+
+    @keyframes shake {
+      0%, 100% { transform: translateX(0); }
+      10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
+      20%, 40%, 60%, 80% { transform: translateX(5px); }
+    }
+
+    .pattern-game-wrapper {
+      text-align: center;
+      background: var(--glass);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      padding: 1.5rem;
+      border-radius: var(--radius);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      box-shadow: 0 8px 40px rgba(2, 6, 23, 0.5);
+      max-width: 480px;
+      width: 90%;
+      position: relative;
+      transition: transform 0.3s;
+      margin-top: 30px;
+    }
+
+    body[data-theme="light"] .pattern-game-wrapper {
+      background: rgba(255, 255, 255, 0.9);
+      border: 1px solid rgba(15, 23, 36, 0.12);
+      box-shadow: 0 8px 30px rgba(15, 23, 36, 0.12);
+    }
+
+    .pattern-game-wrapper h1 {
+      margin: 0 0 0.75rem 0;
+      color: var(--text);
+      font-size: 1.5rem;
+      line-height: 0.9;
+    }
+
+    .stats-container {
+      display: flex;
+      justify-content: space-around;
+      margin: 0.5rem 0;
+      gap: 0.5rem;
+    }
+
+    .stat-box {
+      flex: 1;
+      padding: 0.2rem 0.2rem;
+      background: rgba(255, 255, 255, 0.03);
+      border-radius: 8px;
+      border: 1px solid rgba(255, 255, 255, 0.04);
+    }
+
+    body[data-theme="light"] .stat-box {
+      background: rgba(15, 23, 36, 0.03);
+      border: 1px solid rgba(15, 23, 36, 0.08);
+    }
+
+    .stat-label {
+      font-size: 0.65rem;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .stat-value {
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: var(--text);
+      margin-top: 0.15rem;
+    }
+
+    #score {
+      display: inline-block;
+      transition: transform 0.3s;
+    }
+
+    .scale-up {
+      animation: scaleUp 0.3s ease-in-out;
+    }
+
+    @keyframes scaleUp {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.5); }
+      100% { transform: scale(1); }
+    }
+
+    .difficulty-indicator {
+      display: inline-block;
+      padding: 0rem 0.6rem;
+      border-radius: 12px;
+      font-size: 0.75rem;
+      font-weight: bold;
+      margin: 0.3rem 0;
+    }
+
+    .difficulty-easy { background: #95e1d3; color: #2d5a4d; }
+    .difficulty-medium { background: #ffe66d; color: #7a6400; }
+    .difficulty-hard { background: #ff6b6b; color: #8b0000; }
+    .difficulty-expert { background: #a29bfe; color: #4a00e0; }
+
+    .lives-container {
+      margin: 0 0;
+    }
+
+    .heart {
+      display: inline-block;
+      font-size: 1.2rem;
+      margin: 0 0.2rem;
+      transition: all 0.3s;
+    }
+
+    .heart.lost {
+      opacity: 0.2;
+      filter: grayscale(100%);
+    }
+
+    .combo-display {
+      font-size: 1rem;
+      font-weight: bold;
+      color: #7afcff;
+      margin: 0.3rem 0;
+      height: 1.2rem;
+      line-height: 1.2rem;
+      transition: all 0.3s;
+    }
+
+    .combo-display.show {
+      animation: comboPopIn 0.5s;
+    }
+
+    @keyframes comboPopIn {
+      0% { transform: scale(0) rotate(-180deg); opacity: 0; }
+      50% { transform: scale(1.2) rotate(10deg); }
+      100% { transform: scale(1) rotate(0deg); opacity: 1; }
+    }
+
+    .game-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 100px);
+      gap: 10px;
+      margin: 0 auto;
+      justify-content: center;
+      position: relative;
+    }
+
+    .game-btn {
+      width: 100px;
+      height: 100px;
+      border: 3px solid rgba(255, 255, 255, 0.2);
+      border-radius: 16px;
+      cursor: pointer;
+      font-size: 2rem;
+      transition: all 0.2s;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .game-btn:hover:not(:disabled) {
+      transform: scale(1.05);
+      box-shadow: 0 8px 16px rgba(0,0,0,0.4);
+    }
+
+    .game-btn:active:not(:disabled) {
+      transform: scale(0.95);
+    }
+
+    .game-btn.active {
+      opacity: 0.7;
+      border: 4px solid rgba(255, 255, 255, 0.6);
+      box-shadow: 0 0 30px rgba(122, 252, 255, 0.8), 0 6px 12px rgba(0,0,0,0.3);
+      transform: scale(1.1);
+    }
+
+    .game-btn.error {
+      animation: errorShake 0.2s;
+      border-color: #ff6b6b;
+    }
+
+    .game-btn.correct-answer {
+      animation: correctPulse 0.5s;
+      border-color: #7afcff;
+    }
+
+    @keyframes errorShake {
+      0%, 100% { transform: translateX(0); }
+      25% { transform: translateX(-5px) rotate(-3deg); }
+      75% { transform: translateX(5px) rotate(3deg); }
+    }
+
+    @keyframes correctPulse {
+      0%, 100% { transform: scale(1); box-shadow: 0 0 0 rgba(122, 252, 255, 0); }
+      50% { transform: scale(1.15); box-shadow: 0 0 30px rgba(122, 252, 255, 0.8); }
+    }
+
+    .game-btn.colorblind-mode::before {
+      content: attr(data-symbol);
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 2.5rem;
+      color: rgba(255, 255, 255, 0.4);
+      font-weight: bold;
+    }
+
+    .particle {
+      position: absolute;
+      pointer-events: none;
+      animation: particleFloat 1s ease-out forwards;
+      z-index: 100;
+    }
+
+    @keyframes particleFloat {
+      0% { transform: translate(0, 0) scale(1); opacity: 1; }
+      100% { transform: translate(var(--tx), var(--ty)) scale(0); opacity: 0; }
+    }
+
+    .button-container {
+      display: flex;
+      gap: 8px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 0.5rem;
+    }
+
+    .pattern-game-wrapper button {
+      padding: 8px 16px;
+      font-size: 14px;
+      cursor: pointer;
+      border: none;
+      border-radius: 8px;
+      transition: all 0.3s;
+      font-weight: 600;
+      font-family: Inter, system-ui, -apple-system, sans-serif;
+    }
 
     .pattern-game-wrapper button:hover:not(:disabled) {
       transform: translateY(-2px);
