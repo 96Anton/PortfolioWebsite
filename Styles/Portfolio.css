@@ -1002,14 +1002,18 @@ body[data-theme="light"] .card-carousel > .row-carousel > .icon-carousel {
 }
 
 .card-carousel[for="c2"] {
-  background-image: url('../Assets/JavaScript.png');
-}
-
-.card-carousel[for="c3"] {
   background-image: url('../Assets/liquid-glass.jpg');
 }
 
+.card-carousel[for="c3"] {
+  background-image: url('../Assets/CSS.png');
+}
+
 .card-carousel[for="c4"] {
+  background-image: url('../Assets/JavaScript.png');
+}
+
+.card-carousel[for="c5"] {
   background-image: url('../Assets/Hero\ Picture\ Or\ dont\ 18.jpg');
 }
 
@@ -1222,3 +1226,122 @@ body[data-theme="light"] #contactForm textarea:focus {
   top: 114px;
   }
 }
+
+* {
+  box-sizing: border-box;
+}
+
+.swiper-container {
+display: flex;
+justify-content: center;
+}
+
+.swiper-section {
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+  align-items: center;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  height: clamp(300px, 50vh, 500px);
+  margin-bottom: 60px;
+  margin-top: 30px;
+  max-width: 1200px;
+}
+.swiper-section > * {
+  flex: 0 0 auto;
+  scroll-snap-align: center;
+}
+.swiper-section::-webkit-scrollbar {
+  display: none;
+}
+
+.swiper-section > :nth-child(2) {
+    width: 85cqw;
+    padding: 20px 30px;
+    scroll-snap-align: center;
+}
+
+.swiper-section.hold > *:first-child {
+      scroll-snap-align: start;
+      background-image: url('../Assets/casino.png');
+      background-size: cover;
+      background-position: center;
+      height: clamp(300px, 50vh, 500px);
+      width: 85cqw;
+      border-radius: 35px;
+      border: 2px solid rgba(255, 255, 255, 0.2);
+      position: relative;
+}
+
+.swiper-section.hold > *:last-child {
+      scroll-snap-align: end;
+      background-image: url('../Assets/pattern-memory-game.png');
+      background-size: cover;
+      background-position: center;
+      height: clamp(300px, 50vh, 500px);
+      width: 85cqw;
+      border-radius: 35px;
+      border: 2px solid rgba(255, 255, 255, 0.2);
+      position: relative;
+}
+
+.desktop-swipe-text {
+ display: none;
+}
+
+@media (min-width: 800px) {
+  .swiper-section.hold > *:last-child {
+    width: 25cqw;
+  }
+  .swiper-section.hold > *:first-child {
+    width: 25cqw;
+  }
+    .swiper-section > :nth-child(2) {
+    width: 25cqw;
+  }
+  .desktop-swipe-text {
+ display: block;
+}
+  .mobile-swipe-text {
+ display: none;
+}
+}
+
+
+.swiper-section.hold > *:last-child::after, .swiper-section.hold > *:first-child::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle, rgba(0, 0, 0, 0.658), transparent);
+  border-radius: 35px;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.swiper-span {
+  font-size: 30px;
+  font-weight: 800;
+  color: #fff;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  width: 100%;
+  text-align: center;
+  pointer-events: none;
+}
+
+/*
+@keyframes scroll_hold {
+  to {
+    scroll-snap-align: start;
+  }
+  }
+
+  .swiper-section::-webkit-scrollbar {
+    display: none;
+  }
+*/
