@@ -1,0 +1,298 @@
+/* Game Container Styles */
+.game {
+    position: relative;
+}
+
+.game h1 {
+    line-height: 1;
+}
+
+.game input,
+.game button {
+    pointer-events: auto;
+}
+
+/* Dice Styles */
+.dice {
+    display: none;
+}
+
+.dice.active {
+    display: block;
+}
+
+/* Step Two Styles */
+.steptwo {
+    width: 100%;
+    min-height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url('../Assets/deeper.jpg');
+    background-size: cover;
+    border-radius: 12px;
+    background-position: center;
+    margin-top: 20px;
+}
+
+/* Deeper Button Styles */
+.deeper-button {
+    font-weight: 600;
+}
+
+/* Result Image Styles */
+.result-image {
+    display: block;
+    margin: 10px auto;
+}
+
+/* Utmanare Div Styles */
+.utmanare-div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.utmanare-div img {
+    width: 150px;
+    height: 150px;
+    margin: 10px;
+}
+
+/* Vapen (Weapons) Styles */
+.vapen {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin: 10px;
+}
+
+.vapen img {
+    width: 80px;
+    height: 80px;
+    margin: 5px;
+    border: 2px solid #FFCC00;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.vapen img:hover {
+    transform: scale(1.05);
+}
+
+/* Quiz Input Styles */
+.quiz-input {
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 6px;
+    border: 2px solid #FFCC00;
+    font-size: 16px;
+    width: 80%;
+    max-width: 300px;
+    color: #ffffff;
+    background-color: rgba(0, 0, 0, 0.3);
+    pointer-events: auto;
+    cursor: text;
+    z-index: 10;
+    position: relative;
+    outline: none;
+}
+
+.quiz-input:focus {
+    border-color: #FFE066;
+    background-color: rgba(0, 0, 0, 0.5);
+    box-shadow: 0 0 10px rgba(255, 204, 0, 0.3);
+}
+
+.quiz-input::placeholder {
+    color: #ffffff;
+    opacity: 0.7;
+}
+
+.quiz-question {
+    margin: 10px 0;
+    font-weight: 600;
+    color: #ffffff;
+}
+
+/* Hidden Div Styles (Find It Game) */
+.hiddenDiv {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    z-index: 1;
+}
+
+.hiddenDiv:hover {
+    transform: scale(1.1);
+    box-shadow: 0 4px 15px rgba(255, 255, 255, 0.3);
+}
+
+/* Final Challenge Styles */
+.game.final-challenge {
+    position: relative;
+    min-height: 400px;
+    overflow: hidden;
+    cursor: none;
+}
+
+.game.final-challenge h1 {
+    position: relative;
+    z-index: 10;
+    transition: all 1s ease;
+}
+
+.game.final-challenge h1.positioned {
+    position: absolute;
+    top: 50px;
+    left: 10px;
+    font-size: 22px;
+    margin: 0;
+    text-align: left;
+}
+
+.game.final-challenge p {
+    position: relative;
+    z-index: 10;
+    transition: all 1s ease;
+}
+
+.game.final-challenge p.positioned {
+    position: absolute;
+    top: 75px;
+    left: 10px;
+    font-size: 10px;
+    margin: 0;
+    text-align: left;
+    max-width: 180px;
+}
+
+/* Cursor Dot */
+.cursor-dot {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: #ffffff;
+    pointer-events: none;
+    z-index: 100;
+    transition: background-color 0.2s ease;
+}
+
+.cursor-dot.enemy-hover {
+    background-color: #fa0000;
+}
+
+/* Final Level (Particle Container) */
+.finalLevel {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 5;
+    pointer-events: none;
+}
+
+/* Hidden Enemy */
+.hiddenEnemy {
+    position: absolute;
+    width: 35px;
+    height: 35px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: transparent;
+    border: 2px solid transparent;
+    padding: 10px;
+    clip-path: polygon(30% 0%, 40% 20%, 50% 0%, 60% 20%, 70% 0%, 80% 40%, 70% 50%, 80% 80%, 60% 100%, 50% 70%, 40% 100%, 20% 80%, 30% 50%, 20% 40%);
+    z-index: 8;
+    pointer-events: auto;
+    cursor: pointer;
+    transition: border 0.1s ease, background-color 0.1s ease, box-shadow 0.1s ease;
+}
+
+.hiddenEnemy.damaged {
+    border: 3px solid #ff0000;
+    background-color: rgba(255, 0, 0, 0.3);
+    box-shadow: 0 0 25px rgba(255, 0, 0, 0.8);
+}
+
+.hiddenEnemy.collision {
+    border: 3px solid #FFCC00;
+    background-color: rgba(255, 204, 0, 0.15);
+    box-shadow: 0 0 20px rgba(255, 204, 0, 0.6);
+}
+
+/* Health Bar */
+.health-bar-container {
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 200px;
+    height: 20px;
+    background-color: rgba(0, 0, 0, 0.5);
+    border: 2px solid #FFCC00;
+    border-radius: 10px;
+    z-index: 11;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.health-bar {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #FFCC00;
+    transition: width 0.3s ease;
+    z-index: 1;
+}
+
+.health-bar-text {
+    font-size: 9px;
+    font-weight: 600;
+    color: #ffffff;
+    text-shadow: 0 0 3px rgba(0, 0, 0, 0.8);
+    position: relative;
+    z-index: 2;
+    letter-spacing: 1px;
+}
+
+/* Particle Styles */
+.particle {
+    position: absolute;
+    border-radius: 50%;
+    background-color: rgba(255, 204, 0, 0.7);
+    box-shadow: 0 0 6px rgba(255, 204, 0, 0.4);
+    pointer-events: none;
+}
+
+/* Collision Flash */
+.collision-flash {
+    position: absolute;
+    width: 5px;
+    height: 5px;
+    background-color: #FFCC00;
+    border-radius: 50%;
+    box-shadow: 0 0 10px #FFCC00;
+    pointer-events: none;
+    z-index: 9;
+}
+
+/* Button Styles */
+.retry-button {
+    margin-top: 10px;
+}
+
+.give-up-button {
+    margin-top: 10px;
+}

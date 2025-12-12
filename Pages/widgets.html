@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="utf-8" />
+  <meta name="description" content="Spel utvecklat av Anton Ahlm, webbutvecklare och designer.">
+  <meta name="keywords" content="Web app, webbapp, webbspel, web development, webbutveckling, javascript game, javascript spel, html, css, javascript, den utvalda, spel">
+  <meta name="author" content="Anton Ahlm">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>Den utvalda - Ett JavaScript spel</title>
+  <link rel="icon" type="image/x-icon" href="../Assets/Anton-favicon.png">
+
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Fredoka+One&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../Styles/Portfolio.css" />
+  <link rel="stylesheet" href="../Styles/spel.css" />
+  <link rel="stylesheet" href="../Styles/widgets.css" />
+
+    <style>
+
+
+  </style>
+
+</head>
+<body>
+
+<div class="container-all">
+
+<!-- Site Header Start -->
+  <header>
+    <div class="nav" role="navigation" aria-label="Top navigation">
+      <div class="brand">
+        <a class="logo" href="../home.html"><code>&lt;Anton<br/>Ahlm&gt;</code></a>
+        <div>
+          <div style="font-weight: 700">Portfolio</div>
+          <div style="font-size: 12px; color: var(--muted)">Web designer & developer</div>
+        </div>
+      </div>
+<!-- Site Header End -->
+
+
+
+<!-- Primary Navigation Start-->
+      <nav>
+        <ul id="navMenu">
+          <li><a class="btn" href="../home.html">Hem</a></li>
+          <li><a class="btn" href="./mittCV.html">CV</a></li>
+          <li><a class="btn" href="./contact.html">Kontakt</a></li>
+          <li><a class="btn" href="./Kod.html">&lt;Kod&gt;</a></li>
+          <li><a class="btn" href="./pattern-memory.html" style="flex-direction: column; line-height: 0.8;">Spel</br><span style="font-size: 10px; line-height: 0.1; color: #FFCC00;">Pattern Memory</span></a></li>
+          <li><a class="btn" href="./game.html" style="flex-direction: column; line-height: 0.8;">Spel</br><span style="font-size: 10px; line-height: 0.1; color: #FFCC00;">Den utvalda</span></a></li>
+          <li><a class="btn" href="./casino.html" style="flex-direction: column; line-height: 0.8;">Casino</br><span style="font-size: 10px; line-height: 0.1; color: #FFCC00;">Slot Machine</span></a></li>
+        </ul>
+      </nav>
+
+      <button class="menu-toggle btn" aria-expanded="false" aria-controls="navMenu">Meny ☰</button>
+        <div class="scroll-watcher"></div>
+    </div>
+  </header>
+<!-- Primary Navigation End-->
+
+
+
+<!-- Main Content  -->
+  <main>
+
+
+<!-- Hero Section start -->
+    <section class="hero" id="home" aria-label="Hero">
+      <div class="grad" aria-hidden="true"></div>
+
+      <div class="hero-content container" style="padding-bottom: 50px;">
+        <div class="intro firstintro" role="region" aria-label="Intro">
+          <h1>CSS widgets</h1>
+          <p class="sub"><strong>En samling widgets jag kodat, främst i HTML & CSS, med inslag av viss JavaScript.</strong><br/><br/>Exempel på min förmåga att designa kreativt, utveckla idéen och leverera den till en webbsida.</p>
+
+          <div class="cta-row">
+            <button class="cta" onclick="location.href='./contact.html'">Kontakta mig</button>
+            <button class="ghost" onclick="location.href='./mittCV.html'">Mitt CV</button>
+          </div>
+
+          <p style="margin-top: 18px; color: var(--muted); font-size: 14px">Klicka <a href="#design" style="color: var(--muted); text-decoration: none"><span style="font-weight: 700">&lt;här&gt;</span></a> för att testa fler JavaScript program!</p>
+        </div>
+
+        <aside class="card firstcard" aria-label="Profile">
+          <div class="meta">
+            <div class="logo"><code>&lt;CSS&gt;</code></div>
+            <div>
+              <h3 style="font-weight: 700">Design & utveckling</h3>
+              <div class="small">Vilken widget är din favorit?</div>
+            </div>
+          </div>
+
+          <ul style="margin: 0; padding-left: 18px; color: var(--muted); font-size: 14px">
+            <a href="#widget1" style="color: var(--muted); text-decoration: none;">Playful button</a>
+            <a href="#widget2" style="color: var(--muted); text-decoration: none;">Accordion Carousel</a>
+            <a href="#widget3" style="color: var(--muted); text-decoration: none;">Dynamic Prices Block</a>
+            <a href="#widget4" style="color: var(--muted); text-decoration: none;">Loading Spinner</a>
+            <a href="#widget5" style="color: var(--muted); text-decoration: none;">3D Card Flip</a>
+            <a href="#widget6" style="color: var(--muted); text-decoration: none;">Glassmorphism</a>
+          </ul>
+
+          <div style="margin-bottom: 10px; margin-top: 20px"><h4 style="font-size: 14px">Har du en specifik idé?</h4></div>
+            <p style="color: var(--muted); font-size: 14px">Jag hjälper gärna till att designa och utveckla skräddarsydda widgets för din webbplats eller applikation.</p>
+            <p style="color: var(--muted); font-size: 14px">Kontakta mig för att diskutera dina behov och få en offert.</p>
+
+          <div style="margin-top: 14px; display: flex; gap: 10px">
+            <a href="https://github.com/96anton" class="ghost btn-github" target="_blank" rel="noopener">GitHub</a>
+
+            <a href="https://www.linkedin.com/in/antonahlm/" class="ghost btn-linkedin" target="_blank" rel="noopener">LinkedIn</a>
+
+            <a href="https://www.instagram.com/anton_masken_ahlm/" class="ghost btn-instagram" target="_blank" rel="noopener">Instagram</a>
+            </div>
+        </aside>
+      </div>
+    </section>
+<!-- Hero Section End -->
+
+
+
+<!--WIDGET 1 START -  -->
+  <hr/>
+  <section id="widget1"></section>
+  <div class="widget-heading wid3">
+    <div class="container">
+      <h2 style="text-align: start;">Playful button</h2>
+    <p class="prex">En härligt lekfull knapp med tillfredsställande animationer hover-effekter och klickeffekter.</p><p class="prex">Knappen är placerad i en stilren flexbox container som framhäver dess känsla.</p>
+  </div>
+    <div class="fancy-container" style="text-align: center;">Hovra &amp;<br/>klicka
+      <button class="fancy-btn" href="#"><span>Testa mig</span></button>
+    </div>
+    </div>
+<!--WIDGET 1 END -  -->
+
+
+
+<!--WIDGET 2 START - Accordion Carousel Gallery--> 
+  <hr/>
+  <section id="widget2"></section>
+      <div class="container widget-heading">
+      <h2>Accordion Carousel</h2>
+    <p class="prex">En stilfull karusell av bilder, där den klickade bilden expanderas och blir en länk till valfri sida.</p><p class="prex">En subtil och stilren animation cirkulerar kring det valda objektet.</p>
+    </div>
+
+  <div class="wrapper-carousel">
+        <div class="container-carousel">
+            <input type="radio" name="slide" id="c1" checked>
+            <label for="c1" class="card-carousel">
+                <div class="row-carousel">
+                    <div class="icon-carousel">1</div>
+                    <div class="description-carousel">
+                        <h4>Mitt CV</h4>
+                        <p style="color: #fff;">Kompetenser & erfarenheter.</p>
+                    </div>
+                </div>
+                <a class="card-carousel-link" href="./mittCV.html" aria-label="Öppna Mitt CV" tabindex="-1"></a>
+            </label>
+            <input type="radio" name="slide" id="c2" >
+            <label for="c2" class="card-carousel">
+                <div class="row-carousel">
+                    <div class="icon-carousel">2</div>
+                    <div class="description-carousel">
+                        <h4>JavaScript</h4>
+                        <p style="color: #fff;">Program kodade i JavaScript.</p>
+                    </div>
+                </div>
+                <a class="card-carousel-link" href="./Kod.html" aria-label="Öppna JavaScript-projekt" tabindex="-1"></a>
+            </label>
+            <input type="radio" name="slide" id="c3" >
+            <label for="c3" class="card-carousel">
+                <div class="row-carousel">
+                    <div class="icon-carousel">3</div>
+                    <div class="description-carousel">
+                        <h4>Kontakt</h4>
+                        <p style="color: #fff;">Kontakta mig, eller se "liquid glass"-effekten.</p>
+                    </div>
+                </div>
+                <a class="card-carousel-link" href="./contact.html" aria-label="Öppna Kontakt" tabindex="-1"></a>
+            </label>
+            <input type="radio" name="slide" id="c4" >
+            <label for="c4" class="card-carousel">
+                <div class="row-carousel">
+                    <div class="icon-carousel">4</div>
+                    <div class="description-carousel">
+                        <h4>JumpYard</h4>
+                        <p>Projektledning och skapande av ny hemsida till JumpYard.</p>
+                    </div>
+                </div>
+        <a class="card-carousel-link" href="https://jumpyard.se/" target="_blank" rel="noopener" aria-label="Öppna JumpYard" tabindex="-1"></a>
+            </label>
+        </div>
+    </div>
+
+<!--WIDGET 2 END - Accordion Carousel Gallery-->
+
+
+
+<!--WIDGET 3 START - JumpYard Dynamic Prices widget-->
+  <hr/>
+  <section id="widget3"></section>
+    <div class="container" style="display: flex; justify-content: center; flex-direction: column;">
+      <div class="widget-heading">
+      <h2>Dynamic Prices block</h2>
+    <p class="prex">Iframe till en grid-lösning av en prislista, anpassad för komplexa dynamiska priser.</p><p class="prex">Klicka här för att komma till GitHub sidan: <a href="https://96anton.github.io/JumpYard/light-dynamic-prices.html" target="_blank" rel="noopener" style="text-decoration: underline;">Dynamic Price Block</a></p><p>Speciellt framtagen för <a href="https://jumpyard.se/" target="_blank" rel="noopener" style="text-decoration: underline;">JumpYard</a>.</p>
+      </div>
+    <iframe src="https://96anton.github.io/JumpYard/light-dynamic-prices.html" style="max-width: 100%; width: 100%; height: 400px; border: none; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); margin-top: 10px; margin-bottom: 20px;"></iframe>
+    </div>
+<!--WIDGET 3 END - JumpYard Dynamic Prices widget-->
+
+
+
+<!--WIDGET 4 START - Advanced CSS Loading Spinner -->
+  <hr/>
+  <section id="widget4"></section>
+    <div class="container widget-heading">
+      <h2>CSS Loading Spinner</h2>
+    <p class="prex">En avancerad och häftig laddningsindikator skapad med ren CSS.</p><p class="prex">Perfekt för att förbättra användarupplevelsen under långsamma laddningstider.</p>
+    </div>
+    <div style="display: flex; justify-content: center; margin-top: 20px; margin-bottom: 50px;">
+      <div class="loader"></div>
+    </div>
+<!--WIDGET 4 END - Advanced CSS Loading Spinner -->
+
+
+
+<!--WIDGET 5 START - 3D Card Flip Gallery -->
+  <hr/>
+  <section id="widget5"></section>
+    <div class="container widget-heading">
+      <h2>3D Card Flip Gallery</h2>
+      <p class="prex">Interaktiva 3D-kort som överlappas och staplas elegant.</p>
+      <p class="prex">Hovra över ett kort för att flytta det framåt och vända det - visar kompetenser på ett engagerande sätt.</p>
+    </div>
+    <div style="display: flex; justify-content: center; margin-top: 40px; margin-bottom: 80px;">
+      <div class="flip-card-container">
+        <div class="flip-card">
+          <div class="flip-card-front">
+            <div class="flip-card-icon">💻</div>
+            <h3>Frontend</h3>
+            <p>Tryck/hovra för mer info</p>
+          </div>
+          <div class="flip-card-back">
+            <h3>Frontend</h3>
+            <p class="prex">HTML5, CSS3, JavaScript, Bootstrap, Responsive Design, Accessibility</p>
+          </div>
+        </div>
+
+        <div class="flip-card">
+          <div class="flip-card-front">
+            <div class="flip-card-icon">🎨</div>
+            <h3>Design</h3>
+            <p>Tryck/hovra för mer info</p>
+          </div>
+          <div class="flip-card-back">
+            <h3>Design</h3>
+            <p class="prex">UI/UX Design, Figma, Adobe Photoshop, Brand Identity, Animation</p>
+          </div>
+        </div>
+
+        <div class="flip-card">
+          <div class="flip-card-front">
+            <div class="flip-card-icon">⚙️</div>
+            <h3>Backend</h3>
+            <p>Tryck/hovra för mer info</p>
+          </div>
+          <div class="flip-card-back">
+            <h3>Backend</h3>
+            <p class="prex">Python, Node.js</p>
+          </div>
+        </div>
+      </div>
+    </div>
+<!--WIDGET 5 END - 3D Card Flip Gallery -->
+
+
+<!--WIDGET 6 START - Scroll snap swiper section-->
+<hr/>
+  <section id="widget6"></section>
+      <div class="container widget-heading">
+      <h2>Scroll snap swiper</h2>
+    <p class="prex">En mobilvänlig swiper med scroll-snap funktionalitet.</p>
+    <p class="prex">Man kan byta ut nuvarande a länkar + bilder med precis vad du vill, Även fler div element kan läggas in.</p>
+    <p class="prex">Swipea och prova! (Endast mobil)</p>
+      </div>
+<div class="swiper-container" aria-label="Swiper container">
+<div class ="swiper-section hold" aria-label="Swiper section">
+    <a href="./Pages/casino.html" aria-label="Left swiper" style="display: inline-block; text-align: center; text-decoration: none;" class="swiper-link"><span class="swiper-span">Lägg till vad<br/>du vill här</span></a>
+    <div>
+      <h2>Swiper för mobile</h2>
+      <p class="prex" style="text-align: center;"><--      --></p>
+    </div>
+    <a href="./Pages/pattern-memory.html" aria-label="Right swiper"><span class="swiper-span">Lägg till vad<br/> du vill här</span></a>
+  </div>
+</div>
+</div>
+<script>
+      document.addEventListener("DOMContentLoaded", function() {
+  const swiper = document.querySelector('.swiper-section');
+  const secondChild = swiper?.children[1];
+  if (secondChild) {
+    secondChild.scrollIntoView({ behavior: "auto", inline: "center", block: "nearest" });
+  }
+});
+</script>
+<!--WIDGET 6 END - Scroll snap swiper section-->
+
+
+<!--WIDGET 7 START - Glassmorphism Card Stack -->
+  <hr/>
+  <section id="widget7"></section>
+    <div class="container widget-heading">
+      <h2>Glassmorphism Card Stack</h2>
+      <p class="prex">Moderna glassmorphism-kort med frostat glas-effekt och subtila skuggor.</p>
+      <p class="prex">En trendig designstil som skapar djup och elegans.</p>
+    </div>
+    <div style="display: flex; justify-content: center; margin-top: 60px; margin-bottom: 80px;">
+      <div class="glass-stack-wrapper">
+        <button class="glass-nav-btn" id="glass-prev" aria-label="Previous card">‹</button>
+        <div class="glass-stack">
+          <div class="glass-card active">
+            <div class="glass-card-content">
+              <h3>Premium Design</h3>
+              <p class="prex">Glassmorphism är en modern designtrend som använder frostat glas-effekter för att skapa djup och elegans.</p>
+              <p class="prex">Tekniken kombinerar backdrop-filter, transparens och subtila skuggor.</p>
+              <div>
+                <span class="glass-card-badge">Modern UI</span>
+              </div>
+            </div>
+          </div>
+          <div class="glass-card next">
+            <div class="glass-card-content">
+              <h3>Layered Cards</h3>
+              <p class="prex">Korten är staplade med olika djup och rotation för en dynamisk 3D-effekt.</p>
+              <p class="prex">Varje kort har sin egen unika position och rotation för att skapa en organisk känsla.</p>
+              <span class="glass-card-badge">Trendy</span>
+
+            </div>
+          </div>
+          <div class="glass-card prev">
+            <div class="glass-card-content">
+              <h3>Interactive</h3>
+              <p>Hover-effekter och smooth transitions skapar en engagerande användarupplevelse.</p>
+              <span class="glass-card-badge">Fun UX</span>
+            </div>
+          </div>
+        </div>
+        <button class="glass-nav-btn" id="glass-next" aria-label="Next card">›</button>
+      </div>
+    </div>
+<!--WIDGET 6 END - Glassmorphism Card Stack -->
+
+
+
+<!-- WIDGET 7 START -  -->
+  <hr/>
+  <section id="widget7"></section>
+  <div class="widget-heading">
+    <div class="container">
+      <h2 style="text-align: start;">Animated Nav links</h2>
+    <p class="prex">En kreativ och interaktiv navigationsmeny som förbättrar användarupplevelsen.</p><p class="prex">Med stilrena animationer och tydliga visuella indikatorer som gör det inbjudande för användare att utforska webbplatsen.</p>
+    <div class="stairway-linkbox">
+      <ul class="stairway-list">
+        <li><a href="#">Hover</a></li>
+        <li><a href="#">nav-links.</a></li>
+        <li><a href="#">Experience</a></li>
+        <li><a href="#">effects!</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- WIDGET 7 END -  -->
+
+
+
+<!-- HIDDEN Section displaying the list of achievements -->
+<section id="achievements-list" aria-label="List of achievements">
+    <article class="achievement" data-trigger-click="1" data-duration="5000">
+        <h2>Du klickade!</h2>
+        <p>Välkommen till hemsidan. Kan du hitta fler hemliga achievements?</p>
+    </article>
+    <article class="achievement" data-trigger-click="10" data-duration="5000">
+        <h2>10 klick</h2>
+        <p>Har du sett alla sidor nu?</p>
+    </article>
+    <article class="achievement" data-trigger-click="25" data-duration="5000">
+        <h2>25 klick</h2>
+        <p>Bra jobbat! Du är en hängiven besökare.</p>
+    </article>
+    <article class="achievement" data-trigger-click="50" data-duration="5000">
+        <h2>50 klick</h2>
+        <p>Wow! Du går all-in, va?</p>
+    </article>
+    <article class="achievement" data-trigger-click="100" data-duration="10000">
+        <h2>100 klick</h2>
+        <p>Fantastiskt! Du är en riktig superanvändare.<br>Ledtråd: Hitta den gömda cirkeln!</p>
+    </article>
+    <article class="achievement" data-trigger-click="500" data-duration="10000">
+        <h2>500 klick</h2>
+        <p>Otroligt! Du är en mästare på att utforska. <br>Ledtråd: Har jag fler github repositories?..</p>
+    </article>
+    <article class="achievement" data-trigger-click="1000" data-duration="10000">
+        <h2>1000 klick</h2>
+        <p>Det måste vara ett rekord! <br>Tips: Om du anställer mig får du en super-achievement!</p>
+    </article>
+
+    <article class="achievement"
+        data-trigger-navigation="contact"
+        data-duration="8000">
+      <h2>Pratglad</h2>
+      <p>Du navigerade till kontaktsidan för första gången. Välkommen att ta kontakt med mig!</p>
+    </article>
+
+    <article class="achievement"
+        data-trigger-navigation="mittcv"
+        data-duration="8000">
+      <h2>Rekryteraren</h2>
+      <p>Du kikade på mitt CV, tack för ditt intresse!</p>
+    </article>
+
+    <article class="achievement"
+        data-trigger-navigation="kod"
+        data-duration="8000">
+      <h2>Utvecklaren</h2>
+      <p>Du navigerade till min JavaScript sida.</p>
+    </article>
+
+    <article class="achievement"
+        data-trigger-navigation="home"
+        data-duration="8000">
+      <h2>Välkommen hem</h2>
+      <p>Du hittade tillbaka till startsidan från en annan sida.</p>
+    </article>
+
+    <article class="achievement"
+        data-trigger-submit="#contactForm"
+        data-duration="8000"
+        data-achievement-id="contact-form-submitted">
+      <h2>Tack för ditt meddelande!</h2>
+      <p>Ditt meddelande är skickat. Jag hör av mig så snart jag kan.</p>
+    </article>
+
+    <article class="achievement"
+        data-trigger-selector=".secret-circle"
+        data-duration="10000">
+      <h2>Secret Finder</h2>
+      <p>Du hittade den gömda cirkeln! <br/> Njut av ljuv musik: <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank">Klicka här för att lyssna!</a></p>
+    </article>
+
+    <article class="achievement"
+        data-trigger-selector="#checkbox:checked"
+        data-duration="7000"
+        data-achievement-id="light-mode-toggle">
+      <h2>Ljuset tänds!</h2>
+      <p>Du hittade hemsidans ljusa läge.</p>
+    </article>
+
+    <article class="achievement cta"
+        data-trigger-selector=".game-victory"
+        data-duration="12000"
+        data-achievement-id="den-utvalda"
+        style="color: black; border: none;">
+      <h2>Den utvalda</h2>
+      <p>Du vann spelet och bevisade dig värdig.</p>
+    </article>
+
+    <article class="achievement"
+        data-trigger-navigation="widgets"
+        data-duration="8000">
+      <h2>Widget lover</h2>
+      <p>Du navigerade till min 'CSS widgets' sida.</p>
+    </article>
+
+    </section>
+  </main>
+</div>
+<!--HIDDEN Achievements END-->
+
+
+
+<!-- Site Footer START -->
+  <footer>
+    © <span id="year"></span> Anton Ahlm — Web designer & developer</br>
+    <div style="display: flex; flex-direction: row; align-items: center; justify-content: space-evenly; margin-top: 30px; margin-bottom: 30px;">
+
+<div>
+  <label for="achievements" class="achieve">
+  <a href="./achievements.html">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" style="vertical-align: middle;">
+      <circle cx="12" cy="9" r="6" fill="#f9c74f"/>
+      <path d="M9 12.5L7.5 22l4.5-2 4.5 2L15 12.5" fill="#f4845f"/>
+      <circle cx="12" cy="9" r="3" fill="#fff3bf"/>
+    </svg>
+    Achievements
+  </a>
+</label>
+</div>
+
+
+  <div style="margin-top: 8px; font-size: 12px; color: var(--muted); display: flex; justify-content: center; align-items: center;">
+    <input id="checkbox" type="checkbox" />
+    <label class="switch" for="checkbox">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="slider">
+        <path
+          d="M288 32c0-17.7-14.3-32-32-32s-32 14.3-32 32V256c0 17.7 14.3 32 32 32s32-14.3 32-32V32zM143.5 120.6c13.6-11.3 15.4-31.5 4.1-45.1s-31.5-15.4-45.1-4.1C49.7 115.4 16 181.8 16 256c0 132.5 107.5 240 240 240s240-107.5 240-240c0-74.2-33.8-140.6-86.6-184.6c-13.6-11.3-33.8-9.4-45.1 4.1s-9.4 33.8 4.1 45.1c38.9 32.3 63.5 81 63.5 135.4c0 97.2-78.8 176-176 176s-176-78.8-176-176c0-54.4 24.7-103.1 63.5-135.4z">
+        </path>
+      </svg>
+    </label>
+&nbsp;&nbsp;&nbsp;Light/dark
+</div>
+
+
+</div>
+  </footer>
+<!-- Site Footer END -->
+
+
+<!-- Scripts START -->
+  <script src="../Scripts/portfolio.js"></script>
+  <script src="../Scripts/achievements.js"></script>
+  <script src="../Scripts/widgets.js"></script>
+  
+<!-- Scripts END -->
+
+</body>
+</html>
