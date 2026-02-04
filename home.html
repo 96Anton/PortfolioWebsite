@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="sv">
 <head>
@@ -14,13 +13,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./Styles/Portfolio.css" />
-    <style>
-     input::placeholder, textarea::placeholder {
-      color: var(--muted);
-     }
-    </style>
 </head>
-<body>
+<body class="home-page">
 
 <div class="container-all">
 
@@ -30,8 +24,8 @@
       <div class="brand">
         <a class="logo" href="./home.html"><code>&lt;Anton<br/>Ahlm&gt;</code></a>
         <div>
-          <div style="font-weight: 700">Portfolio</div>
-          <div style="font-size: 12px; color: var(--muted)">Web designer & developer</div>
+          <div class="brand-title">Portfolio</div>
+          <div class="brand-subtitle">Web Manager, designer & developer</div>
         </div>
       </div>
 
@@ -42,9 +36,9 @@
           <li><a class="btn" href="./Pages/contact.html">Kontakt</a></li>
           <li><a class="btn" href="./Pages/widgets.html">CSS widgets</a></li>
           <li><a class="btn" href="./Pages/Kod.html">&lt;Kod&gt;</a></li>
-          <li><a class="btn" href="./Pages/pattern-memory.html" style="flex-direction: column; line-height: 0.8;">Spel</br><span style="font-size: 10px; line-height: 0.1; color: #FFCC00;">Pattern Memory</span></a></li>
-          <li><a class="btn" href="./Pages/game.html" style="flex-direction: column; line-height: 0.8;">Spel</br><span style="font-size: 10px; line-height: 0.1; color: #FFCC00;">Den utvalda</span></a></li>
-          <li><a class="btn" href="./Pages/casino.html" style="flex-direction: column; line-height: 0.8;">Casino</br><span style="font-size: 10px; line-height: 0.1; color: #FFCC00;">Slot Machine</span></a></li>
+          <li><a class="btn nav-item-stacked" href="./Pages/pattern-memory.html">Spel</br><span class="nav-item-subtext">Pattern Memory</span></a></li>
+          <li><a class="btn nav-item-stacked" href="./Pages/game.html">Spel</br><span class="nav-item-subtext">Den utvalda</span></a></li>
+          <li><a class="btn nav-item-stacked" href="./Pages/casino.html">Casino</br><span class="nav-item-subtext">Slot Machine</span></a></li>
         </ul>
       </nav>
 
@@ -55,52 +49,51 @@
 
   <main>
     <!-- Hero Section -->
-    <section class="hero" id="home" aria-label="Hero">
+    <section class="hero" id="home" aria-label="Hero" style="margin-top:80px;">
       <div class="grad" aria-hidden="true"></div>
 
-      <div class="hero-content container" style="padding-bottom: 50px;">
+      <div class="hero-content container hero-content-padded">
         <div class="intro firstintro" role="region" aria-label="Intro">
-          <h1 style="line-height:1">Anton Ahlm - Webbutveckling & Design</h1>
-          <p class="sub"><strong>Välkommen till min portfolio! Jag är Global Web Manager på JumpYard Concepts AB och jobbar nu mot att bli en självlärd full-stack utvecklare.</strong><br/><br/>Jag bygger, designar och hanterar hemsidor i HTML, CSS, JavaScript. Jag sökordsoptimerar innehåll, konverteringsoptimerar landningssidor och utvecklar skräddarsydda lösningar. Läs mer om mig!</p>
+          <h1 class="hero-title">Anton Ahlm - Web Manager</h1>
+          <p class="sub"><br/>- Jag tar långsiktigt ägarskap för webbens struktur, SEO och konvertering – från governance och contentmodell till mätning och kontinuerlig förbättring.</p>
 
           <div class="cta-row">
             <button class="cta" onclick="location.href='./Pages/mittCV.html'">Mitt CV</button>
             <button class="ghost" onclick="location.href='./Pages/contact.html'">Kontakta mig</button>
           </div>
 
-          <p style="margin-top: 18px; color: var(--muted); font-size: 14px">Klicka <a href="#design" style="color: var(--muted); text-decoration: none"><span style="font-weight: 700">&lt;här&gt;</span></a> för att testa JavaScript program.</p>
+          <p class="intro-note">Klicka <a class="intro-note-link" href="#design"><span class="intro-note-highlight">&lt;här&gt;</span></a> för att testa JavaScript program.</p>
         </div>
 
         <aside class="card firstcard" aria-label="Profile">
           <div class="meta">
             <div class="logo"><code>&lt;Web&gt;</code></div>
             <div>
-              <h3 style="font-weight: 700">Erfarenheter</h3>
+              <h3 class="heading-strong">Erfarenheter</h3>
               <div class="small">från rollen <i>Global Web Manager</i> på JumpYard.</div>
             </div>
           </div>
 
-          <ul style="margin: 0; padding-left: 18px; color: var(--muted); font-size: 14px">
-            <li>Design, UX & konverteringsoptimering</li>
-            <li>SEO & innehållsstrategi</li>
-            <li>CMS & webbpublicering</li>
+          <ul class="meta-list">
+            <li>WordPress multisite • 6 länder - 56 siter</li>
+            <li>Design, UX & brand anpassning</li>
+            <li>SEO (teknisk + content) & innehållsstrategi</li>
             <li>Copywriting & content creation</li>
             <li>Projektledning & samarbete</li>
-            <li>Analyser i GA4, Search Console & Hotjar</li>
+            <li>Analyser i GA4, Search Console, Clarity & Hotjar</li>
           </ul>
 
-          <div style="margin-bottom: 10px; margin-top: 20px"><h4 style="font-size: 14px">Övrig kompetens:</h4></div>
-          <ul style="margin: 0; padding-left: 18px; color: var(--muted); font-size: 14px">
-            <li>HTML</li>
-            <li>CSS</li>
-            <li>JavaScript</li>
-            <li>Python</li>
-            <li>Figma</li>
-            <li>Full-stack basics</li>
-            <li>React, Node, Express, MongoDB (MERN stack)</li>
+          <div class="section-gap-sm"><h4 class="heading-sm">Övrig kompetens:</h4></div>
+          <ul class="meta-list">
+            <li>E-handel</li>
+            <li>E-training & recruitment platforms</li>
+            <li>Intranät administration</li>
+            <li>HTML, CSS, JavaScript & Python</li>
+            <li>PhotoShop & Figma</li>
+            <li>Full-stack basics (MERN stack)</li>
           </ul>
 
-          <div style="margin-top: 14px; display: flex; gap: 10px">
+          <div class="social-row">
             <a href="https://github.com/96anton" class="ghost btn-github" target="_blank" rel="noopener">GitHub</a>
 
             <a href="https://www.linkedin.com/in/antonahlm/" class="ghost btn-linkedin" target="_blank" rel="noopener">LinkedIn</a>
@@ -114,13 +107,127 @@
 
 
 
+
+
+    <!-- About Section -->
+    <section id="about" class="about">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Ägarskap</span>
+          <h2>Jag tar fullt ansvar för hela webbupplevelsen</h2>
+        </div>
+        <div class="about-content">
+          <div class="about-image">
+            <div class="image-grid">
+              <img
+                src="./Assets/anton.jpg"
+                alt="webbstrategi"
+                class="grid-img-1"
+              />
+              <img
+                src="./Assets/analys.jpg"
+                alt="webbanalys"
+                class="grid-img-3"
+              />
+              <img
+                src="./Assets/global.webp"
+                alt="webbdesign"
+                class="grid-img-2"
+              />
+            </div>
+          </div>
+          <div class="about-text">
+            <p class="lead">
+              <br/>- Har flera avdelningar ansvaret för er webb?<br/>- Saknar ni en tydlig produktägare?<br/><br/><em>Det är där jag kommer in.</em></p>
+            <p>
+              Med över 7 års erfarenhet inom webb har jag en bred & generalistisk kunskap som låter mig ta helhetsansvar för webbprojekt från start till mål.<br/>
+              Jag lägger strategi, bygger landningssidor, konverteringsoptimerar, sökoptimerar och analyserar.. <br/>- <em style="font-size:1.2rem;">Totalt ägarskap.</em>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="stats" class="about stats-section" aria-label="Resultat">
+      <div class="container">
+        <div class="section-header section-header-tight" style="margin-bottom:-60px;">
+          <span class="section-tag">Siffror</span>
+        </div>
+        <div class="stats">
+          <div class="stat-item">
+            <span class="stat-number">6</span>
+            <span class="stat-label">länder</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-number">56</span>
+            <span class="stat-label">WordPress siter</span>
+          </div>
+          <div class="stat-item stat-item-wide">
+            <span class="stat-number">3 000 000</span>
+            <span class="stat-label">sessions/år</span>
+          </div>
+          <div class="stat-item light-stat">
+            <span class="stat-number">1</span>
+            <span class="stat-label">Web Manager</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+
+
+<!--SEO with conic grad image-->
+<div class="container container-spaced">
+      <div class="horizontal horizontal-centered-wide">
+  <aside class="card" aria-label="SEO">
+          <div class="meta">
+            <div class="logo"><code>&lt;Jag&gt;</code></div>
+            <div>
+              <h3 class="heading-strong">Om mig</h3>
+              <div class="small">Min karriärs historia.</div>
+            </div>
+          </div>
+          <div class="horizontal about-wrapper">
+            <div class="about-copy">
+              <p class="text-muted-sm"></p>
+
+              <div class="section-gap-sm"><h4 class="heading-sm">Allt började med parkouren.</h4></div>
+
+              <div class="small story-copy"><p>Jag har alltid haft en passion för rörelse och kreativitet. Denna passion har tagit mig till att vara en av landets bästa parkour utövare, vilket naturligt ledde mig till att söka jobb inom trampolinparksbranchen.<br/><br/>
+              Med min anställning på JumpYard var jag först placerad i parken där jag skötte aktiviteter och säkerhet för våra besökare.<br/><br/>
+              En dag fick jag frågan om jag kunde tänka mig att ändra en sak på hemsidan, vilket jag tackade ja till. Ändringarna var lyckade, och jag fick den oväntade frågan av vår VD:<br/>
+              <em>- "Ska du inte ta hand om vår hemsida framöver?"</em><br/>
+              Och det gjorde jag. Sedan dess har jag ensamt hanterat all webbpublicering, design, konverteringsoptimering, SEO och strategi för JumpYards hemsidor.<br/><br/>
+              Allt jag vet idag har jag lärt mig på egen hand, genom att stöta på utmaningar och lösa dem. Idag är jag Global Web Manager på JumpYard, och ansvarar för all webbrelaterad verksamhet på en global skala.<br/><br/>
+              Idag strävar jag efter att bli en full-stack utvecklare på egen hand, med hjälp av onlinekurser.</p>
+              </div>
+
+              <div><h4 class="heading-sm">Lär känna mig mer:</h4></div>
+
+              <div class="horizontal horizontal-tight">
+                <a href="https://www.linkedin.com/in/antonahlm/" class="ghost btn-linkedin">LinkedIn</a>
+                <a href="https://www.instagram.com/anton_masken_ahlm/" class="ghost btn-instagram">Instagram</a>
+                <a href="https://www.youtube.com/watch?v=SjQZRVM86ek" class="ghost btn-youtube">YouTube</a>
+              </div>
+            </div>
+
+            <div class="conic-grad conic-wrap">
+              <img class="PS ps-width" src="./Assets/Anton-grad.png" alt="Anton Ahlm">
+            </div>
+          </div>
+        </aside>
+        </div>  
+    </div>
+
+
+
 <!--ACCORDION CAROUSEL GALLERY--> 
 
 
   <div class="wrapper-carousel">
     <div class="inner-texts">
-    <h2 style="margin-top: 0;">Navigera mina sidor</h2>
-    <p class="prex">Mina senaste projekt, landningssidor och exempel på mitt arbete.</p>
+    <h2 class="carousel-title">Navigera mina sidor</h2>
   </div>
         <div class="container-carousel">
             <input type="radio" name="slide" id="c1" checked>
@@ -129,7 +236,7 @@
                     <div class="icon-carousel">1</div>
                     <div class="description-carousel">
                         <h4>Mitt CV</h4>
-                        <p style="color: #fff;">Kompetenser & erfarenheter.</p>
+                      <p>Kompetenser & erfarenheter.</p>
                     </div>
                 </div>
                 <a class="card-carousel-link" href="./Pages/mittCV.html" aria-label="Öppna Mitt CV" tabindex="-1"></a>
@@ -140,7 +247,7 @@
                     <div class="icon-carousel">2</div>
                     <div class="description-carousel">
                         <h4>Kontakt</h4>
-                        <p style="color: #fff;">Kontakta mig, eller se "liquid glass"-effekten.</p>
+                      <p>Kontakta mig, eller se "liquid glass"-effekten.</p>
                     </div>
                 </div>
                 <a class="card-carousel-link" href="./Pages/contact.html" aria-label="Öppna Kontakt" tabindex="-1"></a>
@@ -152,7 +259,7 @@
                     <div class="icon-carousel">3</div>
                     <div class="description-carousel">
                         <h4>CSS widgets</h4>
-                        <p style="color: #fff;">Kreativa CSS widgets och sektioner.</p>
+                      <p>Kreativa CSS widgets och sektioner.</p>
                     </div>
                 </div>
                 <a class="card-carousel-link" href="./Pages/widgets.html" aria-label="Öppna CSS widgets" tabindex="-1"></a>
@@ -164,7 +271,7 @@
                     <div class="icon-carousel">4</div>
                     <div class="description-carousel">
                         <h4>JavaScript</h4>
-                        <p style="color: #fff;">Program kodade i JavaScript.</p>
+                      <p>Program kodade i JavaScript.</p>
                     </div>
                 </div>
                 <a class="card-carousel-link" href="./Pages/Kod.html" aria-label="Öppna JavaScript-projekt" tabindex="-1"></a>
@@ -184,81 +291,24 @@
     </div>
 
 
-<!--Scroll snap swiper section-->
-<div class="swiper-container" aria-label="Swiper container">
-<div class ="swiper-section hold" aria-label="Swiper section">
-    <a href="./Pages/casino.html" aria-label="Left swiper" display: inline-block; text-align: center; text-decoration: none;" class="swiper-link"><span class="swiper-span">SPELA NU</span></a>
-    <div>
-      <h2>JavaScript spel</h2>
-      <p class="prex mobile-swipe-text">Swipea till vänster eller höger för att testa mina JavaScript spel!</p>
-      <p class="prex desktop-swipe-text">Prova mina JavaScript spel!</p>
-    </div>
-    <a href="./Pages/pattern-memory.html" aria-label="Right swiper"><span class="swiper-span">SPELA NU</span></a>
-  </div>
-</div>
-
-
-
-<!--SEO with conic grad image-->
-<div class="container" style="margin-top: 50px; margin-bottom: 50px;">
-      <div class="horizontal" style="gap: 30px; align-items: center; justify-content: center; flex-wrap: wrap;">
-  <aside class="card" aria-label="SEO">
-          <div class="meta">
-            <div class="logo"><code>&lt;Jag&gt;</code></div>
-            <div>
-              <h3 style="font-weight: 700">Om mig</h3>
-              <div class="small">Min karriärs historia.</div>
-            </div>
-          </div>
-          <div class="horizontal about-wrapper">
-            <div class="about-copy">
-              <p style="margin: 0; color: var(--muted); font-size: 14px"></p>
-
-              <div style="margin-bottom: 10px; margin-top: 20px"><h4 style="font-size: 14px">Allt började med parkouren.</h4></div>
-
-              <div class="small" style="max-width: 460px; margin-top: -30px;"><p>Jag har alltid haft en passion för rörelse och kreativitet. Denna passion har tagit mig till att vara en av landets bästa parkour utövare, vilket naturligt ledde mig till att söka jobb inom trampolinparksbranchen.<br/><br/>
-              Med min anställning på JumpYard var jag först placerad i parken där jag skötte aktiviteter och säkerhet för våra besökare.<br/><br/>
-              En dag fick jag frågan om jag kunde tänka mig att ändra en sak på hemsidan, vilket jag tackade ja till. Ändringarna var lyckade, och jag fick den oväntade frågan av vår VD:<br/>
-              <em>- "Ska du inte ta hand om vår hemsida framöver?"</em><br/>
-              Och det gjorde jag. Sedan dess har jag ensamt hanterat all webbpublicering, design, konverteringsoptimering, SEO och strategi för JumpYards hemsidor.<br/><br/>
-              Allt jag vet idag har jag lärt mig på egen hand, genom att stöta på utmaningar och lösa dem. Idag är jag Global Web Manager på JumpYard, och ansvarar för all webbrelaterad verksamhet på en global skala.<br/><br/>
-              Idag strävar jag efter att bli en full-stack utvecklare på egen hand, med hjälp av onlinekurser.</p>
-              </div>
-
-              <div><h4 style="font-size: 14px">Lär känna mig mer:</h4></div>
-
-              <div class="horizontal" style="gap: 10px">
-                <a href="https://www.linkedin.com/in/antonahlm/" class="ghost btn-linkedin">LinkedIn</a>
-                <a href="https://www.instagram.com/anton_masken_ahlm/" class="ghost btn-instagram">Instagram</a>
-                <a href="https://www.youtube.com/watch?v=SjQZRVM86ek" class="ghost btn-youtube">YouTube</a>
-              </div>
-            </div>
-
-            <div style="margin-top: 50px; width: clamp(200px, 100%, 500px);" class="conic-grad">
-              <img class="PS" src="./Assets/Anton-grad.png" alt="Anton Ahlm" style="width: clamp(200px, 100%, 500px);">
-            </div>
-          </div>
-        </aside>
-        </div>  
-    </div>
 
     <!-- Contact Section -->
 
     <section id="contact" aria-label="Contact area">
       <div class="container">
-        <h2 style="margin-top: 0">Kontakta mig</h2>
+        <h2 class="contact-title">Kontakta mig</h2>
         <form action="https://formspree.io/f/xgvnbppo"
-  method="POST" id="contactForm" style="max-width: 700px">
-          <div style="display: grid; gap: 10px">
-            <input name="name" placeholder="Namn" required style="padding: 12px; border-radius: 10px; border: 1px solid rgba(255, 255, 255, 0.04); background: transparent; color: var(--text)" />
-            <input name="company" placeholder="Företag" required style="padding: 12px; border-radius: 10px; border: 1px solid rgba(255, 255, 255, 0.04); background: transparent; color: var(--text)" />
-            <input name="email" type="email" placeholder="E-post" required style="padding: 12px; border-radius: 10px; border: 1px solid rgba(255, 255, 255, 0.04); background: transparent; color: var(--text)" />
-            <textarea name="message" placeholder="Meddelande" rows="5" required style="padding: 12px; border-radius: 10px; border: 1px solid rgba(255, 255, 255, 0.04); background: transparent; color: var(--text);"></textarea>
-            <div style="display: flex; gap: 10px">
+  method="POST" id="contactForm" class="contact-form">
+          <div class="contact-grid">
+            <input name="name" placeholder="Namn" required class="contact-field" />
+            <input name="company" placeholder="Företag" required class="contact-field" />
+            <input name="email" type="email" placeholder="E-post" required class="contact-field" />
+            <textarea name="message" placeholder="Meddelande" rows="5" required class="contact-field"></textarea>
+            <div class="contact-actions">
               <button type="submit" class="cta">Skicka</button>
               <button type="button" class="ghost" data-action="reset-contact">Rensa</button>
             </div>
-            <div id="contactStatus" style="color: var(--muted); font-size: 13px"></div>
+            <div id="contactStatus" class="contact-status"></div>
           </div>
         </form>
       </div>
@@ -270,17 +320,17 @@
 
 
 
-    <section id="design" class="center-hero" aria-label="projekt" style="margin-bottom: 30px">
+    <section id="design" class="center-hero design-section" aria-label="projekt">
       <div class="grad" aria-hidden="true"></div>
 
       <div class="hero-content container">
-        <div class="intro subtle-grad" style="padding: 5px;" role="region" aria-label="Projekt & Exempel">
-                  <div class="intro" style="background-color: var(--bg);">
+        <div class="intro subtle-grad intro-pad-sm" role="region" aria-label="Projekt & Exempel">
+                  <div class="intro intro-bg">
 
-          <h2 style="text-align: center;">Sandbox</h2>
+          <h2 class="home-text-center">Sandbox</h2>
 
-              <div style="text-align: center; text-wrap: balance;" class="tile">En hemsida med mer kreativ grafisk design där jag testar tekniker och koncept.</br></br>  
-                <a style="color: var(--muted);" href="https://96anton.github.io/html-portfolio/">Gå till Sandbox --></a></div>
+              <div class="tile tile-center">En hemsida med mer kreativ grafisk design där jag testar tekniker och koncept.</br></br>  
+                <a class="link-muted" href="https://96anton.github.io/html-portfolio/">Gå till Sandbox --></a></div>
             </a>
 
           </div>
@@ -383,12 +433,12 @@
   <!-- Site Footer -->
   <footer>
     © <span id="year"></span> Anton Ahlm — Web designer & developer</br>
-    <div style="display: flex; flex-direction: row; align-items: center; justify-content: space-evenly; margin-top: 30px; margin-bottom: 30px;">
+    <div class="footer-row">
 
 <div>
   <label for="achievements" class="achieve">
   <a href="./Pages/achievements.html">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" style="vertical-align: middle;">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" class="achievement-icon">
       <circle cx="12" cy="9" r="6" fill="#f9c74f"/>
       <path d="M9 12.5L7.5 22l4.5-2 4.5 2L15 12.5" fill="#f4845f"/>
       <circle cx="12" cy="9" r="3" fill="#fff3bf"/>
@@ -399,7 +449,7 @@
 </div>
 
 
-  <div style="margin-top: 8px; font-size: 12px; color: var(--muted); display: flex; justify-content: center; align-items: center;">
+  <div class="footer-toggle">
     <input id="checkbox" type="checkbox" />
     <label class="switch" for="checkbox">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="slider">
@@ -417,15 +467,5 @@
 
   <script src="./Scripts/portfolio.js"></script>
   <script src="./Scripts/achievements.js"></script>
-  <script>
-    document.addEventListener("DOMContentLoaded", function() {
-  const swiper = document.querySelector('.swiper-section');
-  const secondChild = swiper?.children[1];
-  if (secondChild) {
-    secondChild.scrollIntoView({ behavior: "auto", inline: "center", block: "nearest" });
-  }
-});
-  </script>
-
 </body>
 </html>
