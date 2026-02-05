@@ -1,0 +1,242 @@
+
+body.games-page .hero {
+  padding-bottom: 60px;
+}
+
+.games-page .brand-title {
+  font-weight: 700;
+}
+
+.games-page .brand-subtitle {
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.games-page .nav-item-stacked {
+  flex-direction: column;
+  line-height: 0.8;
+}
+
+.games-page .nav-item-subtext {
+  font-size: 10px;
+  line-height: 0.1;
+  color: #ffcc00;
+}
+
+.games-page .footer-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  gap: 24px;
+  margin: 30px auto 0;
+  width: min(820px, 92%);
+}
+
+.games-page .footer-toggle {
+  margin-top: 0;
+  font-size: 12px;
+  color: var(--muted);
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+.games-page .achievement-icon {
+  vertical-align: middle;
+}
+
+.games-hero__intro .section-tag {
+  display: inline-flex;
+  margin-bottom: 12px;
+}
+
+.games-hero__actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.games-hero__card {
+  display: grid;
+  gap: 16px;
+}
+
+.games-hero__stat {
+  display: grid;
+  gap: 6px;
+}
+
+.games-hero__stat-number {
+  font-size: 32px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.games-hero__stat-label {
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.games-hero__note {
+  padding-top: 12px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.games-section {
+  padding: 40px 0 80px;
+}
+
+.achievements-section {
+  padding: 20px 0 100px;
+}
+
+.achievements-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 28px;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  background: linear-gradient(
+    135deg,
+    rgba(122, 252, 255, 0.12),
+    rgba(255, 216, 122, 0.08)
+  );
+  box-shadow: 0 12px 30px rgba(2, 6, 23, 0.4);
+}
+
+body[data-theme="light"] .achievements-card {
+  border-color: rgba(15, 23, 36, 0.12);
+  box-shadow: 0 12px 24px rgba(15, 23, 36, 0.12);
+}
+
+.achievements-card__content h3 {
+  margin-bottom: 6px;
+}
+
+.achievements-card__content p {
+  color: var(--muted);
+  margin-bottom: 0;
+}
+
+.achievements-card__actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.games-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.game-card {
+  background: rgba(18, 26, 38, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 16px;
+  padding: 24px;
+  display: grid;
+  gap: 16px;
+  box-shadow: 0 10px 30px rgba(2, 6, 23, 0.4);
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    border-color 0.25s ease;
+}
+
+body[data-theme="light"] .game-card {
+  background: rgba(255, 255, 255, 0.95);
+  border-color: rgba(15, 23, 36, 0.12);
+  box-shadow: 0 10px 24px rgba(15, 23, 36, 0.12);
+}
+
+.game-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(122, 252, 255, 0.4);
+  box-shadow: 0 18px 40px rgba(2, 6, 23, 0.6);
+}
+
+.game-card__top {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+.game-card__icon {
+  width: 52px;
+  height: 52px;
+  display: grid;
+  place-items: center;
+  border-radius: 14px;
+  background: linear-gradient(
+    135deg,
+    rgba(122, 252, 255, 0.2),
+    rgba(255, 216, 122, 0.2)
+  );
+  font-size: 24px;
+}
+
+.game-card__tagline {
+  color: var(--muted);
+  margin: 6px 0 0;
+  font-size: 14px;
+}
+
+.game-card__desc {
+  color: var(--muted);
+}
+
+.game-card__meta {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.pill {
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.06);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+body[data-theme="light"] .pill {
+  background: rgba(15, 23, 36, 0.08);
+}
+
+.game-card__actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 960px) {
+  .hero-content {
+    grid-template-columns: 1fr;
+  }
+
+  .games-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .achievements-card {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+@media (max-width: 640px) {
+  .games-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .game-card {
+    padding: 20px;
+  }
+}
