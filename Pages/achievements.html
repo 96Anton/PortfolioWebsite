@@ -74,7 +74,7 @@
           </div>
 
           <ul style="margin: 0; padding-left: 18px; color: var(--muted); font-size: 14px">
-            <li>Upplåsta achievements: <span data-summary="unlocked" aria-live="polite">0</span> / <span data-summary="total">14</span></li>
+            <li>Upplåsta achievements: <span data-summary="unlocked" aria-live="polite">0</span> / <span data-summary="total">15</span></li>
             <li>Klick registrerade: <span data-summary="clicks" aria-live="polite">0</span></li>
             <li>Framsteg: <span data-summary="percentage" aria-live="polite">0%</span></li>
             <br/>
@@ -192,6 +192,14 @@
               <h3>Välkommen hem</h3>
               <p class="small">Hitta tillbaka till startsidan efter att ha utforskat en annan sida.</p>
               <span class="achievement-status" data-state="locked" data-status-for="navigation-home" aria-live="polite">
+                <span class="achievement-status-text" data-status-text>Låst</span>
+              </span>
+            </article>
+
+            <article class="card achievement-item" data-achievement-key="navigation-games">
+              <h3>The gamer</h3>
+              <p class="small">Besök games-sidan och utforska spelsamlingen.</p>
+              <span class="achievement-status" data-state="locked" data-status-for="navigation-games" aria-live="polite">
                 <span class="achievement-status-text" data-status-text>Låst</span>
               </span>
             </article>
@@ -314,6 +322,13 @@
         data-duration="8000">
       <h2>Välkommen hem</h2>
       <p>Du hittade tillbaka till startsidan från en annan sida.</p>
+    </article>
+
+    <article class="achievement"
+        data-trigger-navigation="games"
+        data-duration="8000">
+      <h2>The gamer</h2>
+      <p>Du hittade spelsamlingen. Dags att spela!</p>
     </article>
 
     <article class="achievement"
