@@ -1,0 +1,153 @@
+
+<!doctype html>
+<html lang="sv">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Så bygger du en skalbar contentstruktur & informationsarkitektur</title>
+    <link rel="stylesheet" href="../Styles/Portfolio.css" />
+    <link rel="stylesheet" href="../Styles/article.css" />
+  </head>
+  <body class="article-page">
+    <!-- Site Header -->
+    <header>
+      <div class="nav" role="navigation" aria-label="Top navigation">
+        <div class="brand">
+          <a class="logo" href="./home.html"
+            ><code>&lt;Anton<br />Ahlm&gt;</code></a
+          >
+          <div>
+            <div class="brand-title">Portfolio</div>
+            <div class="brand-subtitle">Web Manager / Web Product Owner</div>
+          </div>
+        </div>
+
+        <!-- Primary Navigation -->
+        <nav>
+          <ul id="navMenu">
+            <li><a class="btn" href="../Pages/mittCV.html">CV</a></li>
+            <li><a class="btn" href="../Pages/contact.html">Kontakt</a></li>
+            <li><a class="btn" href="../Pages/widgets.html">CSS widgets</a></li>
+            <li><a class="btn" href="../Pages/Kod.html">&lt;Kod&gt;</a></li>
+            <li><a class="btn" href="../Pages/games.html">Spel</a></li>
+            <li>
+              <a class="btn" href="../Pages/guider.html">Guider & insikter</a>
+            </li>
+          </ul>
+        </nav>
+
+        <button
+          class="menu-toggle btn"
+          aria-expanded="false"
+          aria-controls="navMenu"
+        >
+          Meny ☰
+        </button>
+        <div class="scroll-watcher"></div>
+      </div>
+    </header>
+
+    <div class="article-wrapper">
+      <main class="article-content">
+        <h1>Så bygger du en skalbar contentstruktur & informationsarkitektur</h1>
+
+        <p class="ingress">
+          Informationsarkitektur och contentstruktur i WordPress multisite – tydlighet i komplexa digitala miljöer.
+        </p>
+
+        <p>
+          När en webb växer blir det sällan “för lite content” som är problemet. Det är att contentet saknar struktur. Då blir besökaren osäker, klickar runt, tappar tålamod – och SEO/CRO blir svårare än det behöver vara. En bra informationsarkitektur gör tvärtom: den leder människor (och sökmotorer) rätt utan att de behöver tänka.</p>
+
+        <h2>Vad är sidans syfte för användaren?</h2>
+
+        <p>
+          Innan du bygger struktur är det smart att välja målet med dina olika sidor. Är det att få en bokning, ett lead, eller att guida vidare? När du vet det blir det enklare att välja vad som ska prioriteras högst upp på sidorna och varför.
+        </p>
+
+          <h2>Besökare läser inte – de skummar</h2>
+          <p>
+          De flesta skannar en sida efter indikationer på att de hamnat rätt. Därför ska de viktigaste delarna, så som beskrivning av sidans innehåll och CTA knapp, finnas tillgänglig vid första anblick. Bra rubriker och distinkta knappar är din bästa vän här.
+          <br/><br/>
+          <strong>En enkel tumregel:</strong>
+          <ul>
+            <li>H1 säger vad sidan handlar om (utan kreativt fluff).</li>
+            <li>H2 bryter ner innehållet i logiska frågor/val.</li>
+            <li>H3 hjälper den som vill ha detaljer.</li>
+          </ul>
+          Om rubrikerna ensamma kan berätta sidans historia så är du på rätt spår.
+        </p>
+
+        <h2>Visa vägen med visuella inslag</h2>
+        <p>
+          Visuella element är inte bara “design” – de är vägskyltar. En bra sida använder layouten för att hjälpa skum-läsaren.
+          <br/><br />
+          <strong>Exempel på hur du kan nyttja denna strategi:</strong>
+            <ul>
+              <li>Tydliga sektioner med luftiga white-spaces</li>
+              <li>Korta stycken för läsbarheten och listor där det passar</li>
+              <li>Bildval och illustrationer som förstärker budskapet</li>
+              <li>CTA som syns i rätt ögonblick, inte bara i slutet</li>
+            </ul>
+        </p>
+
+        <h2>Skalbarhet när verksamheten växer snabbt</h2>
+
+        <p>
+          När en verksamhet skalar händer ofta samma sak med webben: fler erbjudanden ska få plats, fler landningssidor ska underhållas och mer innehåll ska publiceras. Om strukturen inte är tydlig från början blir resultatet spretigt och varje ny sida riskerar att göra helheten lite rörigare.
+        </p>
+
+        <p>
+          För att webben ska kunna växa utan att tappa kvalitet behöver du bygga med mönster, inte unika lösningar för varje tillfälle. Det betyder att du återanvänder samma typ av sidlogik (layout, informationshierarki och designgrund), har en tydlig insikt för vad som är sidans viktigaste jobb och sätter enkla regler för hur nytt innehåll får läggas till. Då kan fler bidra utan att webben tappar sin röda tråd.
+        </p>
+
+        <p>
+          När det är gjort blir skalning mycket enklare: du kan lansera nya sidor, nya erbjudanden och nya områden snabbare – samtidigt som navigering, tonalitet och upplevelse håller ihop över tid.
+        </p>
+      </main>
+    </div>
+
+    <div style="display: flex; gap: 12px; justify-content: center; padding: 40px 20px; flex-wrap: wrap;">
+      <a href="../Pages/guider.html" class="cta">Tillbaka till Guider</a>
+      <a href="../home.html" class="cta ghost">Startsidan</a>
+    </div>
+
+
+  <!-- Site Footer -->
+  <footer>
+    © <span id="year"></span> Anton Ahlm — Web Manager</br>
+    <div class="footer-row">
+
+<div>
+  <label for="achievements" class="achieve">
+  <a href="./achievements.html">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" class="achievement-icon">
+      <circle cx="12" cy="9" r="6" fill="#f9c74f"/>
+      <path d="M9 12.5L7.5 22l4.5-2 4.5 2L15 12.5" fill="#f4845f"/>
+      <circle cx="12" cy="9" r="3" fill="#fff3bf"/>
+    </svg>
+    Achievements
+  </a>
+</label>
+</div>
+
+
+  <div class="footer-toggle">
+    <input id="checkbox" type="checkbox" />
+    <label class="switch" for="checkbox">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="slider">
+        <path
+          d="M288 32c0-17.7-14.3-32-32-32s-32 14.3-32 32V256c0 17.7 14.3 32 32 32s32-14.3 32-32V32zM143.5 120.6c13.6-11.3 15.4-31.5 4.1-45.1s-31.5-15.4-45.1-4.1C49.7 115.4 16 181.8 16 256c0 132.5 107.5 240 240 240s240-107.5 240-240c0-74.2-33.8-140.6-86.6-184.6c-13.6-11.3-33.8-9.4-45.1 4.1s-9.4 33.8 4.1 45.1c38.9 32.3 63.5 81 63.5 135.4c0 97.2-78.8 176-176 176s-176-78.8-176-176c0-54.4 24.7-103.1 63.5-135.4z">
+        </path>
+      </svg>
+    </label>
+&nbsp;&nbsp;&nbsp;Light/dark
+</div>
+
+
+</div>
+  </footer>
+
+  <script src="../Scripts/portfolio.js"></script>
+  <script src="../Scripts/achievements.js"></script>
+</body>
+</html>
