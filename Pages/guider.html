@@ -1,0 +1,463 @@
+
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="utf-8" />
+  <meta name="description" content="Web Playbook med guider & insikter om web ownership, WordPress multisite, SEO, CRO och analytics.">
+  <meta name="keywords" content="Web Manager, Web Owner, WordPress multisite, SEO, CRO, informationsarkitektur, GA4, Google Search Console, governance">
+  <meta name="author" content="Anton Ahlm">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>Guider & Insikter — Web Ownership & Strategi</title>
+  <link rel="icon" type="image/x-icon" href="./Assets/Anton-favicon.png">
+
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../Styles/Portfolio.css" />
+</head>
+<body class="guides-page">
+
+<div class="container-all">
+
+  <!-- Site Header -->
+  <header>
+      <div class="nav" role="navigation" aria-label="Top navigation">
+      <div class="brand">
+        <a class="logo" href="./home.html"><code>&lt;Anton<br/>Ahlm&gt;</code></a>
+        <div>
+          <div class="brand-title">Portfolio</div>
+          <div class="brand-subtitle">Web Manager / Web Product Owner</div>
+        </div>
+      </div>
+
+      <!-- Primary Navigation -->
+      <nav>
+        <ul id="navMenu">
+          <li><a class="btn" href="../home.html">Hem</a></li>
+          <li><a class="btn" href="./contact.html">Kontakt</a></li>
+          <li><a class="btn" href="./mittCV.html">CV</a></li>
+          <li><a class="btn" href="./widgets.html">CSS widgets</a></li>
+          <li><a class="btn" href="./Kod.html">&lt;Kod&gt;</a></li>
+          <li><a class="btn" href="./games.html">Spel</a></li>
+        </ul>
+      </nav>
+
+      <button class="menu-toggle btn" aria-expanded="false" aria-controls="navMenu">Meny ☰</button>
+        <div class="scroll-watcher"></div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero Section -->
+    <section class="hero" id="guides-hero" aria-label="Hero" style="margin-top:80px;">
+      <div class="grad" aria-hidden="true"></div>
+
+      <div class="hero-content container hero-content-padded">
+        <div class="intro firstintro" role="region" aria-label="Intro">
+          <h1 class="hero-title">Webbguider & insikter</h1>
+          <p class="sub">
+            Här samlar jag guider och korta insikter om web ownership: struktur, governance, SEO, CRO och analys. Tanken är att visa hur jag tänker och hur jag vanligtvis jobbar.
+          </p>
+
+          <div class="cta-row">
+            <a class="cta" href="./contact.html">Kontakta mig</a>
+            <a class="cta ghost" href="./mittCV.html">Se mitt CV</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Filter Section -->
+    <section class="guides-filter-section">
+      <div class="container">
+        <div class="section-header">
+          <h2>Utforska efter område</h2>
+        </div>
+        
+        <div class="filter-chips">
+          <a href="#web-ownership" class="chip-btn">Web ownership</a>
+          <a href="#struktur-ia" class="chip-btn">Customer journeys</a>
+          <a href="#seo" class="chip-btn">SEO/AEO</a>
+          <a href="#analytics" class="chip-btn">Analytics</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Featured Guides Section -->
+    <section class="featured-guides" aria-label="Rekommenderade guider">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Rekommenderat</span>
+          <h2>Rekommenderade guider</h2>
+          <p class="sub">De tre enligt mig mest värdefulla guiderna för Web Management.</p>
+        </div>
+
+        <div class="guides-grid featured-grid">
+          <!-- Featured Card 1 -->
+          <article class="guide-card">
+            <div class="guide-card-content">
+              <h3 class="guide-title">Web ownership på 90 dagar</h3>
+              <p class="guide-description">En praktisk roadmap för att etablera ägarskap för webben och sätta struktur från dag ett.</p>
+              <div class="guide-tags">
+                <span class="tag">Web ownership</span>
+                <span class="tag">Governance</span>
+              </div>
+            </div>
+            <a href="#" class="btn-read">Läs guiden →</a>
+          </article>
+
+          <!-- Featured Card 2 -->
+          <article class="guide-card">
+            <div class="guide-card-content">
+              <h3 class="guide-title">SEO när Artificiell intelligens tar över</h3>
+              <p class="guide-description">Så här optimerar du din hemsida för AI och framtidens sökmotorer. Vad är viktigast att tänka på?</p>
+              <div class="guide-tags">
+                <span class="tag">SEO</span>
+                <span class="tag">AI &amp; AEO</span>
+              </div>
+            </div>
+            <a href="#" class="btn-read">Läs guiden →</a>
+          </article>
+
+          <!-- Featured Card 3 -->
+          <article class="guide-card">
+            <div class="guide-card-content">
+              <h3 class="guide-title">Så bygger du en skalbar contentstruktur & informationsarkitektur</h3>
+              <p class="guide-description">Informationsarkitektur och contentstruktur i WordPress multisite - tydlighet i komplexa digitala miljöer.</p>
+              <div class="guide-tags">
+                <span class="tag">Struktur</span>
+                <span class="tag">Informationsarkitektur</span>
+              </div>
+            </div>
+            <a href="#" class="btn-read">Läs guiden →</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Web Ownership & Governance Section -->
+    <section class="guides-category" id="web-ownership" aria-label="Web ownership & governance">
+      <div class="container">
+        <div class="section-header">
+          <h2>Web ownership & governance</h2>
+          <p class="sub">Jag gillar att föra en strukturerad backlog som gör att webben utvecklas kontinuerligt – utan att missa viktiga steg som förberedelser och uppföljning.</p>
+        </div>
+
+        <div class="guides-grid">
+          <article class="guide-card">
+            <div class="guide-card-content">
+              <h3 class="guide-title">Roadmap & backlog för webben: impact/effort i praktiken</h3>
+              <p class="guide-description">Metoder för att prioritera web-arbete och hålla alignment över marknad, IT och utveckling.</p>
+              <div class="guide-tags">
+                <span class="tag">Governance</span>
+                <span class="tag">Prioritering</span>
+              </div>
+            </div>
+            <a href="#" class="btn-read">Kommer snart →</a>
+          </article>
+
+          <article class="guide-card">
+            <div class="guide-card-content">
+              <h3 class="guide-title">Content governance: mallar, regler & kvalitet över tid</h3>
+              <p class="guide-description">Hur viktigt är det igentligen att hålla en aligned tonalitet och brand voice? Såhär bör du säkra konsistent innehåll när många skriver.</p>
+              <div class="guide-tags">
+                <span class="tag">Alignment</span>
+                <span class="tag">Tonalitet & brand voice</span>
+              </div>
+            </div>
+            <a href="#" class="btn-read">Kommer snart →</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Struktur & IA Section -->
+    <section class="guides-category" id="struktur-ia" aria-label="Informationsarkitektur & contentstruktur">
+      <div class="container">
+        <div class="section-header">
+          <h2>Customer journeys - navigation & CRO</h2>
+          <p class="sub">En tydlig site map med intuitiv navigation är basen för både SEO och konvertering. Såhär tänker jag kring kundupplevelser för webbens besökare.</p>
+        </div>
+
+        <div class="guides-grid">
+          <article class="guide-card">
+            <div class="guide-card-content">
+              <h3 class="guide-title">Navigation som konverterar: IA som CRO & SEO</h3>
+              <p class="guide-description">Hur en genomtänkt site map påverkar både användarflöde och sökmotorers förmåga att crawla.</p>
+              <div class="guide-tags">
+                <span class="tag">Navigation</span>
+                <span class="tag">Customer journey</span>
+              </div>
+            </div>
+            <a href="#" class="btn-read">Kommer snart →</a>
+          </article>
+
+          <article class="guide-card">
+            <div class="guide-card-content">
+              <h3 class="guide-title">Friktionsfri konvertering genom optimering för enkelhet</h3>
+              <p class="guide-description">En besökare har inte långt tålamod – så här minimerar du friktion i kundresan och underlättar för dina kunder.</p>
+              <div class="guide-tags">
+                <span class="tag">CRO</span>
+                <span class="tag">Bokningsprocess</span>
+              </div>
+            </div>
+            <a href="#" class="btn-read">Kommer snart →</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- SEO Section -->
+    <section class="guides-category" id="seo" aria-label="SEO (teknisk + content)">
+      <div class="container">
+        <div class="section-header">
+          <h2>SEO (teknisk + content)</h2>
+          <p class="sub">Både teknisk SEO och content-SEO är kritiska. Här delar jag mina checklistor och metoderna jag använder för optimering.</p>
+        </div>
+
+        <div class="guides-grid">
+          <article class="guide-card">
+            <div class="guide-card-content">
+              <h3 class="guide-title">Teknisk SEO i WordPress: Core Web Vitals</h3>
+              <p class="guide-description">En konkret checklista för Core Web Vitals och site speed i ditt CMS.</p>
+              <div class="guide-tags">
+                <span class="tag">Teknisk SEO</span>
+                <span class="tag">Core Web Vitals</span>
+              </div>
+            </div>
+            <a href="#" class="btn-read">Kommer snart →</a>
+          </article>
+
+          <article class="guide-card">
+            <div class="guide-card-content">
+              <h3 class="guide-title">On page SEO & brand entity</h3>
+              <p class="guide-description">Vad är egenligen brand entity och varför spelar det roll för SEO? Såhär stärker du brand entity i processen av att optimera en landningssida.</p>
+              <div class="guide-tags">
+                <span class="tag">On page SEO</span>
+                <span class="tag">Brand entity</span>
+              </div>
+            </div>
+            <a href="#" class="btn-read">Kommer snart →</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- Analytics Section -->
+    <section class="guides-category" id="analytics" aria-label="Analytics & mätning">
+      <div class="container">
+        <div class="section-header">
+          <h2>Analytics - verktyg & metoder</h2>
+          <p class="sub">Analyser är vad som styr beslut. Här visar jag vilka verktyg som är viktiga och hur jag använder dem.</p>
+        </div>
+
+        <div class="guides-grid">
+          <article class="guide-card">
+            <div class="guide-card-content">
+              <h3 class="guide-title">Analytics essentials - Dessa verktyg bör du ha</h3>
+              <p class="guide-description">De mest värdefulla verktygen för att komma igång med datadrivet arbete.</p>
+              <div class="guide-tags">
+                <span class="tag">GA4</span>
+                <span class="tag">Analytics</span>
+              </div>
+            </div>
+            <a href="#" class="btn-read">Kommer snart →</a>
+          </article>
+
+          <article class="guide-card">
+            <div class="guide-card-content">
+              <h3 class="guide-title">Datadrivna beslut genom KPIer från analyser</h3>
+              <p class="guide-description">Datan du bör ta reda på och vad du som web owner bör följa upp.</p>
+              <div class="guide-tags">
+                <span class="tag">KPI</span>
+                <span class="tag">Insikter</span>
+              </div>
+            </div>
+            <a href="#" class="btn-read">Kommer snart →</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- For Recruiters Section -->
+    <section class="recruiter-section" aria-label="För rekryterare">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">För rekryterare</span>
+          <h2>Inblick i mina metoder</h2>
+        </div>
+
+        <div class="card recruiter-card">
+          <p class="recruiter-text">
+            Nu har du fått en bättre insikt över hur jag jobbar i praktiken: struktur, prioritering, mätning och optimering. Vill du veta mer rekommenderar jag att du ser mitt CV eller kontaktar mig.
+          </p>
+
+          <div class="cta-row" style="margin-top: 30px;">
+            <a class="cta " href="./mittCV.html">Se mitt CV</a>
+            <a class="cta ghost" href="https://www.linkedin.com/in/antonahlm/" target="_blank" rel="noopener">LinkedIn</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+
+    <section id="contact" aria-label="Contact area">
+      <div class="container">
+        <h2 class="contact-title">Kontakta mig</h2>
+        <form action="https://formspree.io/f/xgvnbppo"
+  method="POST" id="contactForm" class="contact-form">
+          <div class="contact-grid">
+            <input name="name" placeholder="Namn" required class="contact-field" />
+            <input name="company" placeholder="Företag" required class="contact-field" />
+            <input name="email" type="email" placeholder="E-post" required class="contact-field" />
+            <textarea name="message" placeholder="Meddelande" rows="5" required class="contact-field"></textarea>
+            <div class="contact-actions">
+              <button type="submit" class="cta">Skicka</button>
+              <button type="button" class="ghost" data-action="reset-contact">Rensa</button>
+            </div>
+            <div id="contactStatus" class="contact-status"></div>
+          </div>
+        </form>
+      </div>
+    </section>
+
+      </div>
+    </section>
+
+<!-- Section displaying the list of achievements -->
+<section id="achievements-list" aria-label="List of achievements">
+    <article class="achievement" data-trigger-click="1" data-duration="5000">
+        <h2>Du klickade!</h2>
+        <p>Välkommen till guiderna. Kan du hitta fler hemliga achievements?</p>
+    </article>
+    <article class="achievement" data-trigger-click="10" data-duration="5000">
+        <h2>10 klick</h2>
+        <p>Du är inne i läsflowet!</p>
+    </article>
+    <article class="achievement" data-trigger-click="25" data-duration="5000">
+        <h2>25 klick</h2>
+        <p>Bra jobbat! Du är en hängiven besökare.</p>
+    </article>
+    <article class="achievement" data-trigger-click="50" data-duration="5000">
+        <h2>50 klick</h2>
+        <p>Wow! Du går all-in, va?</p>
+    </article>
+    <article class="achievement" data-trigger-click="100" data-duration="10000">
+        <h2>100 klick</h2>
+        <p>Fantastiskt! Du är en riktig superanvändare.</p>
+    </article>
+    <article class="achievement" data-trigger-click="500" data-duration="10000">
+        <h2>500 klick</h2>
+        <p>Otroligt! Du är en mästare på att utforska.</p>
+    </article>
+    <article class="achievement" data-trigger-click="1000" data-duration="10000">
+        <h2>1000 klick</h2>
+        <p>Det måste vara ett rekord! Tips: Om du anställer mig får du en super-achievement!</p>
+    </article>
+
+    <article class="achievement"
+        data-trigger-navigation="guider"
+        data-duration="8000">
+      <h2>Academy</h2>
+      <p>Du landade i Web Playbook. Välkommen till guiderna!</p>
+    </article>
+
+    <article class="achievement"
+        data-trigger-navigation="contact"
+        data-duration="8000">
+      <h2>Pratglad</h2>
+      <p>Du navigerade till kontaktsidan för första gången. Välkommen att ta kontakt med mig!</p>
+    </article>
+
+    <article class="achievement"
+        data-trigger-navigation="mittcv"
+        data-duration="8000">
+      <h2>Rekryteraren</h2>
+      <p>Du kikade på mitt CV, tack för ditt intresse!</p>
+    </article>
+
+    <article class="achievement"
+        data-trigger-navigation="kod"
+        data-duration="8000">
+      <h2>Utvecklaren</h2>
+      <p>Du navigerade till min JavaScript sida.</p>
+    </article>
+
+    <article class="achievement"
+        data-trigger-navigation="home"
+        data-duration="8000">
+      <h2>Välkommen hem</h2>
+      <p>Du hittade tillbaka till startsidan från en annan sida.</p>
+    </article>
+
+    <article class="achievement"
+        data-trigger-submit="#contactForm"
+        data-duration="8000"
+        data-achievement-id="contact-form-submitted">
+      <h2>Tack för ditt meddelande!</h2>
+      <p>Ditt meddelande är skickat. Jag hör av mig så snart jag kan.</p>
+    </article>
+
+    <article class="achievement"
+        data-trigger-selector=".secret-circle"
+        data-duration="10000">
+      <h2>Secret Finder</h2>
+      <p>Du hittade den gömda cirkeln! <br/> Njut av ljuv musik: <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank">Klicka här för att lyssna!</a></p>
+    </article>
+
+    <article class="achievement"
+        data-trigger-selector="#checkbox:checked"
+        data-duration="7000"
+        data-achievement-id="light-mode-toggle">
+      <h2>Ljuset tänds!</h2>
+      <p>Du hittade hemsidans ljusa lage.</p>
+    </article>
+
+</section>
+
+  </main>
+
+</div>
+
+  <!-- Site Footer -->
+  <footer>
+    © <span id="year"></span> Anton Ahlm — Web Manager</br>
+    <div class="footer-row">
+
+<div>
+  <label for="achievements" class="achieve">
+  <a href="./achievements.html">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" class="achievement-icon">
+      <circle cx="12" cy="9" r="6" fill="#f9c74f"/>
+      <path d="M9 12.5L7.5 22l4.5-2 4.5 2L15 12.5" fill="#f4845f"/>
+      <circle cx="12" cy="9" r="3" fill="#fff3bf"/>
+    </svg>
+    Achievements
+  </a>
+</label>
+</div>
+
+
+  <div class="footer-toggle">
+    <input id="checkbox" type="checkbox" />
+    <label class="switch" for="checkbox">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="slider">
+        <path
+          d="M288 32c0-17.7-14.3-32-32-32s-32 14.3-32 32V256c0 17.7 14.3 32 32 32s32-14.3 32-32V32zM143.5 120.6c13.6-11.3 15.4-31.5 4.1-45.1s-31.5-15.4-45.1-4.1C49.7 115.4 16 181.8 16 256c0 132.5 107.5 240 240 240s240-107.5 240-240c0-74.2-33.8-140.6-86.6-184.6c-13.6-11.3-33.8-9.4-45.1 4.1s-9.4 33.8 4.1 45.1c38.9 32.3 63.5 81 63.5 135.4c0 97.2-78.8 176-176 176s-176-78.8-176-176c0-54.4 24.7-103.1 63.5-135.4z">
+        </path>
+      </svg>
+    </label>
+&nbsp;&nbsp;&nbsp;Light/dark
+</div>
+
+
+</div>
+  </footer>
+
+  <script src="../Scripts/portfolio.js"></script>
+  <script src="../Scripts/achievements.js"></script>
+</body>
+</html>
