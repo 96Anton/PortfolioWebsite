@@ -2074,6 +2074,379 @@ body[data-theme="light"] .home-page .highlight-item {
   vertical-align: middle;
 }
 
+.guides-page .footer-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.guides-page .footer-toggle {
+  margin-top: 8px;
+  font-size: 12px;
+  color: var(--muted);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.guides-page .achievement-icon {
+  vertical-align: middle;
+}
+/* ===== GUIDES PAGE STYLES ===== */
+
+.guides-page input::placeholder,
+.guides-page textarea::placeholder {
+  color: var(--muted);
+}
+
+.guides-page .brand-title {
+  font-weight: 700;
+}
+
+.guides-page .brand-subtitle {
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.guides-page section {
+  padding: 72px 20px;
+}
+
+.guides-page .section-header {
+  margin-bottom: 48px;
+  text-align: center;
+}
+
+@media (min-width: 881px) {
+  .guides-page .hero-content {
+    grid-template-columns: 1fr;
+    justify-items: center;
+  }
+
+  .guides-page .intro.firstintro {
+    width: min(820px, 100%);
+    margin: 0 auto;
+  }
+}
+
+.guides-page .section-header h2 {
+  font-size: clamp(28px, 5vw, 48px);
+  margin: 12px 0;
+  font-weight: 800;
+}
+
+.guides-page .section-tag {
+  display: inline-block;
+  background: linear-gradient(135deg, rgba(74, 158, 255, 0.1), rgba(94, 184, 255, 0.1));
+  color: #5eb8ff;
+  padding: 8px 16px;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 12px;
+}
+
+/* Filter Section */
+.guides-filter-section {
+  padding: 40px 20px;
+  background: linear-gradient(180deg, rgba(122, 252, 255, 0.05) 0%, transparent 100%);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.guides-filter-section .section-header {
+  margin-bottom: 24px;
+}
+
+.filter-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: center;
+}
+
+.chip-btn {
+  padding: 10px 18px;
+  border-radius: 24px;
+  background: rgba(122, 252, 255, 0.1);
+  border: 1px solid rgba(122, 252, 255, 0.3);
+  color: var(--text);
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 300ms ease;
+  cursor: pointer;
+  display: inline-block;
+}
+
+.chip-btn:hover {
+  background: rgba(122, 252, 255, 0.2);
+  border-color: rgba(122, 252, 255, 0.6);
+  transform: translateY(-2px);
+}
+
+/* Featured Guides Section */
+.featured-guides {
+  padding: 72px 20px;
+  background: linear-gradient(180deg, transparent 0%, rgba(122, 252, 255, 0.03) 100%);
+}
+
+.featured-guides .section-header {
+  margin-bottom: 48px;
+}
+
+.featured-guides .sub {
+  margin-top: 12px;
+  font-size: 16px;
+}
+
+.guides-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 24px;
+}
+
+.featured-grid {
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+}
+
+/* Guide Card */
+.guide-card {
+  border-radius: 14px;
+  padding: 24px;
+  background: rgba(18, 26, 38, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  transition: all 300ms ease;
+  height: 100%;
+}
+
+.guide-card:hover {
+  background: rgba(18, 26, 38, 0.9);
+  border-color: rgba(122, 252, 255, 0.3);
+  transform: translateY(-4px);
+}
+
+body[data-theme="light"] .guide-card {
+  background: rgba(255, 255, 255, 0.6);
+  border-color: rgba(15, 23, 36, 0.1);
+}
+
+body[data-theme="light"] .guide-card:hover {
+  background: rgba(255, 255, 255, 0.95);
+  border-color: rgba(122, 252, 255, 0.5);
+}
+
+.guide-card-content {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  flex-grow: 1;
+}
+
+.guide-title {
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.4;
+  margin: 0;
+  color: var(--text);
+}
+
+.guide-description {
+  font-size: 15px;
+  color: var(--muted);
+  line-height: 1.5;
+  margin: 0;
+  flex-grow: 1;
+}
+
+.guide-tags {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-top: 8px;
+}
+
+.tag {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 16px;
+  background: rgba(122, 252, 255, 0.1);
+  color: rgba(122, 252, 255, 0.8);
+  font-size: 12px;
+  font-weight: 500;
+}
+
+body[data-theme="light"] .tag {
+  background: rgba(74, 158, 255, 0.1);
+  color: rgba(74, 158, 255, 0.9);
+}
+
+.btn-read {
+  align-self: flex-start;
+  color: #7afcff;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 14px;
+  transition: all 300ms ease;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.btn-read:hover {
+  gap: 12px;
+  color: #7affc7;
+}
+
+/* Category Sections */
+.guides-category {
+  padding: 72px 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.guides-category .section-header {
+  text-align: left;
+  margin-bottom: 48px;
+}
+
+.guides-category h2 {
+  font-size: clamp(24px, 4vw, 40px);
+  margin: 12px 0 0;
+  font-weight: 700;
+}
+
+.guides-category .sub {
+  font-size: 16px;
+  max-width: 600px;
+  margin-top: 12px;
+}
+
+/* Recruiter Section */
+.recruiter-section {
+  padding: 72px 20px;
+  background: linear-gradient(180deg, rgba(122, 252, 255, 0.05) 0%, transparent 100%);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.recruiter-section .section-header {
+  margin-bottom: 48px;
+}
+
+.recruiter-card {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 32px;
+  background: rgba(18, 26, 38, 0.8);
+  border: 1px solid rgba(122, 252, 255, 0.2);
+  border-radius: 14px;
+}
+
+.recruiter-text {
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--text);
+  margin: 0;
+}
+
+/* Contact Form */
+.guides-page .contact-form {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.contact-field {
+  padding: 12px 16px;
+  border-radius: 12px;
+  background: rgba(18, 26, 38, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: var(--text);
+  font-size: 14px;
+  transition: all 300ms ease;
+}
+
+body[data-theme="light"] .contact-field {
+  background: rgba(255, 255, 255, 0.5);
+  border-color: rgba(15, 23, 36, 0.1);
+}
+
+.contact-field:focus {
+  outline: none;
+  border-color: rgba(122, 252, 255, 0.5);
+  background: rgba(122, 252, 255, 0.05);
+}
+
+.contact-actions {
+  display: flex;
+  gap: 12px;
+}
+
+.ghost {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: var(--text);
+  padding: 12px 16px;
+  border-radius: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 300ms ease;
+}
+
+.ghost:hover {
+  border-color: rgba(122, 252, 255, 0.8);
+  color: #7afcff;
+}
+
+/* Responsive */
+@media (max-width: 880px) {
+  .guides-page section {
+    padding: 48px 20px;
+  }
+
+  .guides-page .section-header {
+    margin-bottom: 32px;
+  }
+
+  .guides-page .section-header h2 {
+    font-size: 28px;
+  }
+
+  .filter-chips {
+    gap: 8px;
+  }
+
+  .chip-btn {
+    padding: 8px 14px;
+    font-size: 13px;
+  }
+
+  .guides-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .featured-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .guides-category h2 {
+    font-size: 24px;
+  }
+
+  .recruiter-card {
+    padding: 20px;
+  }
+
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+}
 /*
 @keyframes scroll_hold {
   to {
